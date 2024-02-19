@@ -1,19 +1,19 @@
 <template>
   <aside>
-    <ul class="navbar flex justify-center gap-5 text-2xl mt-10 ">
-      <li :class="{ 'text-blue-500 underline': currentPage === '/' }">
+    <ul class="navbar flex justify-center gap-5 text-2xl mt-10">
+      <li :class="{ 'text-purple-700 underline': currentPage === '/' }">
         <router-link to="/">Accueil</router-link>
       </li>
-      <li :class="{ 'text-blue-500 underline': currentPage === '/map' }">
+      <li :class="{ 'text-purple-700 underline': currentPage === '/map' }">
         <router-link to="/map">Cartographie</router-link>
       </li>
-      <li :class="{ 'text-blue-500 underline': currentPage === '/documentation' }">
+      <li :class="{ 'text-purple-700 underline': currentPage === '/documentation' }">
         <router-link to="/documentation">Documentation</router-link>
       </li>
-      <li :class="{ 'text-blue-500 underline': currentPage === '/contact' }">
+      <li :class="{ 'text-purple-700 underline': currentPage === '/contact' }">
         <router-link to="/contact">Contact</router-link>
       </li>
-      <li :class="{ 'text-blue-500 underline': currentPage === '/flyer' }">
+      <li :class="{ 'text-purple-700 underline': currentPage === '/flyer' }">
         <router-link to="/flyer">Flyer du site</router-link>
       </li>
     </ul>

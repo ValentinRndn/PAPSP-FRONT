@@ -4,6 +4,10 @@ import Map from '../views/Map.vue'
 import Documentation from '../views/Documentation.vue'
 import Contact from '../views/Contact.vue'
 import Flyer from '../views/Flyer.vue'
+import Admin from '../views/Admin.vue'
+
+import Login from '../views/Login.vue'
+
 
 const router = createRouter({
     history : createWebHistory(),
@@ -27,6 +31,15 @@ const router = createRouter({
         {
             path: '/flyer',
             component: Flyer
+        }
+        ,
+        {
+            path: '/admin',
+            component: Admin
+        },
+        {
+            path: '/login',
+            component: Login
         }
     ]
 })

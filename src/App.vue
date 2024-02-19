@@ -1,6 +1,6 @@
 <template>
     <div class="app">
-      <NavigationBar />
+      <NavigationBar v-if ="$route.path !== '/login' && $route.path !== '/admin'" />
       <router-view />
     </div>
 </template>
