@@ -1,20 +1,22 @@
 <template>
-  <aside>
-    <ul class="navbar flex justify-center gap-5 text-2xl mt-10">
-      <li :class="{ 'text-purple-700 underline': currentPage === '/' }">
-        <router-link to="/">Accueil</router-link>
+  <aside class="flex items-center justify-center gap-5  ">
+    <img src="../assets/logo_typo.png" alt="logo" class="size-1/4 mt-8" />
+
+    <ul class="navbar flex gap-10 text-xl mt-10 font-cgothic font-bold text-grey">
+      <li :class="{ 'text-purple underline': currentPage === '/' }">
+        <router-link to="/">ACCUEIL</router-link>
       </li>
-      <li :class="{ 'text-purple-700 underline': currentPage === '/map' }">
-        <router-link to="/map">Cartographie</router-link>
+      <li :class="{ 'text-purple underline': currentPage === '/map' }">
+        <router-link to="/map">CARTOGRAPHIE</router-link>
       </li>
-      <li :class="{ 'text-purple-700 underline': currentPage === '/documentation' }">
-        <router-link to="/documentation">Documentation</router-link>
+      <li :class="{ 'text-purple underline': currentPage === '/documentation' }">
+        <router-link to="/documentation">DOCUMENTATION</router-link>
       </li>
-      <li :class="{ 'text-purple-700 underline': currentPage === '/contact' }">
-        <router-link to="/contact">Contact</router-link>
+      <li :class="{ 'text-purple underline': currentPage === '/contact' }">
+        <router-link to="/contact">CONTACT</router-link>
       </li>
-      <li :class="{ 'text-purple-700 underline': currentPage === '/flyer' }">
-        <router-link to="/flyer">Flyer du site</router-link>
+      <li :class="{ 'text-purple underline': currentPage === '/flyer' }">
+        <router-link to="/flyer">EN SAVOIR +</router-link>
       </li>
     </ul>
   </aside>
