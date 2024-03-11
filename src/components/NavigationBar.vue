@@ -1,6 +1,6 @@
 <template>
-  <aside class="flex items-center justify-center gap-5  ">
-    <img src="../assets/logo_typo.png" alt="logo" class="size-1/4 mt-8" />
+  <aside class="flex items-center justify-center gap-5 mb-8">
+    <img src="../assets/logo_typo.png" alt="logo" class="size-1/4 mt-8 " />
 
     <ul class="navbar flex gap-10 text-xl mt-10 font-cgothic font-bold text-grey">
       <li :class="{ 'text-purple underline': currentPage === '/' }">
