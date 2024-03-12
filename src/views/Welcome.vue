@@ -1,10 +1,12 @@
 <template>
-  <div class="banner flex font-cgothic">
-    <img
-      src="../assets/phone-back.png"
-      alt="banner"
-      class="w-1/5 h-200 object-cover z-10"
-    />
+
+  <!-- Image de gauche - numéros à contacter -->
+  <div class="banner flex font-cgothic h-[500px]">
+    <div class="bg-phone w-1/5 bg-cover bg-center z-10 h-full">
+      <h1 class="text-white">LES NUMÉROS À CONTACTER</h1>
+      </div>
+
+  <!-- Encadrer violet avec les missions de l'asso -->
     <div class="mid-banner bg-purple h-50 w-3/5 z-10">
       <h1 class="text-2xl text-white mx-10 mt-10 mb-4">LE PROGRAMME PAPS A POUR MISSION :</h1>
       <ul class="text-white mx-10  ">
@@ -26,12 +28,12 @@
       </ul>
     </div>
 
-    <img
-      src="../assets/stop.jpg "
-      alt="banner "
-      class="w-1/5 h-96 object-cover z-10"
-    />
+  <!-- Image de droite - renseignements -->
+    <div class="bg-stop w-1/5 bg-cover bg-center z-10">
+      </div>
   </div>
+
+  <!-- Bouton - Contacter quelq'un -->
  <div class="flex  items-center justify-center -mt-8  ">
    <div class="flex items-center border border-b-slate-200 bg-white shadow-xl rounded-2xl gap-4 py-2 px-6 z-20">
     <img class="w-[40px] bg-white" src="../assets/courriel-de-contact.png">
@@ -39,8 +41,9 @@
   </div>
  </div>
 
+  <!-- Banner alvéoles - Chiffres -->
  <div class="container-alveole z-0">
-  <div class="bg-alveoles relative h-[400px] -mt-20 z-0 bg-cover flex justify-center items-center">
+  <div class="bg-alveoles h-[400px] -mt-20 z-0 bg-cover flex justify-center items-center">
     <div class="chiffres flex items-center gap-32">
       <div class="chiffre-content ">
         <h1 class="chiffre text-9xl text-purple z-20 font-bold">126</h1>
@@ -58,6 +61,7 @@
   </div>
 </div>
 
+  <!-- Logo partenaires -->
 <div class="logo-partenaires flex mx-2 my-8 gap-24 justify-center items-center">
 <img src="../assets/logo_france_terre_asile.jpg" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%] " />
 <img src="../assets/logo_calvados.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
@@ -66,6 +70,7 @@
 <img src="../assets/logo_itineraire.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
 </div>
 
+  <!-- Footer -->
 
   
 </template>
