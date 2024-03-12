@@ -6,7 +6,6 @@
       <div class="icons-container flex flex-col justify-center items-center mt-10 ">
       <img src="../assets/phone-icon.png" alt="phone-icon" class="size-20 z-30" />
       <img src="../assets/polygon-blanc.png" alt="polygon" class="size-20 -mt-14" />
-
       <h1 class="text-white text-2xl font-bold mt-2 text-center">LES NUMÉROS <br> À CONTACTER</h1>
       </div>
     </div>
@@ -79,7 +78,7 @@
 </div>
 
   <!-- Logo partenaires -->
-<div class="logo-partenaires flex mx-2 my-8 gap-24 justify-center items-center">
+<div class="logo-partenaires flex mx-2 mt-8 gap-24 justify-center items-center shadow-md">
 <img src="../assets/logo_france_terre_asile.jpg" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%] " />
 <img src="../assets/logo_calvados.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
 <img src="../assets/ars_logo.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
