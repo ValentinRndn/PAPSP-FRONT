@@ -1,7 +1,7 @@
 <template>
   <div class="banner flex font-cgothic z-0">
     <img
-      src="../assets/stop.jpg"
+      src="../assets/phone-back.png"
       alt="banner"
       class="w-1/5 h-200 object-cover"
     />
@@ -32,11 +32,18 @@
       class="w-1/5 h-96 object-cover"
     />
   </div>
-  <div class="flex border border-solid items-center p-3 rounded-xl h-20 justify-center -mt-10  z-10 shadow-sm">
-  <img class="h-full bg-white" src="../assets/courriel-de-contact.png">
-  <button class="text-purple h-full font-bold bg-white">JE SOUHAITE CONTACTER QUELQU'UN</button>
+ <div class="flex  items-center justify-center -mt-8  ">
+   <div class="flex items-center border border-b-slate-200 bg-white shadow-xl rounded-2xl gap-4 py-2 px-6 z-10">
+    <img class="w-[40px] bg-white" src="../assets/courriel-de-contact.png">
+    <button class="text-purple h-full font-bold">JE SOUHAITE CONTACTER QUELQU'UN</button>
+  </div>
+ </div>
+<div class="background-alveoles relative h-[500px] w-full -mt-8 z-0">
+    <!-- <img src="../assets/back-alveoles.jpg" alt="banner" class="object-cover h-full w-full z-0"/> -->
+    <div class="bg-alveole"></div>
+
 </div>
 
 
-
+  
 </template>

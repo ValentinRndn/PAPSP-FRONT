@@ -13,6 +13,11 @@ export default {
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
       },
+      backgroundImage: {
+        'phone': 'url("/src/assets/phone-back.png")',
+        'stop': 'url("/src/assets/stop.jpg")',
+        'alveoles': 'url("/src/assets/back-alveoles.jpg")',
+      },     
     },
   },
   plugins: [],
