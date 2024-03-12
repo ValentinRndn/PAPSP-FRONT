@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}"
+    "./src/**/*.{vue,js,ts,jsx,tsx,css}"
   ],
   theme: {
     extend: {
@@ -12,6 +12,7 @@ export default {
       },
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
+        'helvetica': ['Helvetica', 'sans-serif'],
       },
       backgroundImage: {
         'phone': 'url("../assets/phone-back.png")',
@@ -22,4 +23,5 @@ export default {
   },
   plugins: [],
 }
+
 
