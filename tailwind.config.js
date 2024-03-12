@@ -16,7 +16,7 @@ export default {
       backgroundImage: {
         'phone': 'url("/src/assets/phone-back.png")',
         'stop': 'url("/src/assets/stop.jpg")',
-        'alveoles': 'url("/src/assets/back-alveoles.jpg")',
+        'alveoles': 'url("../assets/back-alveoles.jpg")',
       },     
     },
   },
