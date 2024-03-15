@@ -12,7 +12,7 @@
 
   <!-- Encadrer violet avec les missions de l'asso -->
     <div class="mid-banner bg-purple h-50 w-3/5 z-10">
-      <h1 class="text-2xl text-white mx-10 mt-10 mb-4">LE PROGRAMME PAPS A POUR MISSION :</h1>
+      <h1 class="text-2xl text-white mx-10 mt-10 mb-4">LE PROGRAMME PAPSP A POUR MISSION :</h1>
       <ul class="text-white mx-10  ">
         <li class="mb-4">
           - Informer, orienter et accompagner les Personnes en Situation de
@@ -79,14 +79,13 @@
 
   <!-- Logo partenaires -->
 <div class="logo-partenaires flex mx-2 mt-8 gap-24 justify-center items-center shadow-md">
-<img src="../assets/logo_france_terre_asile.jpg" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%] " />
-<img src="../assets/logo_calvados.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
-<img src="../assets/ars_logo.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
-<img src="../assets/logo_mondeville.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
-<img src="../assets/logo_itineraire.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
+  <img src="../assets/logo_france_terre_asile.jpg" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%] " />
+  <img src="../assets/logo_calvados.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
+  <img src="../assets/ars_logo.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
+  <img src="../assets/logo_mondeville.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
+  <img src="../assets/logo_itineraire.png" alt="logo-partenaires" class="w-[180px] bg-cover z-10 h-[50%]" />
 </div>
 
-  <!-- Footer -->
 
   
 </template>
