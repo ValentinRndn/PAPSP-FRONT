@@ -5,9 +5,3 @@
 
 @utilities
 
-.polygon {
-    width: 200px;
-    height: 200px;
-    background-color: #7E57C2;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
