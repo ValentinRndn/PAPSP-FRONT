@@ -18,6 +18,7 @@ export default {
         'phone': 'url("../assets/phone-back.png")',
         'stop': 'url("../assets/stop.jpg")',
         'alveoles': 'url("../assets/back-alveoles.jpg")',
+        // 'alveoles2': 'url("../assets/alveoles2.png")',
       },     
     },
   },
