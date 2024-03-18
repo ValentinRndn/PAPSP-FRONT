@@ -9,6 +9,10 @@ export default {
       colors: {
         'purple': '#7C70B0',
         'grey': '#3E3E3E',
+        'login-input': '#BDBDBD',
+        'login-text': '#616161',
+        'purple-fonce': '#443972',
+        'login-grey': "#424242",
       },
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
@@ -19,7 +23,10 @@ export default {
         'stop': 'url("../assets/stop.jpg")',
         'alveoles': 'url("../assets/back-alveoles.jpg")',
         // 'alveoles2': 'url("../assets/alveoles2.png")',
-      },     
+      },    
+      fontSize: {
+        'login-txt': '0.60rem',
+      } 
     },
   },
   plugins: [],
