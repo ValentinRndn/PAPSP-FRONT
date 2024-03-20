@@ -6,6 +6,11 @@ import Contact from '../views/Contact.vue'
 import Flyer from '../views/Flyer.vue'
 import Admin from '../views/back/Admin.vue'
 import TableauBord from '../views/back/TableauBord.vue'
+import Dashboard from '../views/back/Dashboard.vue'
+import Users from '../views/back/Users.vue'
+import DocumentationBack from '../views/back/Documentation.vue'
+import Landing from '../views/back/Landing.vue'
+import Blog from '../views/back/Blog.vue'
 
 import Login from '../views/back/Login.vue'
 
@@ -45,6 +50,27 @@ const router = createRouter({
         {
             path: '/admin',
             component: TableauBord
+        },
+
+        {
+            path: '/backOffice/dashboard',
+            component: Dashboard
+        },
+        {
+            path: '/backOffice/blog',
+            component: Blog
+        },
+        {
+            path: '/backOffice/Landing',
+            component: Landing
+        },
+        {
+            path: '/backOffice/Users',
+            component: Users
+        },
+        {
+            path: '/backOffice/Documentation',
+            component: DocumentationBack
         },
 
     ]
