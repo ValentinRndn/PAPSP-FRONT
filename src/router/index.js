@@ -4,8 +4,6 @@ import Map from '../views/Map.vue'
 import Documentation from '../views/Documentation.vue'
 import Contact from '../views/Contact.vue'
 import Flyer from '../views/Flyer.vue'
-import Admin from '../views/back/Admin.vue'
-import TableauBord from '../views/back/TableauBord.vue'
 import Dashboard from '../views/back/Dashboard.vue'
 import Users from '../views/back/Users.vue'
 import DocumentationBack from '../views/back/Documentation.vue'
@@ -39,19 +37,10 @@ const router = createRouter({
             component: Flyer
         }
         ,
-        // {
-        //     path: '/admin',
-        //     component: Admin
-        // },
         {
             path: '/login',
             component: Login
         },
-        {
-            path: '/admin',
-            component: TableauBord
-        },
-
         {
             path: '/backOffice/dashboard',
             component: Dashboard

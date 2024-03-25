@@ -4,3 +4,4 @@
         <HelloWorld msg="C'est la map page" />
     </div>
 </template>
+

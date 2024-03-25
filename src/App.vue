@@ -1,16 +1,17 @@
 <template>
     <div class="app">
-      <NavigationBar v-if ="$route.path !== '/login' && $route.path !== '/admin'" />
+      <NavigationBar v-if ="$route.path !== '/login' && $route.path !== '/backoffice/dashboard'" />
       <router-view />
-      <Footer v-if ="$route.path !== '/login' && $route.path !== '/admin'" />
+      <Footer v-if ="$route.path !== '/login' && $route.path !== '/backoffice/dashboard'" />
+      <AdminBar v-if="$route.path === '/backoffice/dashboard'" />
     </div>
 </template>
 
 <script setup>
   import NavigationBar from './components/NavigationBar.vue'
   import Footer from './components/Footer.vue'
-
 </script>
 
 <style lang="tailwindcss">
 </style>
+-
