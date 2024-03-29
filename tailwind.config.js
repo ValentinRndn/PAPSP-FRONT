@@ -20,8 +20,8 @@ export default {
       },
       backgroundImage: {
         'phone': 'url("../assets/phone-back.png")',
-        'stop': 'url("../assets/stop.jpg")',
         'alveoles': 'url("../assets/back-alveoles.jpg")',
+        'landing': 'url("../assets/landing.jpg")',
         // 'alveoles2': 'url("../assets/alveoles2.png")',
       },    
       fontSize: {
