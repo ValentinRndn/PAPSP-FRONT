@@ -1,14 +1,19 @@
 <template>
-  <div class="dashboard ">
-    <!-- Intégration de la barre latérale -->
-    <HorizontalBar />
-    <AdminBar />
+  <div class="dashboard flex bg-back-grey">
 
+    <div class="components">
+
+      <!-- Intégration de la barre latérale -->
+      <HorizontalBar />
+      <AdminBar />
+
+    </div>
 
 
     <!-- Contenu du tableau de bord -->
     <div class="dashboard-container">
       <h1>coucou</h1>
+      <p class="mt-10">Vous êtes connecté à votre tableau de bord</p>
     </div>
   </div>
 </template>

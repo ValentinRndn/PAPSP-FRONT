@@ -13,6 +13,7 @@ export default {
         'login-text': '#616161',
         'purple-fonce': '#443972',
         'login-grey': "#424242",
+        'back-grey': '#E4E4E4',
       },
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
