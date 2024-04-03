@@ -14,6 +14,7 @@
   import HorizontalBar from './components/backOffice/HorizontalBar.vue'
 </script>
 
-<style lang="tailwindcss">
+<style lang="tailwindcss"> 
 </style>
--
+
+

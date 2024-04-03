@@ -103,7 +103,7 @@
  </div>
 
 
-   <!-- Articles News -->
+   <!-- Chiffres clés -->
  <div class="bg-alveoles h-[1000px] z-0 bg-cover relative">
   <div class="relative top-32 w-full flex gap-12 justify-center items-center">
     <div class="information flex flex-col justify-center items-center">
@@ -132,11 +132,22 @@
       <p class="text">Préservatifs distribués</p>
     </div>
   </div>
+
+
+
+  <!-- Articles & News -->
+<div class="relative top-56 w-full flex flex-col  gap-12 justify-center items-center">
+  <p class="text-5xl text-purple font-bold">Articles & News</p>
+  <div class="cards">
+    <div class="card w-[300px] h-[400px] object-cover rounded-[25px] overflow-hidden bg-purple p-4">
+      <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
+      <p class="text-xl -mt-10 ml-4 bg-white ">Catégorie</p>
+      <p class="text-2xl font-bold mt-4">Titre de l'article</p>
+      <p class="text text-grey">26 Décembre 2022</p>
+    </div>
+  </div>
 </div>
-
-
-
-
+</div>
   <!-- Logo partenaires -->
   <div
     class="logo-partenaires flex mx-2 mt-8 gap-24 justify-center items-center shadow-md"
