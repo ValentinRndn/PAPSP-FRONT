@@ -38,8 +38,8 @@
         </li>
         <li class="menu">
           <router-link
-            to="/flyer"
-            :class="{ 'text-purple underline ': currentPage === '/flyer' }"
+            to="/APropos"
+            :class="{ 'text-purple underline ': currentPage === '/APropos' }"
             >EN SAVOIR +</router-link
           >
         </li>

@@ -22,6 +22,7 @@ export default {
       backgroundImage: {
         'phone': 'url("../assets/phone-back.png")',
         'alveoles': 'url("../assets/back-alveoles.jpg")',
+        'alveoles-rotated': 'url("../assets/back-alveoles-rotated.jpg")',
         'landing': 'url("../assets/landing.jpg")',
         'banner-propos': 'url("../assets/banner-propos.svg")',
         // 'alveoles2': 'url("../assets/alveoles2.png")',
