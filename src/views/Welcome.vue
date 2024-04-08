@@ -1,5 +1,5 @@
 <template>
-<div class="bg-landing w-full h-screen bg-center z-10 mb-24 rounded-bl-[25%]">
+<div class="bg-landing w-full h-screen bg-center z-10 mb-24 rounded-bl-[25%] bg-cover">
     <aside class="flex items-center justify-center gap-5 mb-8">
 
 
@@ -45,6 +45,20 @@
         </li>
       </ul>
     </aside>
+    
+    <div class="header-content">
+      <div class="logo-header mx-10">
+        <img src="../assets/logo_typo_blanc.png" alt="logo_blanc" class="mx-14 mt-24 w-1/2 h-1/2">
+      </div>
+      <div class="text-header text-white text-xl font-bold flex flex-col items-center">
+        <div class="citation-header w-[28vw] text-center">
+        <h1 class="citation bg-purple  p-2 w-full -ml-[7.5vw]">INSERER UNE CITATION</h1>
+        </div>
+        <div class="sentance-header w-[28vw] text-center">
+        <h1 class="citation  bg-purple-fonce p-2 w-full  ml-[7.5vw]">CHOISIR ENSEMBLE MERCREDI</h1>
+      </div>
+      </div>
+    </div>
 
   </div>
 

@@ -3,7 +3,7 @@ import Welcome from '../views/Welcome.vue'
 import Map from '../views/Map.vue'
 import Documentation from '../views/Documentation.vue'
 import Contact from '../views/Contact.vue'
-import Flyer from '../views/Flyer.vue'
+import APropos from '../views/APropos.vue'
 import Dashboard from '../views/back/Dashboard.vue'
 import Users from '../views/back/Users.vue'
 import DocumentationBack from '../views/back/Documentation.vue'
@@ -33,8 +33,8 @@ const router = createRouter({
             component: Contact
         },
         {
-            path: '/flyer',
-            component: Flyer
+            path: '/APropos',
+            component: APropos
         }
         ,
         {
