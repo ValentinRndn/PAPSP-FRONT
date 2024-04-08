@@ -1,6 +1,4 @@
 <template>
-    <div class="blog-page">
-        <h1>Blog page</h1>
-        <HelloWorld msg="C'est la Blog page" />
-    </div>
+  <div class="header-banner bg-banner-propos w-full h-[350px] bg-cover"></div>
+
 </template>

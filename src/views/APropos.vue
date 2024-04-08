@@ -1,5 +1,11 @@
 <template>
-  <div class="header-banner bg-banner-propos w-full h-[350px] bg-cover"></div>
+<div class="header-banner bg-banner-propos w-full h-[350px] bg-cover relative">
+  <div class="absolute bottom-0 left-0 right-0 text-center">
+    <div class="bg-purple inline-block text-white text-5xl py-6 px-24 rounded-t-2xl">À PROPOS</div>
+  </div>
+</div>
+
+
   <div class="header-content bg-purple">
     <div class="text pt-12">
       <h1 class="text-5xl text-purple-fonce text-center font-bold">
@@ -85,17 +91,17 @@
  <!-- Programmes du PAPS-->
  <div class="programmes overflow-hidden">
 <div class="programme-intro flex flex-col justify-center items-center z-10">
-    <h1 class="font-bold text-purple-fonce text-center text-3xl z-10">QUE FAIT LE PROGRAMME PASPSP ?</h1>
+    <h1 class="font-bold text-purple-fonce text-center text-3xl z-10">QUE FAIT LE PROGRAMME PAPSP ?</h1>
     <p class="flex text-center text-xl mt-5 z-10"> Découvrez quelles sont les actions mises en place par le programme PAPSP pour venir en aide aux personnes en situation de prostitution ?</p>
 </div>
 
-<div class="flex  flex-col items-center programme-background bg-alveoles-rotated h-[1600px] z-0 bg-cover relative mx-20 ">
+<div class="flex  flex-col items-center programme-background bg-alveoles-rotated h-[1600px] z-0 bg-cover relative mx-20 md:h-[2800px]">
 
     <!--Programme 01-->
-    <div class="programme flex justify-center items-center w-[600px] mt-20 gap-10">
+    <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10  md:flex-col">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%]  z-40"/>
+            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
@@ -103,15 +109,15 @@
                 <h1 class="text-6xl font-bold text-purple-fonce">01</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
         </div>
     </div>
 
     <!--Programme 02-->
-    <div class="programme flex justify-center items-center w-[600px] mt-20 gap-10 flex-row-reverse">
+    <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10  md:flex-col flex-row-reverse">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%]  z-40"/>
+            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
@@ -119,15 +125,15 @@
                 <h1 class="text-6xl font-bold text-purple-fonce">02</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
         </div>
     </div>
 
         <!--Programme 03-->
-        <div class="programme flex justify-center items-center w-[600px] mt-20 gap-10">
+        <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10 md:flex-col">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%]  z-40"/>
+            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
@@ -135,15 +141,15 @@
                 <h1 class="text-6xl font-bold text-purple-fonce">03</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
         </div>
     </div>
 
         <!--Programme 04-->
-        <div class="programme flex justify-center items-center w-[600px] mt-20 gap-10 flex-row-reverse">
+    <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10 md:flex-col flex-row-reverse">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%]  z-40"/>
+            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
@@ -151,7 +157,7 @@
                 <h1 class="text-6xl font-bold text-purple-fonce">04</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
         </div>
     </div>
 
