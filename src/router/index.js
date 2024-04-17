@@ -9,6 +9,9 @@ import Users from '../views/back/Users.vue'
 import DocumentationBack from '../views/back/Documentation.vue'
 import Landing from '../views/back/Landing.vue'
 import Blog from '../views/back/Blog.vue'
+import Particulier from '../views/cartographie/Particulier.vue'
+import Professionel from '../views/cartographie/Professionel.vue'
+
 
 import Login from '../views/back/Login.vue'
 
@@ -61,6 +64,15 @@ const router = createRouter({
             path: '/backOffice/Documentation',
             component: DocumentationBack
         },
+        {
+            path: '/cartographie/Particulier',
+            component: Particulier
+        },
+        {
+            path: '/cartographie/Professionel',
+            component: Professionel
+        },
+        
 
     ]
 })
