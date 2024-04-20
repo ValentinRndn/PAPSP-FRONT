@@ -32,7 +32,7 @@
       <textarea placeholder="Votre message" class="border-b-2 border-purple-fonce text-xl w-full"></textarea>
     </div>
     <div class="submit flex justify-end w-full">
-      <button class="bg-purple-fonce text-white text-xl py-2 rounded-md px-6">Envoyer</button>
+      <button class="bg-purple-fonce text-white text-xl py-2 rounded-md px-6 transition-transform duration-300 hover:scale-105">Envoyer</button>
     </div>
   </form>   
 </div>
@@ -46,19 +46,21 @@
         <p class="text-center text-light-grey">Vous pouvez également nous contacter sur chacun de nos réseaux sociaux. Nous vous répondrons dans les plus brefs délais..</p>
     </div>
     <div class="socials relative flex justify-center items-center mt-10 z-20 w-full gap-6">
-        <div class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md">
+        <a href="https://www.facebook.com" target="_blank" class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md transition-transform duration-300 hover:scale-105">
             <img src="../assets/contact/socials/facebook.png" alt="facebook" class="w-[50px] h-[50px]">
-        </div>
-        <div class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md">
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md transition-transform duration-300 hover:scale-105">
             <img src="../assets/contact/socials/insta.png" alt="instagram" class="w-[50px] h-[50px]">
-        </div>
-        <div class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md">
-            <img src="../assets/contact/socials/linkedinn.png" alt="twitter" class="w-[50px] h-[50px]">
-        </div>
-        <div class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md transition-transform duration-300 hover:scale-105">
+            <img src="../assets/contact/socials/linkedinn.png" alt="linkedin" class="w-[50px] h-[50px]">
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md transition-transform duration-300 hover:scale-105">
             <img src="../assets/contact/socials/tiktokk.png" alt="tiktok" class="w-[50px] h-[50px]">
-        </div>
+        </a>
     </div>
+
+
 
     <div class="map-container relative z-20 h-[300px] w-1/2 mx-auto mt-20 rounded-3xl overflow-hidden">
             <div id="map" class="h-full"></div>
