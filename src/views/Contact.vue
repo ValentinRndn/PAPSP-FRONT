@@ -40,12 +40,12 @@
 
 
 <!-- Réseaux sociaux -->
-<div class="bg-alveoles h-[1000px] z-0 bg-cover relative mx-4">
-    <div class="text-socials mt-24">
+<div class="bg-alveoles h-[700px] z-0 bg-cover relative mx-4">
+    <div class="text-socials relative mt-24">
         <h1 class="socials-medias text-center text-5xl font-bold ">Réseaux sociaux</h1>
         <p class="text-center text-light-grey">Vous pouvez également nous contacter sur chacun de nos réseaux sociaux. Nous vous répondrons dans les plus brefs délais..</p>
     </div>
-    <div class="socials flex justify-center items-center mt-10 z-20 w-full gap-4">
+    <div class="socials relative flex justify-center items-center mt-10 z-20 w-full gap-4">
         <div class="social bg-purple w-1/4 flex justify-center items-center py-5 rounded-md">
             <img src="../assets/contact/socials/facebook.png" alt="facebook" class="w-[50px] h-[50px] bg-purple-fonce rounded-[50%] p-2 ">
         </div>
@@ -59,6 +59,33 @@
             <img src="../assets/contact/socials/tiktok.png" alt="tiktok" class="w-[50px] h-[50px] bg-purple-fonce rounded-[50%] p-2">
         </div>
     </div>
+
+    <div class="map-container relative z-20 h-[300px] w-1/2 mx-auto mt-20 rounded-3xl overflow-hidden">
+            <div id="map" class="h-full"></div>
+        </div>
 </div>
 
+
 </template>
+
+
+<script>
+
+import L from 'leaflet';
+import "leaflet/dist/leaflet.css";
+
+export default {
+    mounted() {
+        var map = L.map('map').setView([49.183333, -0.35], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+var marker = L.marker([49.183333, -0.35]).addTo(map);
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+
+
+    }
+};
+</script>
