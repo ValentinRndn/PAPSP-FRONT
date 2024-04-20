@@ -45,18 +45,18 @@
         <h1 class="socials-medias text-center text-5xl font-bold ">Réseaux sociaux</h1>
         <p class="text-center text-light-grey">Vous pouvez également nous contacter sur chacun de nos réseaux sociaux. Nous vous répondrons dans les plus brefs délais..</p>
     </div>
-    <div class="socials relative flex justify-center items-center mt-10 z-20 w-full gap-4">
-        <div class="social bg-purple w-1/4 flex justify-center items-center py-5 rounded-md">
-            <img src="../assets/contact/socials/facebook.png" alt="facebook" class="w-[50px] h-[50px] bg-purple-fonce rounded-[50%] p-2 ">
+    <div class="socials relative flex justify-center items-center mt-10 z-20 w-full gap-6">
+        <div class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md">
+            <img src="../assets/contact/socials/facebook.png" alt="facebook" class="w-[50px] h-[50px]">
         </div>
-        <div class="social bg-purple w-1/4 flex justify-center items-center py-5 rounded-md">
-            <img src="../assets/contact/socials/instagram.png" alt="instagram" class="w-[50px] h-[50px] bg-purple-fonce rounded-[50%] p-2">
+        <div class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md">
+            <img src="../assets/contact/socials/insta.png" alt="instagram" class="w-[50px] h-[50px]">
         </div>
-        <div class="social bg-purple w-1/4 flex justify-center items-center py-5 rounded-md">
-            <img src="../assets/contact/socials/linkedin.png" alt="twitter" class="w-[50px] h-[50px] bg-purple-fonce rounded-[50%] p-2">
+        <div class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md">
+            <img src="../assets/contact/socials/linkedinn.png" alt="twitter" class="w-[50px] h-[50px]">
         </div>
-        <div class="social bg-purple w-1/4 flex justify-center items-center py-5 rounded-md">
-            <img src="../assets/contact/socials/tiktok.png" alt="tiktok" class="w-[50px] h-[50px] bg-purple-fonce rounded-[50%] p-2">
+        <div class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md">
+            <img src="../assets/contact/socials/tiktokk.png" alt="tiktok" class="w-[50px] h-[50px]">
         </div>
     </div>
 
