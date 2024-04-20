@@ -26,6 +26,7 @@ export default {
         'landing': 'url("../assets/landing.jpg")',
         'banner-propos': 'url("../assets/banner-propos.svg")',
         'banner-blog': 'url("../assets/banner-blog.svg")',
+        'banner-contact': 'url("../assets/banner-contact.svg")',
 
         // 'alveoles2': 'url("../assets/alveoles2.png")',
       },    
