@@ -6,46 +6,95 @@
 </div>
 
 
-  <div class="header-content bg-purple">
-    <div class="text pt-12">
-      <h1 class="text-5xl text-purple-fonce text-center font-bold">
-        QUI SOMME NOUS ?
-      </h1>
-      <h3 class="text-white text-center mt-5">
-        Présentation des membres du programme PAPSP
-      </h3>
-    </div>
-    <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
-      <div class="membre">
-        <img
-          src="../assets/membre.jpg"
-          alt="photo"
-          class="w-[300px] h-[400px] object-cover rounded-md"
-        />
-      </div>
-      <div class="membre">
-        <img
-          src="../assets/membre.jpg"
-          alt="photo"
-          class="w-[300px] h-[400px] object-cover rounded-md"
-        />
-      </div>
-      <div class="membre">
-        <img
-          src="../assets/membre.jpg"
-          alt="photo"
-          class="w-[300px] h-[400px] object-cover rounded-md"
-        />
-      </div>
-      <div class="membre">
-        <img
-          src="../assets/membre.jpg"
-          alt="photo"
-          class="w-[300px] h-[400px] object-cover rounded-md"
-        />
-      </div>
-    </div>
+<div class="header-content bg-purple">
+  <div class="text pt-12">
+    <h1 class="text-5xl text-purple-fonce text-center font-bold">
+      QUI SOMME NOUS ?
+    </h1>
+    <h3 class="text-white text-center mt-5">
+      Présentation des membres du programme PAPSP
+    </h3>
   </div>
+
+  <div class="all-cards flex justify-center items-center gap-4">
+  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
+    <div class="membre">
+      <div class="carte w-64 h-80 perspective-1000">
+        <div class="face face-front">
+          <img
+            src="../assets/membre.jpg"
+            alt="photo"
+            class="w-full h-full object-cover rounded-md"
+          />
+        </div>
+        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
+          <!-- Contenu à afficher au "dos" de la carte -->
+          Informations supplémentaires
+        </div>
+      </div>
+    </div>
+    <!-- Ajoutez les autres membres de la même manière -->
+  </div>
+
+  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
+    <div class="membre">
+      <div class="carte w-64 h-80 perspective-1000">
+        <div class="face face-front">
+          <img
+            src="../assets/membre.jpg"
+            alt="photo"
+            class="w-full h-full object-cover rounded-md"
+          />
+        </div>
+        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
+          <!-- Contenu à afficher au "dos" de la carte -->
+          Informations supplémentaires
+        </div>
+      </div>
+    </div>
+    <!-- Ajoutez les autres membres de la même manière -->
+  </div>
+
+  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
+    <div class="membre">
+      <div class="carte w-64 h-80 perspective-1000">
+        <div class="face face-front">
+          <img
+            src="../assets/membre.jpg"
+            alt="photo"
+            class="w-full h-full object-cover rounded-md"
+          />
+        </div>
+        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
+          <!-- Contenu à afficher au "dos" de la carte -->
+          Informations supplémentaires
+        </div>
+      </div>
+    </div>
+    <!-- Ajoutez les autres membres de la même manière -->
+  </div>
+
+  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
+    <div class="membre">
+      <div class="carte w-64 h-80 perspective-1000">
+        <div class="face face-front">
+          <img
+            src="../assets/membre.jpg"
+            alt="photo"
+            class="w-full h-full object-cover rounded-md"
+          />
+        </div>
+        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
+          <!-- Contenu à afficher au "dos" de la carte -->
+          Informations supplémentaires
+        </div>
+      </div>
+    </div>
+    <!-- Ajoutez les autres membres de la même manière -->
+  </div>
+</div>
+</div>
+
 
   <!-- Missions et photo stop  -->
   <div class="container-presentation flex flex-wrap justify-center items-center w-full gap-8 mt-10 z-10">
@@ -172,4 +221,34 @@ span {
     font-weight: bold;
 }
 
+/* Styles pour l'effet de retournement */
+.carte {
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 0.5s;
+}
+
+.face-front {
+  transform: rotateY(0deg);
+}
+
+.face-back {
+  transform: rotateY(180deg);
+}
+
+.carte:hover .face-front {
+  transform: rotateY(-180deg);
+}
+
+.carte:hover .face-back {
+  transform: rotateY(0deg);
+}
 </style>
