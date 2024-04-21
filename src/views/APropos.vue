@@ -156,7 +156,7 @@
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
-                <img src="../assets/icon.png" alt="icon-details">
+                <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">01</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
@@ -172,7 +172,7 @@
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
-                <img src="../assets/icon.png" alt="icon-details">
+                <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">02</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
@@ -188,7 +188,7 @@
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
-                <img src="../assets/icon.png" alt="icon-details">
+                <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">03</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
@@ -204,7 +204,7 @@
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
-                <img src="../assets/icon.png" alt="icon-details">
+                <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">04</h1>
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
