@@ -161,7 +161,7 @@
             </div>
             <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
             <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
-        </div>
+        </div> 
     </div>
 
     <!--Programme 02-->
