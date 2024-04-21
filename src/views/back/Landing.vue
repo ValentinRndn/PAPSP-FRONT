@@ -21,10 +21,12 @@
   
   <script>
   // Importation du composant SideBar
+  import AdminBar from "../../components/backOffice/AdminBar.vue";
   import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
   
   export default {
     components: {
+      AdminBar, 
       HorizontalBar
     },
   };
