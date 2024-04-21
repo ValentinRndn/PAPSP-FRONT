@@ -29,7 +29,6 @@ export default {
         'banner-blog': 'url("../assets/banner-blog.svg")',
         'banner-contact': 'url("../assets/banner-contact.svg")',
 
-        // 'alveoles2': 'url("../assets/alveoles2.png")',
       },    
       fontSize: {
         'login-txt': '0.60rem',

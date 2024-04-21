@@ -3,10 +3,10 @@
         <div class="w-[50vw] flex justify-center items-center">
             <div class="flex flex-col w-[400px] h-[200px] justify-center font-cgothic   ">
                 <h1 class="form-control font-cgothic font-bold text-login-grey text-3xl ">Connexion </h1>
-                <label for="username" class="bg-gray-200 mt-4 rounded-t-md text-login-txt pl-3 pt-2 text-login-grey">EMAIL</label>
-                <input type="text" id="username" v-model="email" class="form-control bg-gray-200 rounded-b-md px-2 pb-5 outline-none focus:ring-0 text-login-grey" required>
+                <label for="username" class="bg-gray-200 mt-4 rounded-t-md text-login-txt pl-3 pt-2 text-login-grey">PSEUDONYME</label>
+                <input type="text" id="username" v-model="pseudonyme" class="form-control bg-gray-200 rounded-b-md px-2 pb-5 outline-none focus:ring-0 text-login-grey" required>
                 <label for="password" class="bg-gray-200 mt-6 rounded-t-md text-login-txt pl-3 pt-2 text-login-grey">PASSWORD</label>
-                <input type="password" id="password" v-model="userPassword" class="form-control bg-gray-200 rounded-b-md px-2 pb-5 outline-none focus:ring-0 text-login-grey " required>
+                <input type="password" id="password" v-model="mdp" class="form-control bg-gray-200 rounded-b-md px-2 pb-5 outline-none focus:ring-0 text-login-grey " required>
                 <button type="submit" @click="login" class="bg-purple-fonce text-white px-4 py-2 w-full  rounded-md mt-6 text-md font-bold ">CONTINUER</button>
                 <div v-if="error" class="">
                     {{ error }} 
@@ -19,25 +19,43 @@
 </template>
 
 <script>
+ import axios from 'axios';
+
 export default {
     data() {
         return {
-            email: '',
-            userPassword: '',
+            pseudonyme: '',
+            mdp: '', 
             error: null
         };
     },
+
     methods: {
-        login() {
-            // Ajoutez ici votre logique de connexion
-            if (this.email === 'yo' && this.userPassword === '123') {
-                // Connexion réussie, rediriger vers la page du blog
-                this.$router.push('/admin'); // Assurez-vous que '/blog' correspond à l'URL de votre page de blog dans les routes définies par Vue Router
+    login() {
+        axios.post('http://localhost:3000/user/auth', {
+            pseudonyme: this.pseudonyme,
+            mdp: this.mdp
+        })
+        .then(response => {
+            // Vérifiez si la réponse contient un token ou un indicateur de réussite
+            if (response.status === 200) {
+                // Enregistrez le token dans le stockage local ou les cookies
+                localStorage.setItem('token', response.data.token);
+                // Redirigez vers la page de l'administrateur
+                this.$router.push('/backoffice/dashboard');
             } else {
-                // Afficher un message d'erreur si les informations de connexion sont incorrectes
+                // Afficher un message d'erreur si l'authentification a échoué
+                console.log(response.data);
                 this.error = "Email ou mot de passe incorrect";
             }
-        }
+        })
+        .catch(error => {
+            // Afficher un message d'erreur si une erreur se produit lors de la requête
+            console.error('Erreur lors de la requête d\'authentification:', error);
+            console.log(error);
+            this.error = "Une erreur s'est produite lors de l'authentification";
+        });
     }
+}
 };
 </script>
