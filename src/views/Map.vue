@@ -1,4 +1,5 @@
 <template>
+    <NavigationBar />
     <div class="flex w-[100vw] h-[100vh]">
         <div class="w-[50vw] flex justify-center items-center">
             <div class="flex flex-col w-[400px] h-[200px] justify-center font-cgothic   ">
@@ -11,5 +12,18 @@
         </div>
         <img src="../assets/alveoles2.png" alt="alveoles" class="h-full w-[60vw] object-cover" />
     </div>
+
+    <Footer />
 </template>
 
+<script>
+import NavigationBar from "../components/NavigationBar.vue";
+import Footer from "../components/Footer.vue"
+
+export default {
+  components: {
+      Footer, 
+      NavigationBar,
+    }
+};
+</script>

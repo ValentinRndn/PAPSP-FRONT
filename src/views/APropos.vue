@@ -1,4 +1,6 @@
 <template>
+
+  <NavigationBar />
 <div class="header-banner bg-banner-propos w-full h-[350px] bg-cover relative">
   <div class="absolute bottom-0 left-0 right-0 text-center">
     <div class="bg-purple inline-block text-white text-5xl py-6 px-24 rounded-t-2xl">À PROPOS</div>
@@ -212,8 +214,22 @@
 
 </div>
 </div>
+
+<Footer />
 </template>
 
+
+<script>
+import NavigationBar from "../components/NavigationBar.vue";
+import Footer from "../components/Footer.vue"
+
+export default {
+  components: {
+      Footer, 
+      NavigationBar,
+    }
+};
+</script>
 
 
 <style scoped>

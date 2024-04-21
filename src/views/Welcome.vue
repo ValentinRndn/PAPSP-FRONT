@@ -192,10 +192,19 @@
       class="w-[180px] bg-cover z-10 h-[50%]"
     />
   </div>
+
+  <Footer />
+
 </template>
 
 <script>
+import Footer from "../components/Footer.vue"
+
+
 export default {
+  components: {
+      Footer, 
+    },
   data() {
     return {
       currentPage: "", // Initialisez currentPage avec le chemin de la page actuelle

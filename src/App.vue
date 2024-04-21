@@ -1,9 +1,6 @@
 <template>
     <div class="app">
-      <NavigationBar v-if ="$route.path !== '/login' && $route.path !== '/backoffice/dashboard' && $route.path != '/'" />
       <router-view />
-      <Footer v-if ="$route.path !== '/login' && $route.path !== '/backoffice/dashboard'" />
-      <AdminBar v-if="$route.path === '/backoffice/dashboard'" />
     </div>
 </template>
 

@@ -1,4 +1,6 @@
 <template>
+
+  <navigationBar />
     <div class="header-banner bg-banner-contact w-full h-[350px] bg-cover relative">
       <div class="absolute bottom-0 left-0 right-0 text-center">
         <div class="bg-white inline-block text-purple-fonce text-5xl py-6 px-24 rounded-t-2xl font-bold">CONTACT</div>
@@ -67,6 +69,7 @@
         </div>
 </div>
 
+<Footer />
 
 </template>
 
@@ -75,8 +78,15 @@
 
 import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
+import NavigationBar from "../components/NavigationBar.vue";
+import Footer from "../components/Footer.vue"
+
 
 export default {
+  components: {
+      Footer, 
+      NavigationBar,
+    },
     mounted() {
         var map = L.map('map').setView([49.183333, -0.35], 13);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

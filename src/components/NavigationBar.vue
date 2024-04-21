@@ -26,6 +26,8 @@
 
 <script>
 export default {
+  name: 'NavigationBar',
+
   data() {
     return {
       currentPage: '' // Initialisez currentPage avec le chemin de la page actuelle
