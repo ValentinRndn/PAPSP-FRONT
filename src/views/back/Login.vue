@@ -40,7 +40,7 @@ export default {
             // Vérifiez si la réponse contient un token ou un indicateur de réussite
             if (response.status === 200) {
                 // Enregistrez le token dans le stockage local ou les cookies
-                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('token', JSON.stringify(response.data.Token));
                 // Redirigez vers la page de l'administrateur
                 this.$router.push('/backoffice/dashboard');
             } else {
