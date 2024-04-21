@@ -12,20 +12,19 @@
   
       <!-- Contenu du tableau de bord -->
       <div class="dashboard-container">
-        <h1>coucou</h1>
-        <p class="mt-10">Vous êtes connecté à votre tableau de bord pour l'accueil</p>
+        <div class="last-update mt-10">
+          <h1 class="text-3xl text-purple font-bold">Dernière mise à jour</h1>
+          </div>
       </div>
     </div>
   </template>
   
   <script>
   // Importation du composant SideBar
-  import AdminBar from "../../components/backOffice/AdminBar.vue";
   import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
   
   export default {
     components: {
-      AdminBar, 
       HorizontalBar
     },
   };
