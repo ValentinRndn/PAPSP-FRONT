@@ -27,17 +27,9 @@
 <script>
 export default {
   name: 'NavigationBar',
+  props: ['currentRoute'] // Déclarez la prop currentRoute
 
-  data() {
-    return {
-      currentPage: '' // Initialisez currentPage avec le chemin de la page actuelle
-    };
-  },
-  watch: {
-    $route(to) {
-      this.currentPage = to.path; // Met à jour currentPage avec le chemin de la route actuelle
-    }
-  }
+  // Le reste de votre code
 };
 </script>
 
