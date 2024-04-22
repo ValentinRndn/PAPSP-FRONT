@@ -52,10 +52,10 @@
       </div>
       <div class="text-header text-white text-xl font-bold flex flex-col items-center">
         <div class="citation-header w-[28vw] text-center">
-        <h1 class="citation bg-purple  p-2 w-full -ml-[7.5vw]">INSERER UNE CITATION</h1>
+        <h1 class="citation bg-purple  p-6 w-full -ml-[7.5vw]">INSERER UNE CITATION</h1>
         </div>
         <div class="sentance-header w-[28vw] text-center">
-        <h1 class="citation  bg-purple-fonce p-2 w-full  ml-[7.5vw]">CHOISIR ENSEMBLE MERCREDI</h1>
+        <h1 class="citation  bg-purple-fonce p-6 w-full  ml-[7.5vw]">CHOISIR ENSEMBLE MERCREDI</h1>
       </div>
       </div>
     </div>

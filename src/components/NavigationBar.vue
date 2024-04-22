@@ -16,6 +16,9 @@
         <router-link to="/contact" :class="{ 'text-purple underline ': currentPage === '/contact' }">CONTACT</router-link>
       </li>
       <li class="menu">
+        <router-link to="/blog" :class="{ 'text-purple underline ': currentPage === '/contact' }">BLOG</router-link>
+      </li>
+      <li class="menu">
         <router-link to="/APropos" :class="{ 'text-purple underline ':currentPage === '/APropos' }">EN SAVOIR +</router-link>
       </li>
     </ul>

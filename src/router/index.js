@@ -8,7 +8,8 @@ import Dashboard from '../views/back/Dashboard.vue'
 import Users from '../views/back/Users.vue'
 import DocumentationBack from '../views/back/Documentation.vue'
 import Landing from '../views/back/Landing.vue'
-import Blog from '../views/back/Blog.vue'
+import BackBlog from '../views/back/Blog.vue'
+import Blog from '../views/Blog.vue'
 import Particulier from '../views/cartographie/Particulier.vue'
 import Professionel from '../views/cartographie/Professionel.vue'
 
@@ -36,6 +37,10 @@ const router = createRouter({
             component: Contact
         },
         {
+            path: '/blog',
+            component: Blog
+        },
+        {
             path: '/APropos',
             component: APropos
         }
@@ -50,7 +55,7 @@ const router = createRouter({
         },
         {
             path: '/backOffice/blog',
-            component: Blog
+            component: BackBlog
         },
         {
             path: '/backOffice/Landing',

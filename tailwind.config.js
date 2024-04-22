@@ -15,6 +15,7 @@ export default {
         'login-grey': "#424242",
         'back-grey': '#E4E4E4',
         'light-grey': '#999999',
+        'light-beige': '#F4F0EC',
       },
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
@@ -28,6 +29,7 @@ export default {
         'banner-propos': 'url("../assets/banner-propos.svg")',
         'banner-blog': 'url("../assets/banner-blog.svg")',
         'banner-contact': 'url("../assets/banner-contact.svg")',
+        'back-carto': 'url("../assets/background-carto.svg")',
 
       },    
       fontSize: {

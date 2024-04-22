@@ -133,7 +133,7 @@
 
   <!-- Bouton - Devenir bénévoles -->
   <div class="flex  items-center justify-center mt-12 font-helvetica mb-20 z-10 ">
-   <div class="flex items-center bg-purple-fonce shadow-xl rounded-md py-6 px-9">
+   <div class="flex items-center bg-purple-fonce shadow-xl rounded-md py-6 px-9 hover:scale-105 duration-300">
     <button class="text-white h-full font-bold text-2xl">JE VEUX DEVENIR BÉNÉVOLE</button>
   </div>
  </div>
