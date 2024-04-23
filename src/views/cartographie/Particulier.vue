@@ -7,67 +7,64 @@
       <div class="checkboxes flex flex-col gap-3 text-white text-xl">
 
         <div class="checkboxes flex flex-col gap-4 font-poppins">
-          <div class="checkbox flex gap-3 color-red">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale1" name="scales" checked/>
             <label for="scales">Trouver des préservatifs ou du lubrifiant</label>
           </div>
 
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale2" name="scales"  checked/>
             <label for="scales">Me faire dépister</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale3" name="scales"  checked/>
             <label for="scales">Accéder à un traitement
 d’urgence</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale4" name="scales"  checked/>
             <label for="scales">Accéder à la PReP</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale5" name="scales"  checked/>
             <label for="scales">Voir un médecin</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale6" name="scales"  checked/>
             <label for="scales">Interrompre une grossesse</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
-            <label for="scales">Trouver du matériel de
-drogue à moindre 
-risque</label>
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale7" name="scales" checked/>
+            <label for="scales">Trouver du matériel de drogue à moindre  risque</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
-            <label for="scales">Trouver un soutien
-communautaire</label>
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale8" name="scales"  checked/>
+            <label for="scales">Trouver un soutien communautaire</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale9" name="scales"  checked/>
             <label for="scales">Porter plainte</label>
         </div>
 
         
-          <div class="checkbox flex gap-3">
-            <input type="checkbox" id="scales" name="scales" />
+          <div class="checkbox flex gap-3 items-center">
+            <input type="checkbox" id="scale10" name="scales" checked />
             <label for="scales">Parler à quelqu’un après
 une agression</label>
         </div>
@@ -104,4 +101,52 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+input[type="checkbox"] {
+transform: scale(1.5); 
+}
+
+
+#scale1 {
+    accent-color: grey;
+}
+
+#scale2 {
+    accent-color: red;
+}
+
+#scale3 {
+    accent-color: orange;
+}
+
+#scale4 {
+    accent-color: green;
+}
+
+#scale5 {
+    accent-color: aqua;
+}
+
+#scale6 {
+    accent-color: blue;
+}
+
+#scale7 {
+    accent-color: purple;
+}
+
+#scale8 {
+    accent-color: fuchsia;
+}
+
+#scale9 {
+    accent-color: orchid;
+}
+
+#scale10 {
+    accent-color: white;
+}
+
+</style>
+
+
