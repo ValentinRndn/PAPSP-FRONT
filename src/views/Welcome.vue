@@ -36,6 +36,9 @@
             >CONTACT</router-link
           >
         </li>
+              <li class="menu">
+        <router-link to="/blog" :class="{ 'text-purple underline ': currentPage === '/contact' }">BLOG</router-link>
+      </li>
         <li class="menu">
           <router-link
             to="/APropos"
