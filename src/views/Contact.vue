@@ -42,7 +42,7 @@
 
 
 <!-- Réseaux sociaux -->
-<div class="bg-alveoles h-[700px] z-0 bg-cover relative mx-4">
+<div class="bg-alveoles h-[700px] z-0 bg-cover relative mx-4 sm:w-full sm:h-full">
     <div class="text-socials relative mt-24">
         <h1 class="socials-medias text-center text-5xl font-bold text-contact-grey font-raleway">Réseaux sociaux</h1>
         <p class="text-center text-light-grey font-raleway">Vous pouvez également nous contacter sur chacun de nos réseaux sociaux. Nous vous répondrons dans les plus brefs délais..</p>
@@ -60,7 +60,7 @@
         <a href="https://www.tiktok.com" target="_blank" class="social bg-purple-fonce  w-1/4 flex justify-center items-center py-5 rounded-md transition-transform duration-300 hover:scale-105">
             <img src="../assets/contact/socials/tiktokk.png" alt="tiktok" class="w-[50px] h-[50px]">
         </a>
-    </div>
+    </div>  
 
 
 
