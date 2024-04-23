@@ -3,23 +3,23 @@
   <NavigationBar />
 <div class="header-banner bg-banner-propos w-full h-[350px] bg-cover relative">
   <div class="absolute bottom-0 left-0 right-0 text-center">
-    <div class="bg-purple inline-block text-white text-5xl py-6 px-24 rounded-t-2xl">À PROPOS</div>
+    <div class="bg-purple-fonce inline-block text-white text-5xl py-6 px-24 rounded-t-2xl font-bold font-cgothic">À PROPOS</div>
   </div>
 </div>
 
 
-<div class="header-content bg-purple">
+<div class="header-content bg-purple-fonce">
   <div class="text pt-12">
-    <h1 class="text-5xl text-purple-fonce text-center font-bold">
+    <h1 class="text-4xl text-white text-center font-bold font-cgothic">
       QUI SOMME NOUS ?
     </h1>
-    <h3 class="text-white text-center mt-5">
+    <h3 class="text-white text-center mt-5 mb-1 font-poppins text-2sm">
       Présentation des membres du programme PAPSP
     </h3>
   </div>
 
-  <div class="all-cards flex justify-center items-center gap-4">
-  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
+  <div class="all-cards flex justify-center items-center gap-4 pb-20">
+  <div class="members flex justify-center items-center mt-6 pb-6 gap-6 ">
     <div class="membre">
       <div class="carte w-64 h-80 perspective-1000">
         <div class="face face-front">
@@ -100,7 +100,7 @@
 
   <!-- Missions et photo stop  -->
   <div class="container-presentation flex flex-wrap justify-center items-center w-full gap-8 mt-10 z-10">
-    <div class="presentation max-w-[1000px] text-black mx-10 text-xl">
+    <div class="presentation max-w-[600px] text-black mx-10 text-xl">
       <p class="first-par font-bold mb-6">
         Le programme PAPSP, <span class="text-purple-fonce">porté par des bénévoles engagés</span>, s'engage dans
         plusieurs missions cruciales. 
@@ -132,22 +132,23 @@
 
 
   <!-- Bouton - Devenir bénévoles -->
-  <div class="flex  items-center justify-center mt-12 font-helvetica mb-20 z-10 ">
+  <div class="flex  items-center justify-center mt-12 font-cgothic mb-20 z-10 ">
    <div class="flex items-center bg-purple-fonce shadow-xl rounded-md py-6 px-9 hover:scale-105 duration-300">
     <button class="text-white h-full font-bold text-2xl">JE VEUX DEVENIR BÉNÉVOLE</button>
   </div>
  </div>
 
 
- <!-- Programmes du PAPS-->
- <div class="programmes overflow-hidden">
-<div class="programme-intro flex flex-col justify-center items-center z-10">
-    <h1 class="font-bold text-purple-fonce text-center text-3xl z-10">QUE FAIT LE PROGRAMME PAPSP ?</h1>
-    <p class="flex text-center text-xl mt-5 z-10"> Découvrez quelles sont les actions mises en place par le programme PAPSP pour venir en aide aux personnes en situation de prostitution ?</p>
-</div>
 
-<div class="flex  flex-col items-center programme-background bg-alveoles-rotated h-[1600px] z-0 bg-cover relative mx-20 md:h-[2800px]">
 
+
+<div class="flex  flex-col items-center programme-background bg-alveoles-rotated h-[1700px] z-0 bg-cover relative mx-20 md:h-[2800px]">
+    <!-- Programmes du PAPS-->
+    <div class="programmes overflow-hidden flex flex-col items-center justify-center">
+    <div class="programme-intro flex flex-col justify-center items-center z-10">
+        <h1 class="font-bold text-cgothic text-purple-fonce text-center text-3xl mt-20 z-10">QUE FAIT LE PROGRAMME PAPSP ?</h1>
+        <p class="flex text-center text-xl mt-5 z-10 text-poppins"> Découvrez quelles sont les actions mises en place par le programme PAPSP pour venir en aide aux personnes en situation de prostitution ?</p>
+    </div>
     <!--Programme 01-->
     <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10  md:flex-col">
         <div class="image-programme w-1/2">
@@ -159,8 +160,9 @@
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">01</h1>
             </div>
-            <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+            <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+                       <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+
         </div> 
     </div>
 
@@ -175,8 +177,10 @@
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">02</h1>
             </div>
-            <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+
+                       <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+
         </div>
     </div>
 
@@ -191,8 +195,10 @@
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">03</h1>
             </div>
-            <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+
+                       <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+
         </div>
     </div>
 
@@ -207,8 +213,9 @@
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">04</h1>
             </div>
-            <h1 class=" text-purple-fonce text-2xl font-bold mb-3">Concept & Details</h1>
-            <p class="text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+
+            <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
         </div>
     </div>
 

@@ -16,10 +16,14 @@ export default {
         'back-grey': '#E4E4E4',
         'light-grey': '#999999',
         'light-beige': '#F4F0EC',
+        'program-grey': '#4D5053',
       },
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
         'helvetica': ['Helvetica', 'sans-serif'],
+        'dm-serif': ['DMSerifDisplay', 'serif'],
+        'jost': ['jost', 'serif'],
+        'poppins': ['Poppins-Regular', 'sans-serif'],
       },
       backgroundImage: {
         'phone': 'url("../assets/phone-back.png")',
