@@ -3,15 +3,15 @@
   <navigationBar />
     <div class="header-banner bg-banner-contact w-full h-[350px] bg-cover relative">
       <div class="absolute bottom-0 left-0 right-0 text-center">
-        <div class="bg-white inline-block text-purple-fonce text-5xl py-6 px-24 rounded-t-2xl font-bold">CONTACT</div>
+        <div class="bg-white inline-block text-purple-fonce text-5xl py-6 px-24 rounded-t-2xl font-bold font-cgothic">CONTACT</div>
       </div>
     </div>
 
 
 <!-- Formulaire de contact -->
-<div class="contact-container flex flex-wrap justify-center items-center gap-10 mt-14">
-    <div class="info-contact flex flex-col bg-purple-fonce p-8 rounded-xl text-white gap-4">
-        <div class="mail-container flex justify-center items-center gap-2">
+<div class="contact-container flex flex-wrap justify-center items-center gap-10 mt-20 font-jost">
+    <div class="info-contact font-jost-sans flex flex-col bg-purple-fonce p-8 rounded-xl text-white gap-4">
+        <div class="mail-container flex justify-center items-center gap-2 ">
             <img src="../assets/mail_icon.png" alt="mail-icon" class="size-10">
             <p class="mail">info@youdomain.com</p>
         </div>
@@ -23,18 +23,18 @@
 <div class="contact-form bg-white flex flex-col justify-center items-center gap-6 mt-6 ">
   <form class="flex flex-col gap-6">
     <div class="first-row flex md:flex-row md:gap-8 w-full gap-8">
-      <input type="text" placeholder="Nom" class="border-b-2 border-purple-fonce text-xl w-full md:w-auto">
-      <input type="email" placeholder="Email" class="border-b-2 border-purple-fonce text-xl w-full md:w-auto">
+      <input type="text" placeholder="Nom" class="border-b border-purple-fonce text-md w-full md:w-auto pb-4">
+      <input type="email" placeholder="Email" class="border-b border-purple-fonce text-md w-full md:w-auto pb-4">
     </div>
     <div class="second-row flex md:flex-row md:gap-8 w-full gap-8">
-      <input type="text" placeholder="Objet" class="border-b-2 border-purple-fonce text-xl w-full md:w-auto">
-      <input type="telephone" placeholder="Téléphone" class="border-b-2 border-purple-fonce text-xl w-full md:w-auto">
+    <input type="text" placeholder="Objet" class="border-b border-purple-fonce text-md w-full md:w-auto pb-4">
+      <input type="telephone" placeholder="Téléphone" class="border-b border-purple-fonce text-md w-full md:w-auto pb-4">
     </div>
     <div class="textarea w-full">
-      <textarea placeholder="Votre message" class="border-b-2 border-purple-fonce text-xl w-full"></textarea>
+      <textarea placeholder="Votre message" class="border-b border-purple-fonce text-md w-full"></textarea>
     </div>
     <div class="submit flex justify-end w-full">
-      <button class="bg-purple-fonce text-white text-xl py-2 rounded-md px-6 transition-transform duration-300 hover:scale-105">Envoyer</button>
+      <button class="bg-purple-fonce text-white font-jost-sans font-semibold text-md py-3 rounded-md px-6 transition-transform duration-300 hover:scale-105">Envoyer</button>
     </div>
   </form>   
 </div>
@@ -44,8 +44,8 @@
 <!-- Réseaux sociaux -->
 <div class="bg-alveoles h-[700px] z-0 bg-cover relative mx-4">
     <div class="text-socials relative mt-24">
-        <h1 class="socials-medias text-center text-5xl font-bold ">Réseaux sociaux</h1>
-        <p class="text-center text-light-grey">Vous pouvez également nous contacter sur chacun de nos réseaux sociaux. Nous vous répondrons dans les plus brefs délais..</p>
+        <h1 class="socials-medias text-center text-5xl font-bold text-contact-grey font-raleway">Réseaux sociaux</h1>
+        <p class="text-center text-light-grey font-raleway">Vous pouvez également nous contacter sur chacun de nos réseaux sociaux. Nous vous répondrons dans les plus brefs délais..</p>
     </div>
     <div class="socials relative flex justify-center items-center mt-10 z-20 w-full gap-6">
         <a href="https://www.facebook.com" target="_blank" class="social bg-purple-fonce w-1/4 flex justify-center items-center py-5 rounded-md transition-transform duration-300 hover:scale-105">
@@ -83,6 +83,8 @@ import Footer from "../components/Footer.vue"
 
 
 export default {
+    // var Jawg_Dark = L.tileLayer('https://tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+
   components: {
       Footer, 
       NavigationBar,

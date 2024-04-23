@@ -17,13 +17,16 @@ export default {
         'light-grey': '#999999',
         'light-beige': '#F4F0EC',
         'program-grey': '#4D5053',
+        'contact-grey': '#333333',
       },
       fontFamily: {
         'cgothic': ['c-gothic', 'sans-serif'],
         'helvetica': ['Helvetica', 'sans-serif'],
         'dm-serif': ['DMSerifDisplay', 'serif'],
         'jost': ['jost', 'serif'],
+        'jost-sans': ['Jost', 'sans-serif'],
         'poppins': ['Poppins-Regular', 'sans-serif'],
+        'raleway': ['Raleway', 'sans-serif'],
       },
       backgroundImage: {
         'phone': 'url("../assets/phone-back.png")',
