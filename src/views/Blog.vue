@@ -18,8 +18,7 @@
 <div class="cards flex gap-12 grow">
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-md -mt-12 ml-4 category-bg inline-block rounded-t-md rounded-br-md p-1">Catégorie</p>
-    <p class="text-3xl font-bold -mt-4 font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
     <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
     <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>
@@ -27,16 +26,14 @@
 
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-md -mt-12 ml-4 category-bg inline-block rounded-t-md rounded-br-md p-1">Catégorie</p>
-    <p class="text-3xl font-bold -mt-4 font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
     <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
     <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>
 
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-md -mt-12 ml-4 category-bg inline-block rounded-t-md rounded-br-md p-1">Catégorie</p>
-    <p class="text-3xl font-bold -mt-4 font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
     <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
     <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>
@@ -75,24 +72,21 @@
   <div class="cards flex gap-12 grow justify-center mt-6 ">
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-md -mt-12 ml-4 category-bg inline-block rounded-t-md rounded-br-md p-1">Catégorie</p>
-    <p class="text-3xl font-bold -mt-4 font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
     <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
     <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>
 
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-md -mt-12 ml-4 category-bg inline-block rounded-t-md rounded-br-md p-1">Catégorie</p>
-    <p class="text-3xl font-bold -mt-4 font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
     <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
     <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>
 
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-md -mt-12 ml-4 category-bg inline-block rounded-t-md rounded-br-md p-1">Catégorie</p>
-    <p class="text-3xl font-bold -mt-4 font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
     <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
     <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>

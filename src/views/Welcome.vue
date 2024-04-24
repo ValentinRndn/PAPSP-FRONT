@@ -68,25 +68,25 @@
 
   <!-- Missions et photo stop  -->
   <div class="container-presentation flex flex-wrap justify-center items-center w-full gap-8 ">
-    <div class="presentation max-w-[1000px]">
-      <h1 class="text-4xl text-black mx-10 mt-10 mb-4">
+    <div class="presentation max-w-[600px]">
+      <h1 class="text-2xl text-black mx-10 mt-10 mb-4 font-bold  font-cgothic">
         LE PROGRAMME PAPSP A POUR MISSION :
       </h1>
-      <ul class="text-black mx-10 text-xl">
+      <ul class="text-black mx-10 text-xl font-cgothic">
         <li class="mb-4">
-          - Informer, orienter et accompagner les Personnes en Situation de
-          Prostitution (PSP) vers les dispositifs de droits communs dans les
-          champs de la santé, du social et du médico-social
+          - <span>Informer, orienter et accompagner</span> les Personnes en Situation de
+          Prostitution (PSP) vers les dispositifs de <span>droits communs dans les
+          champs de la santé, du social et du médico-social</span>
         </li>
         <li class="mb-4">
-          - Promouvoir la démarche de réduction des risques et des dommages
+          - Promouvoir la démarche de <span>réduction des risques</span> et <span>des dommages</span>
         </li>
         <li class="mb-4">
-          - Favoriser la promotion, l’éducation à la santé et l’accès aux
-          dépistages (VIH, IST, hépatites, cancers)
+          - Favoriser la promotion, <span>l’éducation à la santé et l’accès aux
+          dépistages</span> (VIH, IST, hépatites, cancers)
         </li>
         <li class="mb-4">
-          - Sensibiliser les professionnels dans les champs de la santé, du
+          - <span>Sensibiliser les professionnels</span> dans les champs de la santé, du
           social, médico-social au public des Personnes en Situation de
           Prostitution.
         </li>
@@ -94,7 +94,7 @@
     </div>
 
     <div class="">
-      <img src="../assets/stop.jpg" alt="stop" class="rounded-tr-[50%] w-[600px] h-[600px] object-cover" />
+      <img src="../assets/stop.jpg" alt="stop" class="rounded-tr-[50%] w-[500px] h-[500px] object-cover" />
 
     </div>
   </div>
@@ -124,29 +124,29 @@
  <div class="bg-alveoles h-[1000px] z-0 bg-cover relative">
   <div class="relative top-32 w-full flex gap-12 justify-center items-center">
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl">10</p>
-      <p class="text">Personnes contactées</p>
+      <p class="chiffre text-6xl font-cgothic">10</p>
+      <p class="text font-jost-sans">Personnes contactées</p>
     </div>
-    <div class="separator ">
-      <p class="text">|</p>
+    <div class="separator font-cgothic ">
+      <p class="text ">|</p>
     </div>
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl">10</p>
-      <p class="text">Personnes rencontrées</p>
+      <p class="chiffre text-6xl font-cgothic">10</p>
+      <p class="text font-jost-sans">Personnes rencontrées</p>
     </div>
     <div class="separator">
       <p class="text ">|</p>
     </div>
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl">10</p>
-      <p class="text">Maraudes effectuées</p>
+      <p class="chiffre text-6xl font-cgothic">10</p>
+      <p class="text font-jost-sans">Maraudes effectuées</p>
     </div>
     <div class="separator">
       <p class="text">|</p>
     </div>
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl">10</p>
-      <p class="text">Préservatifs distribués</p>
+      <p class="chiffre text-6xl font-cgothic">10</p>
+      <p class="text font-jost-sans">Préservatifs distribués</p>
     </div>
   </div>
 
@@ -154,13 +154,27 @@
 
   <!-- Articles & News -->
 <div class="relative top-56 w-full flex flex-col  gap-12 justify-center items-center">
-  <p class="text-5xl text-purple font-bold">Articles & News</p>
-  <div class="cards">
-    <div class="card w-[300px] h-[400px] object-cover rounded-[25px] overflow-hidden bg-purple p-4">
-      <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-      <p class="text-xl -mt-10 ml-4 bg-white ">Catégorie</p>
-      <p class="text-2xl font-bold mt-4">Titre de l'article</p>
-      <p class="text text-grey">26 Décembre 2022</p>
+  <p class="text-5xl text-purple font-bold font-cgothic">Articles & News</p>
+  <div class="cards flex gap-12 grow justify-center mt-6 ">
+    <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple">
+    <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
+    <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
+    <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
+    </div>
+
+        <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple-fonce">
+    <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
+    <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
+    <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
+    </div>
+
+        <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple">
+    <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
+    <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
+    <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
     </div>
   </div>
 </div>
@@ -221,4 +235,9 @@ export default {
 };
 </script>
 
-<style lang="tailwindcss" scoped></style>
+<style>
+span {
+  font-weight: bold;
+}
+
+</style>

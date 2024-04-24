@@ -8,63 +8,63 @@
 
         <div class="checkboxes flex flex-col gap-4 font-poppins">
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale1" name="scales" checked/>
+            <input type="checkbox" id="scale1" name="scales" />
             <label for="scales">Trouver des préservatifs ou du lubrifiant</label>
           </div>
 
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale2" name="scales"  checked/>
+            <input type="checkbox" id="scale2" name="scales"  />
             <label for="scales">Me faire dépister</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale3" name="scales"  checked/>
+            <input type="checkbox" id="scale3" name="scales"  />
             <label for="scales">Accéder à un traitement
 d’urgence</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale4" name="scales"  checked/>
+            <input type="checkbox" id="scale4" name="scales"  />
             <label for="scales">Accéder à la PReP</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale5" name="scales"  checked/>
+            <input type="checkbox" id="scale5" name="scales"  />
             <label for="scales">Voir un médecin</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale6" name="scales"  checked/>
+            <input type="checkbox" id="scale6" name="scales"  />
             <label for="scales">Interrompre une grossesse</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale7" name="scales" checked/>
+            <input type="checkbox" id="scale7" name="scales" />
             <label for="scales">Trouver du matériel de drogue à moindre  risque</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale8" name="scales"  checked/>
+            <input type="checkbox" id="scale8" name="scales"  />
             <label for="scales">Trouver un soutien communautaire</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale9" name="scales"  checked/>
+            <input type="checkbox" id="scale9" name="scales"  />
             <label for="scales">Porter plainte</label>
         </div>
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale10" name="scales" checked />
+            <input type="checkbox" id="scale10" name="scales"  />
             <label for="scales">Parler à quelqu’un après
 une agression</label>
         </div>
