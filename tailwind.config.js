@@ -38,6 +38,8 @@ export default {
         'banner-blog': 'url("../assets/banner-blog.svg")',
         'banner-contact': 'url("../assets/banner-contact.svg")',
         'back-carto': 'url("../assets/background-carto.svg")',
+        'banner-contact-mobile': 'url("../assets/contact/contact-responsive.svg")',
+
 
       },    
       fontSize: {

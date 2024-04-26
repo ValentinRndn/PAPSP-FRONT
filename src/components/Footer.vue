@@ -2,7 +2,7 @@
     <footer class=" text-grey font-semibold pt-8 pb-2 font-cgothic mx-auto flex justify-center items-center">
     <div class="container ">
         <div class="links h-10">
-        <img src="../assets/PAPSP-logo.png" alt="logo-reseaux" class="h-[100px] w-[100] mx-auto mt-5 mb-2 hidden sm:block " />
+        <img src="../assets/PAPSP-logo.png" alt="logo-reseaux" class="h-[100px] w-[100] mx-auto  mb-2 hidden sm:block " />
             <ul class="text-sm flex gap-5 justify-center items-center sm:flex-col">
                 <li><a href="#" class="">ACCUEIL</a></li>
                 <li><a href="#" class="">CARTOGRAPHIE</a></li>
