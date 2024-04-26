@@ -78,7 +78,7 @@
 
 
 
-    <div class="map-container relative mx-auto z-20 h-[300px] w-1/2 mt-20 rounded-3xl overflow-hidden sm:2/3 sm:mt-10 "> <!-- Ajout de la classe `sm:mx-4` pour ajouter une marge sur les petits écrans -->
+    <div class="map-container relative mx-auto z-20 h-[300px] w-1/2 mt-20 rounded-3xl overflow-hidden sm:w-[80vw] sm:mt-10 "> <!-- Ajout de la classe `sm:mx-4` pour ajouter une marge sur les petits écrans -->
         <div id="map" class="h-full"></div>
     </div>
 </div>
