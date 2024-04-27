@@ -24,8 +24,10 @@
     </h3>
   </div>
 
+  <!-- Membres du programme PAPSP (bouclés sur la BD)-->
   <div class="all-cards flex justify-center items-center gap-4 pb-20 sm:hidden">
-  <div class="members flex justify-center items-center mt-6 pb-6 gap-6 ">
+    <div v-for="(member, index) in members" :key="index" class="member">
+      <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
     <div class="membre">
       <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
         <div class="face face-front">
@@ -37,72 +39,15 @@
         </div>
         <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
           <!-- Contenu à afficher au "dos" de la carte -->
-          Informations supplémentaires
-        </div>
-      </div>
-    </div>
-    <!-- Ajoutez les autres membres de la même manière -->
-  </div>
+          <h3 class="text-lg font-semibold">{{ member._nom }}</h3>
 
-  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
-    <div class="membre">
-      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
-        <div class="face face-front">
-          <img
-            src="../assets/membre.jpg"
-            alt="photo"
-            class="w-full h-full object-cover rounded-md"
-          />
-        </div>
-        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
-          <!-- Contenu à afficher au "dos" de la carte -->
-          Informations supplémentaires
         </div>
       </div>
     </div>
-    <!-- Ajoutez les autres membres de la même manière -->
-  </div>
-
-  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
-    <div class="membre">
-      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
-        <div class="face face-front">
-          <img
-            src="../assets/membre.jpg"
-            alt="photo"
-            class="w-full h-full object-cover rounded-md"
-          />
-        </div>
-        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
-          <!-- Contenu à afficher au "dos" de la carte -->
-          Informations supplémentaires
-        </div>
-      </div>
-    </div>
-    <!-- Ajoutez les autres membres de la même manière -->
-  </div>
-
-  <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
-    <div class="membre">
-      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
-        <div class="face face-front">
-          <img
-            src="../assets/membre.jpg"
-            alt="photo"
-            class="w-full h-full object-cover rounded-md"
-          />
-        </div>
-        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
-          <!-- Contenu à afficher au "dos" de la carte -->
-          Informations supplémentaires
-        </div>
-      </div>
-    </div>
-    <!-- Ajoutez les autres membres de la même manière -->
   </div>
 </div>
 </div>
-
+</div>
 
   <!-- Missions et photo stop  -->
   <div class="container-presentation flex flex-wrap justify-center items-center w-full gap-8 mt-10 z-10">
@@ -234,12 +179,34 @@
 <script>
 import NavigationBar from "../components/NavigationBar.vue";
 import Footer from "../components/Footer.vue"
+import axios from 'axios';
 
 export default {
+  data() {
+  return {
+    members: [] // Initialisation de la variable 'members' comme un tableau vide
+  }
+  },
   components: {
       Footer, 
       NavigationBar,
-    }
+    },
+    methods: {
+  showMembers() {
+    axios.get('http://localhost:3000/member/getAllMembers')
+      .then(response => {
+        console.log(response.data);
+        this.members = response.data; // Assurez-vous que la variable 'members' est initialisée dans data
+      })
+      .catch(error => {
+        console.error('Erreur lors de la requête des membres:', error);
+        this.error = "Une erreur s'est produite lors de la récupération des membres";
+      });
+  }
+},
+  mounted() {
+    this.showMembers(); // Appelez showMembers lors du montage du composant
+  }
 };
 </script>
 
