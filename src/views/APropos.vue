@@ -19,7 +19,7 @@
     <h1 class="text-4xl text-white text-center font-bold font-cgothic">
       QUI SOMME NOUS ?
     </h1>
-    <h3 class="text-white text-center mt-5 mb-1 font-poppins text-2sm">
+    <h3 class="text-white text-center mt-5 mb-1 text-poppins text-2sm">
       Présentation des membres du programme PAPSP
     </h3>
   </div>
@@ -27,7 +27,7 @@
   <!-- Membres du programme PAPSP (bouclés sur la BD)-->
   <div class="all-cards flex justify-center items-center gap-4 pb-20 sm:hidden">
     <div v-for="(member, index) in members" :key="index" class="member">
-      <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
+      <div class="members flex justify-center items-center mt-6 pb-6 gap-6 ">
     <div class="membre">
       <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
         <div class="face face-front">
@@ -37,10 +37,11 @@
             class="w-full h-full object-cover rounded-md"
           />
         </div>
-        <div class="face face-back bg-white text-gray-800 flex justify-center items-center rounded-md">
+        <div class="face face-back bg-white text-gray-800 flex flex-col items-center rounded-md text-poppins text-center">
           <!-- Contenu à afficher au "dos" de la carte -->
-          <h3 class="text-lg font-semibold">{{ member._nom }}</h3>
-
+          <h3 class="text-4xl font-semibold mt-6">{{ member._prenom }}</h3>
+          <h3 class="text-4xl font-semibold">{{ member._nom }}</h3>
+          <p class="text-3xl mt-8">{{ member._role }}</p>
         </div>
       </div>
     </div>
