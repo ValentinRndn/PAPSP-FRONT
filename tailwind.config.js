@@ -39,8 +39,7 @@ export default {
         'banner-contact': 'url("../assets/banner-contact.svg")',
         'back-carto': 'url("../assets/background-carto.svg")',
         'banner-contact-mobile': 'url("../assets/contact/contact-responsive.svg")',
-
-
+        'banner-propos-mobile': 'url("../assets/banner-propos-mobile.svg")',
       },    
       fontSize: {
         'login-txt': '0.60rem',

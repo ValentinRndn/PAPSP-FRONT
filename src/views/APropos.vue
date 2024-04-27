@@ -1,11 +1,17 @@
 <template>
 
   <NavigationBar />
-<div class="header-banner bg-banner-propos w-full h-[350px] bg-cover relative">
+<div class="header-banner bg-banner-propos w-full h-[350px] bg-cover relative  sm:hidden">
   <div class="absolute bottom-0 left-0 right-0 text-center">
     <div class="bg-purple-fonce inline-block text-white text-5xl py-6 px-24 rounded-t-2xl font-bold font-cgothic">À PROPOS</div>
   </div>
 </div>
+
+<div class="header-banner bg-banner-propos-mobile w-full h-[350px] bg-cover relative hidden sm:block">
+      <div class="absolute bottom-0 left-0 right-0 text-center">
+        <div class="bg-purple-fonce inline-block text-white text-5xl py-6 px-24 rounded-t-2xl font-bold font-cgothic sm:px-8 sm:text-4xl">À PROPOS</div>
+      </div>
+      </div>
 
 
 <div class="header-content bg-purple-fonce">
@@ -18,10 +24,10 @@
     </h3>
   </div>
 
-  <div class="all-cards flex justify-center items-center gap-4 pb-20">
+  <div class="all-cards flex justify-center items-center gap-4 pb-20 sm:hidden">
   <div class="members flex justify-center items-center mt-6 pb-6 gap-6 ">
     <div class="membre">
-      <div class="carte w-64 h-80 perspective-1000">
+      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
         <div class="face face-front">
           <img
             src="../assets/membre.jpg"
@@ -40,7 +46,7 @@
 
   <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
     <div class="membre">
-      <div class="carte w-64 h-80 perspective-1000">
+      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
         <div class="face face-front">
           <img
             src="../assets/membre.jpg"
@@ -59,7 +65,7 @@
 
   <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
     <div class="membre">
-      <div class="carte w-64 h-80 perspective-1000">
+      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
         <div class="face face-front">
           <img
             src="../assets/membre.jpg"
@@ -78,7 +84,7 @@
 
   <div class="members flex justify-center items-center mt-6 pb-6 gap-6">
     <div class="membre">
-      <div class="carte w-64 h-80 perspective-1000">
+      <div class="carte w-full md:max-w-xs h-80 md:h-auto perspective-1000">
         <div class="face face-front">
           <img
             src="../assets/membre.jpg"
@@ -131,13 +137,12 @@
   </div>
 
 
-  <!-- Bouton - Devenir bénévoles -->
-  <div class="flex  items-center justify-center mt-12 font-cgothic mb-20 z-10 ">
-   <div class="flex items-center bg-purple-fonce shadow-xl rounded-md py-6 px-9 hover:scale-105 duration-300">
-    <button class="text-white h-full font-bold text-2xl">JE VEUX DEVENIR BÉNÉVOLE</button>
+<!-- Bouton - Devenir bénévole -->
+<div class="flex items-center justify-center mt-12 font-cgothic mb-20 z-10">
+  <div class="flex items-center bg-purple-fonce shadow-xl rounded-md py-6 px-9 hover:scale-105 duration-300">
+    <a href="/contact" class="text-white h-full font-bold text-2xl">JE VEUX DEVENIR BÉNÉVOLE</a>
   </div>
- </div>
-
+</div>
 
 
 
@@ -274,6 +279,7 @@ span {
 .carte:hover .face-back {
   transform: rotateY(0deg);
 }
+
 
 
 </style>
