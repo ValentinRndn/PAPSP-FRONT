@@ -63,6 +63,9 @@
   </a>
 </div>
 
+<div class="epsm-image">
+  <img src="../assets/welcome/EPSM.png" alt="epsm" class="w-[150px] h-[150px] object-cover absolute bottom-0 right-20" />
+</div>
 
     </div>
 
