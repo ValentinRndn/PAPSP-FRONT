@@ -134,7 +134,7 @@
 
 
    <!-- Chiffres clés -->
- <div class="bg-alveoles h-[1000px] z-0 bg-cover relative">
+ <div class="bg-alveoles h-[900px] z-0 bg-cover relative">
   <div class="relative top-32 w-full flex gap-12 justify-center items-center">
     <div class="information flex flex-col justify-center items-center">
       <p class="chiffre text-6xl font-cgothic">10</p>
@@ -159,8 +159,8 @@
 
 
   <!-- Articles & News -->
-<div class="relative top-56 w-full flex flex-col  gap-12 justify-center items-center">
-  <p class="text-5xl text-purple font-bold font-cgothic">Articles & News</p>
+<div class="relative top-56 w-full flex flex-col  justify-center items-center">
+  <p class="text-5xl text-purple-fonce font-bold font-cgothic">Articles & News</p>
   <div class="cards flex gap-12 grow justify-center mt-6 ">
     <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
@@ -211,6 +211,11 @@
     />
     <img
       src="../assets/logo_itineraire.png"
+      alt="logo-partenaires"
+      class="w-[180px] bg-cover z-10 h-[50%]"
+    />
+    <img
+      src="../assets/welcome/SPEPSC.png"
       alt="logo-partenaires"
       class="w-[180px] bg-cover z-10 h-[50%]"
     />

@@ -9,7 +9,7 @@
                 <li><a href="#" class="">DOCUMENTATION</a></li>
                 <li><a href="#" class="">CONTACT</a></li>
                 <li><a href="#" class="">EN SAVOIR +</a></li>
-                <p class="sm:hidden">|</p>
+                <p class="sm:hidden text-3xl text-yellow">|</p>
                 <!-- <p class=""></p> -->
                 <div class="socials flex sm:flex gap-5 ">
                 <img src="../assets/fb.png" alt="logo-reseaux" class="h-[35px] w-[35px]" />
