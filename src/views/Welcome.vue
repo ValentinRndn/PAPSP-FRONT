@@ -106,22 +106,27 @@
   </div>
 
   <!-- Container numéros  -->
-  <div class="flex items-center justify-center font-c-gothic text-white font-bold text-5xl mt-20">
-    <div class="flex flex-col items-center bg-purple rounded-2xl p-8">
-        <h1 class="mb-2">LES NUMÉROS À CONTACTER</h1>
-        <div class="numero flex gap-36 mb-10">
-            <p class="flex-grow text-center">?</p>
-            <p class="flex-grow text-center">?</p>
-            <p class="flex-grow text-center">?</p>
-        </div>
+  <div class="flex items-center justify-center font-c-gothic text-white font-bold text-5xl mt-20 relative">
+  <div class="flex flex-col items-center bg-purple rounded-2xl p-10 relative">
+    <h1 class="mb-2">LES NUMÉROS À CONTACTER</h1>
+    <div class="numero flex gap-36 mb-10">
+      <p class="flex-grow text-center">?</p>
+      <p class="flex-grow text-center">?</p>
+      <p class="flex-grow text-center">?</p>
     </div>
+    <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover right-0 -mr-5 mt-36 w-[50px] ">
+    <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover left-0 top-0 -ml-5 -mt-5 w-[70px]">
+    <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover left-0 top-0 -ml-8 mt-14 w-[40px]">
+  
+  </div>
 </div>
+
 
   <!-- Bouton - Contact -->
   <div class="flex  items-center justify-center -mt-8 font-helvetica  ">
-   <div class="flex items-center bg-purple-fonce shadow-xl rounded-2xl gap-4 py-2 px-6 z-20">
+   <div class="flex items-center bg-purple-fonce shadow-xl rounded-2xl gap-4 py-2 px-6 z-20 hover:scale-110 duration-200">
     <img class="w-[50px] bg-purple-fonce " src="../assets/courriel-de-contact.png">
-    <button class="text-white h-full font-bold text-xl">NOUS CONTACTER</button>
+    <button class="text-white h-full font-bold text-xl ">NOUS CONTACTER</button>
   </div>
  </div>
 
@@ -166,21 +171,21 @@
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
     <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
     <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
-    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-[50%]">></h1>
     </div>
 
         <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple-fonce">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
     <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
     <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
-    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-[50%]">></h1>
     </div>
 
         <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
     <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
     <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
-    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">></h1>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-[50%]">></h1>
     </div>
   </div>
 </div>
