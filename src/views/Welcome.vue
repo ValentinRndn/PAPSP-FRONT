@@ -1,59 +1,32 @@
 <template>
 <div class="bg-landing w-full h-screen bg-center z-10 mb-24 rounded-bl-[25%] bg-cover">
-    <aside class="flex items-center justify-center gap-5 mb-8">
+  <aside class="flex items-center justify-center gap-5 mb-8 sm:hidden">
+    <img src="../assets/logo_typo_blanc.png" alt="logo" class="size-1/4 mt-8 " />
 
-
-      <ul
-        class="navbar flex gap-10 text-xl mt-10 font-cgothic font-bold text-white"
-      >
-        <li class="menu">
-          <router-link
-            to="/"
-            :class="{ 'text-purple underline ': currentPage === '/' }"
-            >ACCUEIL</router-link
-          >
-        </li>
-        <li class="menu">
-          <router-link
-            to="/map"
-            :class="{ 'text-purple underline ': currentPage === '/map' }"
-            >CARTOGRAPHIE</router-link
-          >
-        </li>
-        <li class="menu">
-          <router-link
-            to="/documentation"
-            :class="{
-              'text-purple underline ': currentPage === '/documentation',
-            }"
-            >DOCUMENTATION</router-link
-          >
-        </li>
-        <li class="menu">
-          <router-link
-            to="/contact"
-            :class="{ 'text-purple underline ': currentPage === '/contact' }"
-            >CONTACT</router-link
-          >
-        </li>
-              <li class="menu">
+    <ul class="navbar flex gap-10 text-xl mt-10 font-cgothic font-bold text-white">
+      <li class="menu">
+        <router-link to="/" :class="{ 'text-purple underline ': currentPage === '/' }">ACCUEIL</router-link>
+      </li>      
+      <li class="menu">
+        <router-link to="/map" :class="{'text-purple underline ':currentPage === '/map' }">CARTOGRAPHIE</router-link>
+      </li>
+      <li class="menu">
+        <router-link to="/documentation" :class="{ 'text-purple underline ': currentPage === '/documentation' }">DOCUMENTATION</router-link>
+      </li>
+      <li class="menu">
+        <router-link to="/contact" :class="{ 'text-purple underline ': currentPage === '/contact' }">CONTACT</router-link>
+      </li>
+      <li class="menu">
         <router-link to="/blog" :class="{ 'text-purple underline ': currentPage === '/contact' }">BLOG</router-link>
       </li>
-        <li class="menu">
-          <router-link
-            to="/APropos"
-            :class="{ 'text-purple underline ': currentPage === '/APropos' }"
-            >EN SAVOIR +</router-link
-          >
-        </li>
-      </ul>
-    </aside>
+      <li class="menu">
+        <router-link to="/APropos" :class="{ 'text-purple underline ':currentPage === '/APropos' }">EN SAVOIR +</router-link>
+      </li>
+    </ul>
+  </aside>
     
-    <div class="header-content">
-      <div class="logo-header mx-10">
-        <img src="../assets/logo_typo_blanc.png" alt="logo_blanc" class="mx-14 mt-24 w-1/2 h-1/2">
-      </div>
-      <div class="text-header text-white text-xl font-bold flex flex-col items-center">
+    <div class="header-content h-screen">
+      <div class="text-header text-white text-xl font-bold flex flex-col items-center justify-center h-[50vh]">
         <div class="citation-header w-[28vw] text-center">
         <h1 class="citation bg-purple  p-6 w-full -ml-[7.5vw]">INSERER UNE CITATION</h1>
         </div>
