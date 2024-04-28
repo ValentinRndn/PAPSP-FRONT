@@ -109,12 +109,14 @@
   <div class="flex items-center justify-center font-c-gothic text-white font-bold text-5xl mt-20 relative">
   <div class="flex flex-col items-center bg-purple rounded-2xl p-10 relative">
     <h1 class="mb-2">LES NUMÉROS À CONTACTER</h1>
-    <div class="numero flex gap-36 mb-10">
-      <p class="flex-grow text-center">?</p>
-      <p class="flex-grow text-center">?</p>
-      <p class="flex-grow text-center">?</p>
+    <div class="numero flex gap-36 mb-10 mt-5">
+      <p class="flex-grow text-center">3919</p>
+      <div class="contact-mineur flex items-center justify-center gap-4">
+      <p class="flex-grow text-center">119</p>
+      <p class="flex-grow text-center text-lg">Pour les mineurs</p>
     </div>
-    <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover right-0 -mr-5 mt-36 w-[50px] ">
+    </div>
+    <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover right-0 -mr-5 mt-40 w-[50px] ">
     <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover left-0 top-0 -ml-5 -mt-5 w-[70px]">
     <img src="../assets/welcome/polygon.png" alt="forme1" class="absolute object-cover left-0 top-0 -ml-8 mt-14 w-[40px]">
   
@@ -136,28 +138,21 @@
   <div class="relative top-32 w-full flex gap-12 justify-center items-center">
     <div class="information flex flex-col justify-center items-center">
       <p class="chiffre text-6xl font-cgothic">10</p>
-      <p class="text font-jost-sans">Personnes contactées</p>
-    </div>
-    <div class="separator font-cgothic ">
-      <p class="text ">|</p>
-    </div>
-    <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl font-cgothic">10</p>
-      <p class="text font-jost-sans">Personnes rencontrées</p>
+      <p class="text font-jost-sans text-purple-fonce">Personnes rencontrées</p>
     </div>
     <div class="separator">
-      <p class="text ">|</p>
+      <p class="text text-6xl text-yellow">|</p>
     </div>
     <div class="information flex flex-col justify-center items-center">
       <p class="chiffre text-6xl font-cgothic">10</p>
-      <p class="text font-jost-sans">Maraudes effectuées</p>
+      <p class="text font-jost-sans text-purple-fonce">Maraudes effectuées</p>
     </div>
     <div class="separator">
-      <p class="text">|</p>
+      <p class="text text-6xl text-yellow">|</p>
     </div>
     <div class="information flex flex-col justify-center items-center">
       <p class="chiffre text-6xl font-cgothic">10</p>
-      <p class="text font-jost-sans">Préservatifs distribués</p>
+      <p class="text font-jost-sans text-purple-fonce">Préservatifs distribués</p>
     </div>
   </div>
 
@@ -167,25 +162,25 @@
 <div class="relative top-56 w-full flex flex-col  gap-12 justify-center items-center">
   <p class="text-5xl text-purple font-bold font-cgothic">Articles & News</p>
   <div class="cards flex gap-12 grow justify-center mt-6 ">
-    <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple">
+    <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
-    <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
-    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-[50%]">></h1>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full hover:scale-110 duration-200">></h1>
     </div>
 
-        <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple-fonce">
+    <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
-    <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
-    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-[50%]">></h1>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full hover:scale-110 duration-200">></h1>
     </div>
 
-        <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-purple">
+    <div class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
     <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
-    <p class="text-2xl font-bold  font-dm-serif text-white">Let's get solution for building construction work</p>
-    <p class="text text-white font-jost-sans absolute bottom-4">26 Décembre 2022</p>
-    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-[50%]">></h1>
+    <p class="text-3xl font-bold font-dm-serif text-post-grey">Let's get solution for building construction work</p>
+    <p class="text text-grey font-jost-sans absolute bottom-4">26 Décembre 2022</p>
+    <h1 class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full hover:scale-110 duration-200">></h1>
     </div>
   </div>
 </div>
