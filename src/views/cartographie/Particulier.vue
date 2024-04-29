@@ -1,7 +1,8 @@
 <template>
-  <NavigationBar />
+  <!-- <NavigationBar /> -->
+  <NavigationBarMobile />
 
-  <div class="page-container flex h-[700px] items-center">
+  <div class="page-container flex h-[700px] items-center sm:flex-col sm:h-[1400px]">
     <div class="categories-container bg-purple-fonce w-[1/3] h-full px-6 flex flex-col justify-center">
       <h1 class="text-white text-2xl font-bold mb-6 font-cgothic">PAPSP VOUS ORIENTE :</h1>
       <div class="checkboxes flex flex-col gap-3 text-white text-xl">
@@ -81,6 +82,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import NavigationBar from "../../components/NavigationBar.vue";
 import Footer from "../../components/Footer.vue";
+import NavigationBarMobile from "../../components/NavigationBarMobile.vue";
 
 export default {
   mounted() {
@@ -97,7 +99,7 @@ export default {
   components: {
     Footer,
     NavigationBar,
-  },
+  NavigationBarMobile,  },
 };
 </script>
 
