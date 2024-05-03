@@ -136,23 +136,29 @@
    <!-- Chiffres clés -->
  <div class="bg-alveoles h-[900px] z-0 bg-cover relative">
   <div class="relative top-32 w-full flex gap-12 justify-center items-center">
+    <div v-for="number in numbers" :key="number.id" class="information flex flex-col justify-center items-center">
+      <p class="chiffre text-6xl font-cgothic">{{ number.personnes }}</p>
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl font-cgothic">10</p>
       <p class="text font-jost-sans text-purple-fonce">Personnes rencontrées</p>
+    </div>  
     </div>
     <div class="separator">
       <p class="text text-6xl text-yellow">|</p>
     </div>
+    <div v-for="number in numbers" :key="number.id" class="information flex flex-col justify-center items-center">
+      <p class="chiffre text-6xl font-cgothic">{{ number.maraudes }}</p>
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl font-cgothic">10</p>
       <p class="text font-jost-sans text-purple-fonce">Maraudes effectuées</p>
+    </div>  
     </div>
     <div class="separator">
       <p class="text text-6xl text-yellow">|</p>
     </div>
+    <div v-for="number in numbers" :key="number.id" class="information flex flex-col justify-center items-center">
+      <p class="chiffre text-6xl font-cgothic">{{ number.preservatifs }}</p>
     <div class="information flex flex-col justify-center items-center">
-      <p class="chiffre text-6xl font-cgothic">10</p>
       <p class="text font-jost-sans text-purple-fonce">Préservatifs distribués</p>
+    </div>  
     </div>
   </div>
 
@@ -227,7 +233,7 @@
 
 <script>
 import Footer from "../components/Footer.vue"
-
+import axios from 'axios'
 
 export default {
   components: {
@@ -235,6 +241,7 @@ export default {
     },
   data() {
     return {
+      numbers: [],
       currentPage: "", // Initialisez currentPage avec le chemin de la page actuelle
     };
   },
@@ -243,6 +250,23 @@ export default {
       this.currentPage = to.path; // Met à jour currentPage avec le chemin de la route actuelle
     },
   },
+
+methods: {
+  showNumbers() {
+    axios.get('http://localhost:3000/statistique//getAllStatistiques')
+    .then(response => {
+      console.log(response.data);
+      this.numbers = response.data;
+    })
+    .catch(error=> {
+      console.log("Erreur lors de la récupération des statistiques", error);
+      this.error = "Une erreur s'est produite lors de la récupération des statistiques";
+    });
+  }
+},
+mounted() {
+  this.showNumbers();
+}
 };
 </script>
 
