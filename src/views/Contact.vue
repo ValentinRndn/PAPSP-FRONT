@@ -1,7 +1,11 @@
 <template>
 
-  <navigationBar />
-    <div class="header-banner bg-banner-contact w-full h-[350px] bg-cover relative sm:hidden">
+  <NavigationBar />
+  <!-- <NavigationBar v-if="isMobile === false" /> -->
+    <!-- <NavigationBarMobile v-else /> -->
+
+
+        <div class="header-banner bg-banner-contact w-full h-[350px] bg-cover relative sm:hidden">
       <div class="absolute bottom-0 left-0 right-0 text-center">
         <div class="bg-white inline-block text-purple-fonce text-5xl py-6 px-24 rounded-t-2xl font-bold font-cgothic sm:px-8 sm:text-4xl">CONTACT</div>
       </div>
@@ -94,6 +98,7 @@ import L from 'leaflet';
 import "leaflet/dist/leaflet.css";
 import NavigationBar from "../components/NavigationBar.vue";
 import Footer from "../components/Footer.vue"
+import NavigationBarMobile from "../components/NavigationBarMobile.vue";
 
 
 export default {
@@ -102,6 +107,7 @@ export default {
   components: {
       Footer, 
       NavigationBar,
+      NavigationBarMobile
     },
     mounted() {
         var map = L.map('map').setView([49.183333, -0.35], 13);

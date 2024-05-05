@@ -1,5 +1,8 @@
 <template>
+
+
 <div class="bg-landing w-full h-screen bg-center z-10 mb-24 rounded-bl-[25%] bg-cover">
+  
   <aside class="flex items-center justify-center gap-5 mb-8 sm:hidden">
     <img src="../assets/logo_typo_blanc.png" alt="logo" class="size-1/4 mt-8 " />
 
@@ -233,11 +236,13 @@
 
 <script>
 import Footer from "../components/Footer.vue"
+import NavigationBarMobile from "../components/NavigationBarMobile.vue"
 import axios from 'axios'
 
 export default {
   components: {
       Footer, 
+      NavigationBarMobile
     },
   data() {
     return {
