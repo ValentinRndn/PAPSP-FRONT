@@ -39,7 +39,7 @@
             <input class="border border-solid border-light-grey ml-auto w-[100px] text-center rounded-md md:mr-auto" type="number" name="updateNumber" id="inputFourth" maxlength="10">
            </div>
 
-            <button class="update-button bg-purple-fonce text-white p-2 rounded-md shadow-xl ml-auto font-poppins font-bold text-center md:mr-auto">SAUVEGARDER</button>
+            <button @click="saveStats" class="update-button bg-purple-fonce text-white p-2 rounded-md shadow-xl ml-auto font-poppins font-bold text-center md:mr-auto">SAUVEGARDER</button>
           </div>
           </div>
       </div>
@@ -50,13 +50,43 @@
   // Importation du composant SideBar
   import AdminBar from "../../components/backOffice/AdminBar.vue";
   import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
+  import axios from "axios";
   
   export default {
     components: {
       AdminBar, 
       HorizontalBar
     },
-  };
+    data() {
+    return {
+      numbers: []
+    };
+  },
+    methods: 
+    {
+      // Fonction pour sauvegarder les données
+      saveStats() {
+      // Récupération des valeurs des champs
+        let inputFirst = document.getElementById('inputFirst').value;
+        let inputSecond = document.getElementById('inputSecond').value;
+        let inputThird = document.getElementById('inputThird').value;
+        let inputFourth = document.getElementById('inputFourth').value;
+  
+        // Envoi des données à l'API
+        axios.put('http://localhost:3000/statistique/updateStatistique/1', {
+          personnes_contactees: inputFirst,
+          personnes_rencontrees: inputSecond,
+          maraudes_effectuees: inputThird,
+          preservatifs_distribues: inputFourth
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
+  }
+
+
   </script>
   
   <style>
