@@ -237,42 +237,39 @@
 <script>
 import Footer from "../components/Footer.vue"
 import NavigationBarMobile from "../components/NavigationBarMobile.vue"
-import axios from 'axios'
+
+import { showNumbers } from "../services/StatistiquesService.js";   
 
 export default {
   components: {
-      Footer, 
-      NavigationBarMobile
-    },
+    Footer, 
+    NavigationBarMobile
+  },
   data() {
     return {
       numbers: [],
-      currentPage: "", // Initialisez currentPage avec le chemin de la page actuelle
+      currentPage: ""
     };
   },
-  watch: {
-    $route(to) {
-      this.currentPage = to.path; // Met à jour currentPage avec le chemin de la route actuelle
-    },
+  methods: {
+    async showNumbers() {
+      try {
+        const numbers = await showNumbers();
+        this.numbers = numbers;
+        this.error = null; // Réinitialisez l'erreur s'il y en avait une précédemment
+      } catch (error) {
+        console.error('Erreur lors de la récupération des statistiques :', error);
+        this.error = "Une erreur s'est produite lors de la récupération des statistiques";
+        this.numbers = null; // Réinitialisez les statistiques si une erreur est survenue
+      }
+    }
   },
-
-methods: {
-  showNumbers() {
-    axios.get('http://localhost:3000/statistique//getAllStatistiques')
-    .then(response => {
-      console.log(response.data);
-      this.numbers = response.data;
-    })
-    .catch(error=> {
-      console.log("Erreur lors de la récupération des statistiques", error);
-      this.error = "Une erreur s'est produite lors de la récupération des statistiques";
-    });
-  }
-},
-mounted() {
-  this.showNumbers();
-}
+  mounted() {
+    this.showNumbers();
+  },  
 };
+
+
 </script>
 
 <style>
