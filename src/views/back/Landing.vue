@@ -1,12 +1,16 @@
 <template>
-  <div class="dashboard flex bg-back-grey">
+
+
+  <div class="dashboard flex  bg-back-grey">
     <div class="components">
       <!-- Intégration de la barre latérale -->
       <HorizontalBar />
       <AdminBar />
     </div>
+    <div class="content w-full h-full">
+      <LastUpdate v-if="lastUpdate !== null" :lastUpdateDate="lastUpdate"></LastUpdate>
     <!-- Contenu du tableau de bord -->
-    <div class="dashboard-container mx:auto ">
+    <div class="dashboard-container ">
       <div class="update-keys flex flex-col gap-5 w-1/3 bg-white p-4 mt-16 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
         <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2">Mise à jour données</h3>
 
@@ -32,20 +36,21 @@
       </div>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
-import { stringifyQuery } from 'vue-router';
-// Importation du composant SideBar
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
 import { saveStatistiques } from "../../services/StatistiquesService.js";
 import { showNumbers } from "../../services/StatistiquesService.js";
+import LastUpdate from "../../components/backOffice/LastUpdate.vue";
 
 export default {
   components: {
     AdminBar,
-    HorizontalBar
+    HorizontalBar,
+    LastUpdate,
   },
   data() {
     return {
@@ -53,26 +58,35 @@ export default {
       personnes: null, // Modifier les noms des propriétés
       maraudes: null,
       preservatifs: null,
+      lastUpdate: null,
     };
   },
   methods: {
    async saveStats() {
+    const currentDate = new Date();
       // Utilisez les valeurs des données pour enregistrer les statistiques
       const Statistique = {
         personnes: this.personnes,
         maraudes: this.maraudes,
         preservatifs: this.preservatifs,
-      };
 
+        // Ajoutez la date actuelle
+        lastUpdate: currentDate.toISOString()
+      };
       // Appelez la fonction de service pour enregistrer les statistiques
       saveStatistiques(Statistique)
         .then(response => {
           console.log("Statistiques enregistrées avec succès :", response);
+          this.lastUpdate = currentDate.toLocaleString();
+          // Stockez la date de dernière mise à jour dans le stockage local
+          localStorage.setItem('lastUpdate', currentDate.toISOString());
         })
         .catch(error => {
           console.error("Erreur lors de l'enregistrement des statistiques :", error);
         });
     },
+
+
     async showNumbers() {
   try {
     const statisticsArray = await showNumbers(); 
@@ -98,6 +112,10 @@ export default {
   },
   mounted() {
     this.showNumbers();
+    const lastUpdate = localStorage.getItem('lastUpdate');
+    if (lastUpdate) {
+      this.lasUpdate = new Date(lastUpdate).toLocaleString();
+    }
   }, 
   }
 </script>
