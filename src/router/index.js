@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Welcome from '../views/Welcome.vue'
 import Map from '../views/Map.vue'
-import Documentation from '../views/Documentation.vue'
+import Guide from '../views/Guide.vue'
 import Contact from '../views/Contact.vue'
 import APropos from '../views/APropos.vue'
 import Dashboard from '../views/back/Dashboard.vue'
@@ -12,6 +12,10 @@ import BackBlog from '../views/back/Blog.vue'
 import Blog from '../views/Blog.vue'
 import Particulier from '../views/cartographie/Particulier.vue'
 import Professionel from '../views/cartographie/Professionel.vue'
+import ParticularGuide from '../views/Guide/ParticularGuide.vue'
+import ProfessionalGuide from '../views/Guide/ProfessionalGuide.vue'
+
+
 
 
 import Login from '../views/back/Login.vue'
@@ -29,8 +33,8 @@ const router = createRouter({
             component: Map
         },
         {
-            path: '/documentation',
-            component: Documentation
+            path: '/guide',
+            component: Guide
         },
         {
             path: '/contact',
@@ -77,6 +81,15 @@ const router = createRouter({
             path: '/cartographie/Professionel',
             component: Professionel
         },
+        {
+            path: '/Guide/ParticularGuide',
+            component: ParticularGuide
+        },
+        {
+            path: '/Guide/ProfessionalGuide',
+            component: ProfessionalGuide
+        },
+
         
 
     ]

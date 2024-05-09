@@ -14,7 +14,7 @@
         <router-link to="/map" :class="{'text-purple underline ':currentPage === '/map' }">CARTOGRAPHIE</router-link>
       </li>
       <li class="menu">
-        <router-link to="/documentation" :class="{ 'text-purple underline ': currentPage === '/documentation' }">DOCUMENTATION</router-link>
+        <router-link to="/guide" :class="{ 'text-purple underline ': currentPage === '/documentation' }">GUIDE</router-link>
       </li>
       <li class="menu">
         <router-link to="/contact" :class="{ 'text-purple underline ': currentPage === '/contact' }">CONTACT</router-link>
