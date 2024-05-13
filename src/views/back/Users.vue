@@ -65,7 +65,18 @@
       users: [],
     }
   },
+  methods: {
+    async showUsers() {
+      this.users = await getAllUsers();
+      console.log(users);
+    }
+    },
+    mounted() {
+      this.showUsers();
+    }
   };
+
+
   </script>
   
   <style>

@@ -15,9 +15,9 @@
 
         
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale2" name="scales"  />
-            <label for="scales">Me faire dépister</label>
-        </div>
+          <input type="checkbox" id="scale2" name="scales" />
+          <label for="scales">Me faire dépister</label>
+          </div>
 
         
           <div class="checkbox flex gap-3 items-center">
@@ -81,6 +81,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import NavigationBar from "../../components/NavigationBar.vue";
 import Footer from "../../components/Footer.vue";
+import { showStructureByCategorie } from "../../services/StructuresService";
 
 export default {
   mounted() {
@@ -98,8 +99,26 @@ export default {
     Footer,
     NavigationBar,
   },
+  methods: {
+    async showStructures() {
+      const structures = await showStructureByCategorie();
+      console.log(structures);
+    },
+    handleCheckboxChange(checkbox) {
+      if (checkbox.checked) {
+          const associatedValue = checkbox.getAttribute('data-associated-value');
+          console.log("La case est cochée. Valeur associée :", associatedValue);
+      } else {
+          console.log("La case est décochée.");
+      }
+    }
+  },
+  mounted() {
+    this.showStructures();
+  }
 };
 </script>
+
 
 <style>
 input[type="checkbox"] {
