@@ -82,6 +82,7 @@ import "leaflet/dist/leaflet.css";
 import NavigationBar from "../../components/NavigationBar.vue";
 import Footer from "../../components/Footer.vue";
 import { showStructureByCategorie } from "../../services/StructuresService";
+import { showAllStructures} from "../../services/StructuresService"
 
 export default {
   mounted() {
@@ -101,7 +102,7 @@ export default {
   },
   methods: {
     async showStructures() {
-      const structures = await showStructureByCategorie();
+      const structures = await showAllStructures();
       console.log(structures);
     },
     handleCheckboxChange(checkbox) {

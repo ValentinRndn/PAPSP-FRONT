@@ -13,7 +13,9 @@
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
+    "pdfjs-dist": "^4.2.67",
     "vue": "^3.4.15",
+    "vue-leaflet": "^0.1.0",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
