@@ -20,3 +20,13 @@ export const showBlog = (id) => {
         throw error;
         });
     };
+
+    export const showLastBlog = () => {
+        return axios.get('http://localhost:3000/blog/getLastBlog')
+            .then(response => {
+            return response.data;
+            })
+            .catch(error => {
+            throw error;
+            });
+        }

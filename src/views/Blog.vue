@@ -14,9 +14,9 @@
       </h1>
     </div>
 
-    <div class="header-content flex flex-col justify-center items-center bg-white mx-auto mt-6">
+    <div class="header-content flex gap-12 justify-center items-center bg-white mx-auto mt-6">
       <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
-        <img src="../assets/stop.jpg" alt="stop" class="rounded-t-[25px]"/>
+        <!-- <img :src="article.imageUrl" alt="article image" class="rounded-t-[25px]" /> -->
         <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
         <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
         <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
@@ -33,7 +33,19 @@
     </div>
 
     <div class="bg-alveoles h-[1000px] z-0 bg-cover relative mx-4 mt-6">
-      <!-- Dernier POST contenu ici -->
+      <div v-if="lastArticle" class="programme flex justify-center items-center max-w-[1000px] gap-10 md:flex-col mx-auto bg-white p-4 shadow-xl rounded-3xl">
+        <div class="image-programme w-1/2">
+          <img src="../assets/landing.jpg" alt="programme" class="w-full h-[350px] object-cover rounded-3xl" />
+        </div>
+        <div class="content-programme w-1/2 flex flex-col gap-6">
+          <h3 class="text-3xl font-bold font-dm-serif text-post-grey">{{ lastArticle._titre }}</h3>
+          <p class="text-md font-jost-sans text-program-grey">{{ lastArticle._description.substring(0, 300) }}...</p>
+          <div class="bottom-content flex items-center justify-between">
+            <p class="text-grey font-jost-sans">{{ lastArticle._date }}</p>
+            <router-link :to="{ name: 'BlogDetail', params: { id: lastArticle._id } }" class="arrow text-xl text-grey inline-block font-bold bg-light-beige p-2 px-3 rounded-full">></router-link>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- LES ARTICLES & NEWS POSTS -->
@@ -49,7 +61,7 @@
 <script>
 import NavigationBar from "../components/NavigationBar.vue";
 import Footer from "../components/Footer.vue";
-import { showAllBlogs } from "../services/BlogsService";
+import { showAllBlogs, showLastBlog } from "../services/BlogsService";
 
 export default {
   components: {
@@ -59,10 +71,17 @@ export default {
   data() {
     return {
       articles: [],
+      lastArticle: null,
     };
   },
   async mounted() {
-    this.articles = await showAllBlogs();
+    try {
+      this.articles = await showAllBlogs();
+      this.lastArticle = await showLastBlog();
+      console.log(this.lastArticle);
+    } catch (error) {
+      console.error("Failed to fetch articles or last article:", error);
+    }
   },
 };
 </script>
