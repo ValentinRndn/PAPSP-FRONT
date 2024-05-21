@@ -3,7 +3,6 @@
     <div class="container mx-auto">
       <h1 class="text-3xl font-bold">{{ article._titre }}</h1>
       <p class="mt-4">{{ article._description }}</p>
-      <h1>coucou</h1>
     </div>
   </template>
   

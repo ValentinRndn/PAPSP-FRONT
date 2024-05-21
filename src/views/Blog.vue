@@ -15,15 +15,15 @@
     </div>
 
     <div class="header-content flex gap-12 justify-center items-center bg-white mx-auto mt-6">
-      <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
-        <!-- <img :src="article.imageUrl" alt="article image" class="rounded-t-[25px]" /> -->
-        <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
-        <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
-        <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
-          >
-        </router-link>
-      </div>
+    <div v-for="article in epingleArticles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
+      <!-- <img :src="article.imageUrl" alt="article image" class="rounded-t-[25px]" /> -->
+      <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
+      <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
+      <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
+        >
+      </router-link>
     </div>
+  </div>
 
     <!-- Dernier POST -->
     <div class="text flex justify-start items-center pt-12 mt-12 max-w-[1000px] mx-auto">
@@ -46,15 +46,28 @@
           </div>
         </div>
       </div>
-    </div>
+
 
     <!-- LES ARTICLES & NEWS POSTS -->
     <div class="text flex justify-start items-center pt-12 mt-12 max-w-[1000px] mx-auto">
       <h1 class="flex text-3xl text-purple-fonce font-bold font-cgothic">
         LES ARTICLES & NEWS
       </h1>
+      
+    </div>
+    <div class="cards flex gap-12 justify-center items-center mt-6">
+    <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
+        <!-- <img :src="article.imageUrl" alt="article image" class="rounded-t-[25px]" /> -->
+        <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
+        <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
+        <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
+          >
+        </router-link>
+      </div>
     </div>
   </div>
+  
+</div>
   <Footer />
 </template>
 
@@ -78,10 +91,14 @@ export default {
     try {
       this.articles = await showAllBlogs();
       this.lastArticle = await showLastBlog();
-      console.log(this.lastArticle);
     } catch (error) {
       console.error("Failed to fetch articles or last article:", error);
     }
+  },
+  computed: {
+    epingleArticles() {
+      return this.articles.filter(article => article._epingle);
+    },
   },
 };
 </script>
