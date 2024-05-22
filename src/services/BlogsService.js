@@ -30,3 +30,18 @@ export const showBlog = (id) => {
             throw error;
             });
         }
+
+
+        export const createBlog = async (formData) => {
+          try {
+            const response = await axios.post('http://localhost:3000/blog/createBlog', formData, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            });
+            return response.data;
+          } catch (error) {
+            console.error('Error creating blog:', error);
+            throw error;
+          }
+        };
