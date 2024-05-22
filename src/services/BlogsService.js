@@ -45,3 +45,27 @@ export const showBlog = (id) => {
             throw error;
           }
         };
+
+        export const updateBlog = async (id, formData) => {
+          try {
+            const response = await axios.put(`http://localhost:3000/blog/updateBlog/${id}`, formData, {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+            });
+            return response.data;
+          } catch (error) {
+            console.error('Error updating blog:', error);
+            throw error;
+          }
+        };
+
+        export const deleteBlog = async (id) => {
+          try {
+            const response = await axios.delete(`http://localhost:3000/blog/deleteBlog/${id}`);
+            return response.data;
+          } catch (error) {
+            console.error('Error deleting blog:', error);
+            throw error;
+          }
+        };

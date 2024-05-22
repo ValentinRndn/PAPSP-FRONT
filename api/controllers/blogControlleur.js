@@ -96,3 +96,52 @@ exports.createBlog = (req, res) => {
   };
 
 
+  // Controller updateBlog
+exports.updateBlog = (req, res) => {
+    // Vérifiez les champs de req.body et req.file
+    const { titre, date, description, epingle, auteur } = req.body;
+    const imageUrl = req.file ? req.file.path : null;
+  
+    // Créez une instance de Blog en utilisant les données du corps de la requête
+    const blog = Blog.fromMap({
+      titre,
+      date,
+      description,
+      epingle: epingle === 'true', // Assurez-vous que l'épingle est un booléen
+      auteur,
+      image: imageUrl
+    });
+  
+    // Définir la requête SQL et les valeurs
+    const sql = 'UPDATE blogs SET titre = ?, date = ?, image = ?, description = ?, epingle = ?, auteur = ? WHERE id = ?';
+    const values = [blog.titre, blog.date, blog.image, blog.description, blog.epingle, blog.auteur, req.params.id];
+  
+    // Obtenir une instance de la classe Database et exécuter la requête
+    const dbInstance = db.getInstance();
+  
+    dbInstance.query(sql, values, (err, result) => {
+      if (err) {
+        console.error("Erreur lors de la mise à jour du blog", err);
+        return res.status(500).json({ message: "Erreur lors de la mise à jour du blog" });
+      } else {
+        return res.status(200).json({ message: "Blog mis à jour avec succès !" });
+      }
+    });
+  };
+
+    // Controller deleteBlog
+exports.deleteBlog = (req, res) => {
+    const sql = 'DELETE FROM blogs WHERE id = ?';
+    const values = [req.params.id];
+    const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
+  
+    dbInstance.query(sql, values, (err, result) => {
+      if (err) {
+        console.error("Erreur lors de la suppression du blog", err);
+        return res.status(500).json({ message: "Erreur lors de la suppression du blog" });
+      } else {
+        return res.status(200).json({ message: "Blog supprimé avec succès !" });
+      }
+    });
+  };
+

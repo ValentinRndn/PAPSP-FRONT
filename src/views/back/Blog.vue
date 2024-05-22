@@ -21,7 +21,7 @@
               <div class="edit-post flex gap-4 font-poppins">
                 <p class="text-light-grey underline">Archiver</p>
                 <p class="text-light-grey underline">Modifier</p>
-                <p class="text-light-grey underline">Supprimer</p>
+                <p class="text-light-grey underline cursor-pointer" @click="deleteArticle(article._id)">Supprimer</p>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
 import ModalCreateBlog from "../../components/backOffice/blog/ModalCreate.vue";
-import { showAllBlogs, createBlog } from "../../services/BlogsService.js";
+import { showAllBlogs, createBlog, deleteBlog, updateBlog } from "../../services/BlogsService.js";
 
 export default {
   components: {
@@ -121,6 +121,14 @@ export default {
     }
     window.location.reload()
   },
+  async deleteArticle(id) {
+      try {
+        await deleteBlog(id);
+        window.location.reload();
+      } catch (error) {
+        console.error('Error deleting article', error);
+      }
+    },
 
 },
 async mounted() {
