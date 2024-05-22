@@ -15,19 +15,10 @@
 
           <div class="posts-keys flex flex-col gap-5 w-full bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
             <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gérer mes articles</h3>
-
-            <div class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
-              <p>Personnes contactées</p>
+           
+            <div v-for="article in articles" :key="article._id" class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
+              <p>{{ article._titre }}</p>
               <div class="edit-post flex gap-4 font-poppins">
-                <p class="text-light-grey underline">Archiver</p>
-                <p class="text-light-grey underline">Modifier</p>
-                <p class="text-light-grey underline">Supprimer</p>
-              </div>
-            </div>
-
-            <div class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
-              <p>Personnes contactées</p>
-              <div class="edit-post flex gap-2 font-poppins">
                 <p class="text-light-grey underline">Archiver</p>
                 <p class="text-light-grey underline">Modifier</p>
                 <p class="text-light-grey underline">Supprimer</p>
@@ -75,14 +66,15 @@
 <script>
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
-import ModalCreateBlog from "../../components/backOffice/blog/ModalCreateBlog.vue";
-import { createBlog } from "../../services/BlogsService.js";
+import ModalCreateBlog from "../../components/backOffice/blog/ModalCreate.vue";
+import { showAllBlogs, createBlog } from "../../services/BlogsService.js";
 
 export default {
   components: {
     AdminBar,
     HorizontalBar,  
     ModalCreateBlog,
+    showAllBlogs,
   },
   data() {
     return {
@@ -94,7 +86,8 @@ export default {
         epingle: false,
         auteur: '',
       },
-      image: null
+      image: null,
+      articles: [],
     };
   },
   methods: {
@@ -119,7 +112,6 @@ export default {
         formData.append('image', this.image);
       }
 
-      console.log('Sending data:', formData);
 
       const response = await createBlog(formData);
       console.log('Article created successfully', response);
@@ -127,8 +119,17 @@ export default {
     } catch (error) {
       console.error('Error creating article', error);
     }
+    window.location.reload()
+  },
+
+},
+async mounted() {
+    try {
+      this.articles = await showAllBlogs();
+    } catch (error) {
+      console.error('Failed to fetch articles:', error);
+    }
   }
-}
 
 
 };
