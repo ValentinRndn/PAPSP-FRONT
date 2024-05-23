@@ -16,7 +16,7 @@
 
     <div class="header-content flex gap-12 justify-center items-center bg-white mx-auto mt-6">
     <div v-for="article in epingleArticles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
-      <!-- <img :src="article.imageUrl" alt="article image" class="rounded-t-[25px]" /> -->
+      <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
       <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
       <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
       <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
@@ -35,7 +35,7 @@
     <div class="bg-alveoles h-[1000px] z-0 bg-cover relative mx-4 mt-6">
       <div v-if="lastArticle" class="programme flex justify-center items-center max-w-[1000px] gap-10 md:flex-col mx-auto bg-white p-4 shadow-xl rounded-3xl">
         <div class="image-programme w-1/2">
-          <img src="../assets/landing.jpg" alt="programme" class="w-full h-[350px] object-cover rounded-3xl" />
+          <img :src="`api/${lastArticle._image}`" alt="article image" class="rounded-t-[25px] h-[300px] w-full object-cover" />
         </div>
         <div class="content-programme w-1/2 flex flex-col gap-6">
           <h3 class="text-3xl font-bold font-dm-serif text-post-grey">{{ lastArticle._titre }}</h3>
@@ -57,14 +57,15 @@
     </div>
     <div class="cards flex gap-12 justify-center items-center mt-6">
     <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
-        <!-- <img :src="article.imageUrl" alt="article image" class="rounded-t-[25px]" /> -->
-        <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
-        <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
-        <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
-          >
-        </router-link>
-      </div>
+      <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
+      <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
+      <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
+      <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
+        >
+      </router-link>
     </div>
+  </div>
+
   </div>
   
 </div>
@@ -91,6 +92,7 @@ export default {
     try {
       this.articles = await showAllBlogs();
       this.lastArticle = await showLastBlog();
+      console.log(this.articles);
     } catch (error) {
       console.error("Failed to fetch articles or last article:", error);
     }

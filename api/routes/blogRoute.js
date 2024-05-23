@@ -10,7 +10,8 @@ const storage = multer.diskStorage({
     cb(null, 'uploads/');
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // Ajoute un timestamp pour rendre les noms de fichiers uniques
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + '-' + uniqueSuffix + '-' + file.originalname);
   }
 });
 
@@ -20,7 +21,6 @@ router.get('/getBlogById/:id', blogController.getBlogById);
 router.get('/getAllBlogs', blogController.getAllBlogs);
 router.get('/getLastBlog', blogController.getLastBlog);
 router.post('/createBlog', upload.single('image'), blogController.createBlog);
-
 router.put('/updateBlog/:id', blogController.updateBlog);
 router.delete('/deleteBlog/:id', blogController.deleteBlog);
 
