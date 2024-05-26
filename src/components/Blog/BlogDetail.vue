@@ -3,7 +3,8 @@
   <NavigationBar />
 
     <div class="container mx-auto">
-      <div class="header-banner bg-banner-propos w-full h-[500px] bg-cover relative  sm:hidden">
+        <div :class="`header-banner bg-${article._image} w-full h-[500px] bg-cover relative sm:hidden`">
+
   <div class="absolute bottom-1/2 left-0 right-0 text-center text-white text-5xl font-bold font-cgothic">
     <div class=" ">{{ article._titre}}</div>
     <div class="info-post flex text-center justify-center items-center mt-5 gap-5">

@@ -29,7 +29,7 @@
       </div>
 
       <!-- Modal for creating a new article -->
-      <ModalCreateBlog :visible="isModalVisible" @close="closeModal">
+      <ModalCreate :visible="isModalVisible" @close="closeModal">
         <h2 class="text-xl font-bold mb-4">Créer un nouvel article</h2>
         <form @submit.prevent="createArticle">
           <div class="mb-4">
@@ -58,7 +58,7 @@
           </div>
           <button type="submit" class="bg-purple text-white py-2 px-4 rounded-md">Créer</button>
         </form>
-      </ModalCreateBlog>
+      </ModalCreate>
     </div>
   </div>
 </template>
@@ -66,14 +66,14 @@
 <script>
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
-import ModalCreateBlog from "../../components/backOffice/blog/ModalCreate.vue";
+import ModalCreate from "../../components/backOffice/blog/ModalCreate.vue";
 import { showAllBlogs, createBlog, deleteBlog, updateBlog } from "../../services/BlogsService.js";
 
 export default {
   components: {
     AdminBar,
     HorizontalBar,  
-    ModalCreateBlog,
+    ModalCreate,
     showAllBlogs,
   },
   data() {
