@@ -31,9 +31,9 @@
       </div>
 
             <!-- Modal for creating a new File -->
-            <ModalCreate :visible="isModalVisible" @close="closeModal">
+            <ModalCreate :visible="isModalVisible" @close="closeModal ">
         <h2 class="text-xl font-bold mb-4">Créer un nouveau document</h2>
-        <form @submit.prevent="createFile">
+        <form @submit.prevent="createFile" enctype="multipart/form-data">
           <div class="mb-4">
             <label for="titre" class="block text-sm font-medium text-gray-700">Titre</label>
             <input v-model="newFile.titre" type="text" id="titre" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
@@ -53,6 +53,10 @@
           <div class="mb-4">
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
             <input @change="onFileChange" type="file" id="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
+          </div>
+          <div class="mb-4">
+            <label for="pdf" class="block text-sm font-medium text-gray-700">PDF</label>
+            <input @change="onFileChange" type="file" id="pdf" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"> 
           </div>
           <button type="submit" class="bg-purple text-white py-2 px-4 rounded-md">Créer</button>
         </form>
@@ -87,6 +91,8 @@ export default {
         categorie: '',
       },
       image: null,
+      pdf: null,
+
       documents: [],
     };
   },
@@ -98,20 +104,30 @@ export default {
     this.isModalVisible = false;
   },
   onFileChange(event) {
+  const inputName = event.target.id; // Récupérer l'ID de l'élément input
+
+  if (inputName === 'image') {
     this.image = event.target.files[0];
-  },
+  } else if (inputName === 'pdf') {
+    this.pdf = event.target.files[0];
+  }
+},
+
   async createFile() {
     try {
       const formData = new FormData();
-      formData.append('id', this.newFile.id);
       formData.append('titre', this.newFile.titre);
       formData.append('description', this.newFile.description);
       formData.append('lien', this.newFile.lien);
       formData.append('categorie', this.newFile.categorie);
+      
       if (this.image) {
         formData.append('image', this.image);
       }
 
+      if (this.pdf) {
+        formData.append('pdf', this.pdf);
+      }
 
       const response = await createFile(formData);
       console.log('File created successfully', response);
@@ -119,8 +135,8 @@ export default {
     } catch (error) {
       console.error('Error creating File', error);
     }
-    window.location.reload()
-  },
+    // window.location.reload();
+},
   async deleteFile(id) {
       try {
         await deleteFile(id);
@@ -140,7 +156,8 @@ export default {
         description: doc.description,
         lien: doc.lien,
         image: doc.image,
-        categorie: doc.categorie
+        categorie: doc.categorie,
+        pdf: doc.pdf
       }));
     } catch (error) {
       console.error("Error fetching documents:", error);

@@ -39,20 +39,22 @@ exports.getFileByCategory = (req, res) => {
 // Controller createFile
 exports.createFile = (req, res) => {
     const { titre, description, lien, categorie } = req.body;
-    const imageUrl = req.file ? req.file.path : null;
+    const imageUrl = req.files['image'] ? req.files['image'][0].path : null;
+    const pdfUrl = req.files['pdf'] ? req.files['pdf'][0].path : null; 
 
     const file = File.fromMap({
         titre,
         description,
         lien,
         image: imageUrl,
-        categorie
+        categorie,
+        pdf: pdfUrl 
     });
 
-    const sql = 'INSERT INTO documents (titre, description, lien, image, categorie) VALUES (?, ?, ?, ?, ?)';
-    const values = [file.titre, file.description, file.lien, file.image, file.categorie];
-    
-    const dbInstance = db.getInstance(); 
+    const sql = 'INSERT INTO documents (titre, description, lien, image, categorie, pdf) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [file.titre, file.description, file.lien, file.image, file.categorie, file.pdf];
+
+    const dbInstance = db.getInstance();
 
     dbInstance.query(sql, values, (err, result) => {
         if (err) {
@@ -62,8 +64,10 @@ exports.createFile = (req, res) => {
             file._id = result.insertId;
             return res.status(201).json({ message: "Fichier créé avec succès !" });
         }
-})
-}
+    });
+};
+
+
 
 // Controller deleteFile
 exports.deleteFile = (req, res) => {
