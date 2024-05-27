@@ -16,7 +16,7 @@ export const showBlog = (id) => {
         .then(response => {
         return response.data;
         })
-        .catch(error => {
+        .catch(error => { 
         throw error;
         });
     };

@@ -10,7 +10,7 @@
       <div class="dashboard-container">
         <div class="update-keys mt-16">
           <div class="button-container flex gap-5">
-            <button @click="openModal" class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">AJOUTER UN NOUVEL File</button>
+            <button @click="openModal" class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">AJOUTER UN NOUVEAU DOCUMENT</button>
             <!-- <button class="archives-button bg-purple text-white py-4 px-10 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">ARCHIVES</button>
             <button class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">MES CATÉGORIES</button> -->
           </div>
@@ -33,27 +33,23 @@
 
             <!-- Modal for creating a new File -->
             <ModalCreate :visible="isModalVisible" @close="closeModal">
-        <h2 class="text-xl font-bold mb-4">Créer un nouvel File</h2>
+        <h2 class="text-xl font-bold mb-4">Créer un nouveau document</h2>
         <form @submit.prevent="createFile">
           <div class="mb-4">
             <label for="titre" class="block text-sm font-medium text-gray-700">Titre</label>
             <input v-model="newFile.titre" type="text" id="titre" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
           </div>
           <div class="mb-4">
-            <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
-            <input v-model="newFile.date" type="date" id="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
-          </div>
-          <div class="mb-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
             <textarea v-model="newFile.description" id="description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required></textarea>
           </div>
           <div class="mb-4">
-            <label for="auteur" class="block text-sm font-medium text-gray-700">Auteur</label>
-            <input v-model="newFile.auteur" type="text" id="auteur" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
+            <label for="lien" class="block text-sm font-medium text-gray-700">Lien</label>
+            <input v-model="newFile.lien" type="text" id="lien" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
           </div>
           <div class="mb-4">
-            <label for="epingle" class="block text-sm font-medium text-gray-700">Épinglé</label>
-            <input v-model="newFile.epingle" type="checkbox" id="epingle">
+            <label for="categorie" class="block text-sm font-medium text-gray-700">categorie</label>
+            <input v-model="newFile.categorie" type="text" id="categorie" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
           </div>
           <div class="mb-4">
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
@@ -71,7 +67,7 @@
 // Importation des composants nécessaires
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
-import { getAllFiles } from "../../services/GuideService.js";
+import { getAllFiles, createFile } from "../../services/GuideService.js";
 import ModalCreate from "../../components/backOffice/blog/ModalCreate.vue";
 
 
@@ -116,22 +112,22 @@ export default {
       }
 
 
-      const response = await createBlog(formData);
+      const response = await createFile(formData);
       console.log('File created successfully', response);
       this.closeModal(); // Optionnel : fermer la modal après la création
     } catch (error) {
       console.error('Error creating File', error);
     }
-    window.location.reload()
+    // window.location.reload()
   },
-  async deleteFile(id) {
-      try {
-        await deleteBlog(id);
-        window.location.reload();
-      } catch (error) {
-        console.error('Error deleting File', error);
-      }
-    },
+//   async deleteFile(id) {
+//       try {
+//         await deleteBlog(id);
+//         window.location.reload();
+//       } catch (error) {
+//         console.error('Error deleting File', error);
+//       }
+//     },
 
 },
   async created() {
