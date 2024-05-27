@@ -35,3 +35,32 @@ exports.getFileByCategory = (req, res) => {
         }
     });
 }
+
+// Controller createFile
+exports.createFile = (req, res) => {
+    const { titre, description, lien, categorie } = req.body;
+    const imageUrl = req.file ? req.file.pathname : null;
+
+    const file = File.fromMap({
+        titre,
+        description,
+        lien,
+        image: imageUrl,
+        categorie
+    });
+
+    const sql = 'INSERT INTO documents (titre, description, lien, image, categorie) VALUES (?, ?, ?, ?, ?)';
+    const values = [file.titre, file.description, file.lien, file.image, file.categorie];
+    
+    const dbInstance = db.getInstance(); 
+
+    dbInstance.query(sql, values, (err, result) => {
+        if (err) {
+            console.error("Erreur lors de l'insertion du fichier", err);
+            return res.status(500).json({ message: "Erreur lors de la création du fichier" });
+        } else {
+            file._id = result.insertId;
+            return res.status(201).json({ message: "Fichier créé avec succès !" });
+        }
+})
+}
