@@ -119,7 +119,7 @@ export default {
     } catch (error) {
       console.error('Error creating File', error);
     }
-    // window.location.reload()
+    window.location.reload()
   },
   async deleteFile(id) {
       try {
