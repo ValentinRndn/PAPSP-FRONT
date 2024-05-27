@@ -92,7 +92,6 @@ export default {
     try {
       this.articles = await showAllBlogs();
       this.lastArticle = await showLastBlog();
-      console.log(this.articles);
     } catch (error) {
       console.error("Failed to fetch articles or last article:", error);
     }

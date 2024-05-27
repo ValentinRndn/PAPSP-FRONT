@@ -8,7 +8,7 @@
       <div class="documents-container mt-14 mx-10 flex gap-5 flex-wrap">
         <div v-for="doc in documents" :key="doc.id" class="doc-container w-[300px] flex flex-col items-center justify-center text-center gap-3">
           <!-- <a :href="doc.lien" target="_blank" rel="noopener noreferrer"> -->
-            <img :src="doc.image" class="w-full" :alt="doc.titre">
+            <img :src="`../api/${doc.image}`" class="w-full" :alt="doc.titre">
           <!-- </a> -->
           <a :href="doc.lien" target="_blank" rel="noopener noreferrer">
             <h3 class="w-full font-semibold">{{ doc.titre }}</h3>
