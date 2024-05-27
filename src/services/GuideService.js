@@ -34,3 +34,14 @@ export const createFile = async (formData) => {
     throw error;
   }
 };
+
+
+export const deleteFile = async (id) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/file/deleteFile/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error deleting file:', error);
+    throw error;
+  }
+}

@@ -64,3 +64,20 @@ exports.createFile = (req, res) => {
         }
 })
 }
+
+// Controller deleteFile
+exports.deleteFile = (req, res) => {
+    const sql = 'DELETE FROM documents WHERE id = ?';
+    const values = [req.params.id];
+
+    const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
+
+    dbInstance.query(sql, values, (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la suppression du fichier", err);
+            return res.status(500).json({ message: "Erreur lors de la suppression du fichier" });
+        } else {
+            return res.status(200).json({ message: "Fichier supprimé avec succès !" });
+        }
+    });
+}

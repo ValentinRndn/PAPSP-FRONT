@@ -20,4 +20,6 @@ const upload = multer({ storage: storage});
 router.get('/getAllFiles', fileController.getAllFiles);
 router.get('/getFileByCategory/:categorie', fileController.getFileByCategory);
 router.post('/createFile', upload.single('image'), fileController.createFile);
+router.delete('/deleteFile/:id', fileController.deleteFile);
+
 module.exports = router;

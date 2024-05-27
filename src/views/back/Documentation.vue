@@ -22,9 +22,8 @@
               <p>{{ doc.titre }}</p>
               <div class="edit-post flex gap-4 font-poppins">
                 <p class="text-light-grey underline">Catégories</p>
-                <p class="text-light-grey underline">Archiver</p>
                 <p class="text-light-grey underline">Modifier</p>
-                <p class="text-light-grey underline">Supprimer</p>
+                <p class="text-light-grey underline cursor-pointer">Supprimer</p>
               </div>
             </div>
           </div>
@@ -67,7 +66,7 @@
 // Importation des composants nécessaires
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
-import { getAllFiles, createFile } from "../../services/GuideService.js";
+import { getAllFiles, createFile, deleteFile } from "../../services/GuideService.js";
 import ModalCreate from "../../components/backOffice/blog/ModalCreate.vue";
 
 
@@ -81,6 +80,7 @@ export default {
     return {
       isModalVisible: false,
       newFile: {
+        id: '',
         titre: '',
         description: '',
         lien: '',
@@ -103,6 +103,7 @@ export default {
   async createFile() {
     try {
       const formData = new FormData();
+      formData.append('id', this.newFile.id);
       formData.append('titre', this.newFile.titre);
       formData.append('description', this.newFile.description);
       formData.append('lien', this.newFile.lien);
@@ -120,14 +121,14 @@ export default {
     }
     // window.location.reload()
   },
-//   async deleteFile(id) {
-//       try {
-//         await deleteBlog(id);
-//         window.location.reload();
-//       } catch (error) {
-//         console.error('Error deleting File', error);
-//       }
-//     },
+  async deleteFile(id) {
+      try {
+        await deleteFile(id);
+        window.location.reload();
+      } catch (error) {
+        console.error('Error deleting File', error);
+      }
+    },
 
 },
   async created() {
