@@ -39,7 +39,7 @@ exports.getFileByCategory = (req, res) => {
 // Controller createFile
 exports.createFile = (req, res) => {
     const { titre, description, lien, categorie } = req.body;
-    const imageUrl = req.file ? req.file.pathname : null;
+    const imageUrl = req.file ? req.file.path : null;
 
     const file = File.fromMap({
         titre,
