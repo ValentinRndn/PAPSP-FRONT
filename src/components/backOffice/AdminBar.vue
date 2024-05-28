@@ -26,7 +26,13 @@
         <img src="../../assets/logo_doc.svg" alt="logo" class="material-icons w-[2rem] mt-4 mb-4 ">
         <span class="text">Documentation</span>
       </router-link>
+
+      <router-link class="button border-y border-white " to="/backOffice/structure">
+        <img src="../../assets/structure_logo.png" alt="logo" class="material-icons w-[2rem] mt-4 mb-4  ">
+        <span class="text">Structure</span>
+      </router-link>
     </div>
+
 
         <div class="menu-toggle-wrap flex justify-end items-end relative top-0 ease-out duration-200  mt-4 mb-4 ">
       <button class="menu-toggle" @click="ToggleMenu">

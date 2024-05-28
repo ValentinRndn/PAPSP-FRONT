@@ -10,13 +10,13 @@
       <div class="dashboard-container">
         <div class="update-keys mt-16">
           <div class="button-container flex gap-5">
-            <button @click="openModal" class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">AJOUTER UN NOUVEAU DOCUMENT</button>
+            <button @click="openModal" class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">AJOUTER UNE NOUVELLE STRUCTURE</button>
             <!-- <button class="archives-button bg-purple text-white py-4 px-10 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">ARCHIVES</button>
             <button class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">MES CATÉGORIES</button> -->
           </div>
 
           <div class="posts-keys flex flex-col gap-5 w-full bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
-            <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gérer mes documents</h3>
+            <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gérer mes structures</h3>
 
             <div v-for="doc in documents" :key="doc.id" class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
               <p>{{ doc.titre }}</p>
@@ -32,7 +32,7 @@
 
             <!-- Modal for creating a new File -->
             <ModalCreate :visible="isModalVisible" @close="closeModal ">
-        <h2 class="text-xl font-bold mb-4">Créer un nouveau document</h2>
+        <h2 class="text-xl font-bold mb-4">Créer une nouvelle structure</h2>
         <form @submit.prevent="createFile" enctype="multipart/form-data">
           <div class="mb-4">
             <label for="titre" class="block text-sm font-medium text-gray-700">Titre</label>
@@ -66,7 +66,7 @@
 // Importation des composants nécessaires
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
-import { getAllFiles, createFile, deleteFile } from "../../services/GuideService.js";
+import { getAllStructures } from "../../services/StructuresService.js";
 import ModalCreate from "../../components/backOffice/blog/ModalCreate.vue";
 
 

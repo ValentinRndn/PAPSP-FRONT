@@ -1,9 +1,8 @@
 class File {
-    constructor(id, titre, description, lien, image, categorie, pdf) {
+    constructor(id, titre, description, image, categorie, pdf) {
         this._id = id;
         this._titre = titre;
         this._description = description;
-        this._lien = lien;
         this._image = image;
         this._categorie = categorie;
         this._pdf = pdf;
@@ -33,14 +32,6 @@ class File {
         this._description = value;
     }
 
-    get lien() {
-        return this._lien;
-    }
-
-    set lien(value) {
-        this._lien = value;
-    }
-
     get image() {
         return this._image;
     }
@@ -67,7 +58,7 @@ class File {
 
     //FromMap
     static fromMap(map) {
-        return new File(map.id, map.titre, map.description, map.lien, map.image, map.categorie, map.pdf);
+        return new File(map.id, map.titre, map.description, map.image, map.categorie, map.pdf);
     }
 
     //ToMap
@@ -76,7 +67,6 @@ class File {
             id: this._id,
             titre: this._titre,
             description: this._description,
-            lien: this._lien,
             image: this._image,
             categorie: this._categorie,
             pdf: this._pdf

@@ -38,21 +38,20 @@ exports.getFileByCategory = (req, res) => {
 
 // Controller createFile
 exports.createFile = (req, res) => {
-    const { titre, description, lien, categorie } = req.body;
+    const { titre, description, categorie } = req.body;
     const imageUrl = req.files['image'] ? req.files['image'][0].path : null;
     const pdfUrl = req.files['pdf'] ? req.files['pdf'][0].path : null; 
 
     const file = File.fromMap({
         titre,
         description,
-        lien,
         image: imageUrl,
         categorie,
         pdf: pdfUrl 
     });
 
-    const sql = 'INSERT INTO documents (titre, description, lien, image, categorie, pdf) VALUES (?, ?, ?, ?, ?, ?)';
-    const values = [file.titre, file.description, file.lien, file.image, file.categorie, file.pdf];
+    const sql = 'INSERT INTO documents (titre, description, image, categorie, pdf) VALUES (?, ?, ?, ?, ?, ?)';
+    const values = [file.titre, file.description, file.image, file.categorie, file.pdf];
 
     const dbInstance = db.getInstance();
 

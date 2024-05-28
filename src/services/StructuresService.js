@@ -10,7 +10,7 @@ export const showStructureByCategorie = () => {
     })
 };
 
-export const showAllStructures = () => {
+export const getAllStructures = () => {
     return axios.get('http://localhost:3000/structure/getAllStructures')
     .then(response => {
         return response.data;

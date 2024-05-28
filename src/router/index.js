@@ -16,6 +16,7 @@ import ParticularGuide from '../views/Guide/ParticularGuide.vue';
 import ProfessionalGuide from '../views/Guide/ProfessionalGuide.vue';
 import BlogDetail from '../components/Blog/BlogDetail.vue';
 import Login from '../views/back/Login.vue';
+import StructureBack from '../views/back/Structure.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -84,6 +85,11 @@ const router = createRouter({
             path: '/backOffice/documentation',
             name: 'DocumentationBack',
             component: DocumentationBack,
+        },
+        {
+            path: '/backOffice/structure',
+            name: 'StructureBack',
+            component: StructureBack,
         },
         {
             path: '/cartographie/particulier',
