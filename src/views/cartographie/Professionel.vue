@@ -20,54 +20,51 @@
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="depistage" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Trouver des préservatifs ou du lubrifiant</label>
+            <input type="checkbox" id="medecine-generale" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Médecine générale</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale2" name="scales" @change="updateSelectedCategories" />
+            <input type="checkbox" id="depistage" name="scales" @change="updateSelectedCategories" />
             <label for="scales">Me faire dépister</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale3" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Accéder à un traitement d’urgence</label>
+            <input type="checkbox" id="sante-sexuelle" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Santé sexuelle</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale4" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Accéder à la PReP</label>
+            <input type="checkbox" id="soutien" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Soutien</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale5" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Voir un médecin</label>
+            <input type="checkbox" id="accompagnement-psychologique" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Accompagnement psychologique</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale6" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Interrompre une grossesse</label>
+            <input type="checkbox" id="sortie-prostitution" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Accueil de jour - Parcours sortie de prostitution</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale7" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Trouver du matériel de drogue à moindre risque</label>
+            <input type="checkbox" id="preservatif" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Distribution préservtaifs - Accompagnement - Soutien</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale8" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Trouver un soutien communautaire</label>
+            <input type="checkbox" id="plainte" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Dépôt de plainte</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale9" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Porter plainte</label>
+            <input type="checkbox" id="droit-sante" name="scales" @change="updateSelectedCategories" />
+            <label for="scales">Accès aux droits de santé</label>
           </div>
 
-          <div class="checkbox flex gap-3 items-center">
-            <input type="checkbox" id="scale10" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Parler à quelqu’un après une agression</label>
-          </div>
+
         </div>
       </div>
     </div>
@@ -190,43 +187,40 @@ input[type="checkbox"] {
   transform: scale(1.5);
 }
 
-#scale1 {
+#medecine-generale {
   accent-color: grey;
 }
 
-#scale2 {
+#depistage {
   accent-color: red;
 }
 
-#scale3 {
+#sante-sexuelle {
   accent-color: orange;
 }
 
-#scale4 {
+#soutien {
   accent-color: green;
 }
 
-#scale5 {
+#accompagnement-psychologique {
   accent-color: aqua;
 }
 
-#scale6 {
+#sortie-prostitution{
   accent-color: blue;
 }
 
-#scale7 {
+#preservatif {
   accent-color: purple;
 }
 
-#scale8 {
+#plainte {
   accent-color: fuchsia;
 }
 
-#scale9 {
+#droit-sante {
   accent-color: orchid;
 }
 
-#scale10 {
-  accent-color: white;
-}
 </style>
