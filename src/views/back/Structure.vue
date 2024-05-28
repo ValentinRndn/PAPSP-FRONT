@@ -107,6 +107,7 @@ export default {
     AdminBar,
     HorizontalBar,
     ModalCreate,
+    getAllStructures,
   },
   data() {
     return {

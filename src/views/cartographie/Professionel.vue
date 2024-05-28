@@ -69,7 +69,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import NavigationBar from "../../components/NavigationBar.vue";
 import Footer from "../../components/Footer.vue";
-import { showAllStructures } from "../../services/StructuresService";
+import { getAllStructures } from "../../services/StructuresService";
 
 export default {
   data() {
@@ -88,7 +88,7 @@ export default {
       }).addTo(this.map);
     },
     async showStructures() {
-      const structures = await showAllStructures();
+      const structures = await getAllStructures();
       this.structures = structures;
       this.addMarkers();
     },

@@ -17,7 +17,7 @@
     <div class="header-content flex gap-12 justify-center items-center bg-white mx-auto mt-6">
     <div v-for="article in epingleArticles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
       <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
-      <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
+      <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
       <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
       <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
         >
@@ -38,7 +38,7 @@
           <img :src="`api/${lastArticle._image}`" alt="article image" class="rounded-t-[25px] h-[300px] w-full object-cover" />
         </div>
         <div class="content-programme w-1/2 flex flex-col gap-6">
-          <h3 class="text-3xl font-bold font-dm-serif text-post-grey">{{ lastArticle._titre }}</h3>
+          <h3 class="text-3xl font-bold font-c-gothic text-post-grey">{{ lastArticle._titre }}</h3>
           <p class="text-md font-jost-sans text-program-grey">{{ lastArticle._description.substring(0, 300) }}...</p>
           <div class="bottom-content flex items-center justify-between">
             <p class="text-grey font-jost-sans">{{ lastArticle._date }}</p>
@@ -58,7 +58,7 @@
     <div class="cards flex gap-12 justify-center items-center mt-6">
     <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
       <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
-      <p class="text-3xl font-bold font-dm-serif text-post-grey">{{ article._titre }}</p>
+      <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
       <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
       <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
         >
