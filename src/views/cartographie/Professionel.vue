@@ -6,7 +6,19 @@
       <h1 class="text-white text-2xl font-bold mb-6 font-cgothic">PAPSP VOUS ORIENTE :</h1>
       <div class="checkboxes flex flex-col gap-3 text-white text-xl">
 
-        <div class="checkboxes flex flex-col gap-4 font-poppins">
+        <div class="checkboxes flex flex-col gap-4 font-poppins relative">
+
+            <div v-if="showPopup" class="popup">
+              <div class="popup-content text-black">
+                <p>La cartographie du programme
+de prévention & d’accompagnement des personnes en situation de prostitution vous permet de trouver un établissement
+adapté à vos besoins dans toute la région Normande</p>
+                <!-- <button @click="hidePopup">Fermer</button> -->
+                <img @click="hidePopup" class="absolute top-5 right-5 w-[20px]"  src="../../assets/map/close-popup.png" alt="hide_arrow">
+
+              </div>
+            </div>
+
           <div class="checkbox flex gap-3 items-center">
             <input type="checkbox" id="scale1" name="scales" />
             <label for="scales">Trouver des préservatifs ou du lubrifiant</label>
@@ -61,6 +73,8 @@
     </div>
     <div id="map" class="h-full  w-full"></div>
   </div>
+
+
   <Footer />
 </template>
 
@@ -75,7 +89,8 @@ export default {
   data() {
     return {
       map: null,
-      structures: []
+      structures: [],
+      showPopup: false
     };
   },
   methods: {
@@ -88,23 +103,39 @@ export default {
       }).addTo(this.map);
     },
     async showStructures() {
-      const structures = await getAllStructures();
-      this.structures = structures;
-      this.addMarkers();
+      try {
+        const structures = await getAllStructures();
+        console.log('Structures fetched:', structures); // Log pour vérifier les données
+        this.structures = structures;
+        this.addMarkers();
+      } catch (error) {
+        console.error('Error fetching structures:', error);
+      }
     },
-    addMarkers() {
-      this.structures.forEach(structure => {
-        if (structure.coos_gps) {
-          const [lat, lon] = structure.coos_gps.split(',').map(coord => parseFloat(coord));
-          const marker = L.marker([lat, lon]).addTo(this.map);
-          marker.bindPopup(`<b>${structure.antenne}</b><br>${structure.adresse}`).openPopup();
-        }
-      });
-    },
+addMarkers() {
+  this.structures.forEach(structure => {
+    if (structure._coos_gps) {
+      const [lat, lon] = structure._coos_gps.split(',').map(coord => parseFloat(coord));
+      if (!isNaN(lat) && !isNaN(lon)) {
+        const marker = L.marker([lat, lon]).addTo(this.map);
+        marker.bindPopup(`<b>${structure._antenne}</b><br>${structure._adresse}`).openPopup();
+      } else {
+        console.warn('Invalid coordinates for structure:', structure);
+      }
+    } else {
+      console.warn('No GPS coordinates for structure:', structure);
+    }
+  });
+},
+    hidePopup() {
+      this.showPopup = false;
+    }
+
   },
   mounted() {
     this.initMap();
     this.showStructures();
+    this.showPopup = true;
   },
   components: {
     Footer,
@@ -114,6 +145,29 @@ export default {
 </script>
 
 <style>
+/* Styles pour la popup */
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50; 
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup button {
+  margin-top: 10px;
+}
+
 input[type="checkbox"] {
   transform: scale(1.5);
 }
