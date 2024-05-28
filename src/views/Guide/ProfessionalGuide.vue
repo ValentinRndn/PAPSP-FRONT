@@ -1,6 +1,6 @@
 <template>
     <NavigationBar />
-    <GuideContent :categories="['professionel-prostitution', 'professionel-prostitution-mineur']" />
+    <GuideContent :categories="['professionnel-prostitution', 'professionnel-prostitution-mineur']" />
     <Footer />
     </template>
     

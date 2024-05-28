@@ -50,7 +50,7 @@ exports.createFile = (req, res) => {
         pdf: pdfUrl 
     });
 
-    const sql = 'INSERT INTO documents (titre, description, image, categorie, pdf) VALUES (?, ?, ?, ?, ?, ?)';
+    const sql = 'INSERT INTO documents (titre, description, image, categorie, pdf) VALUES (?, ?, ?, ?, ?)';
     const values = [file.titre, file.description, file.image, file.categorie, file.pdf];
 
     const dbInstance = db.getInstance();
