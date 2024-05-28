@@ -18,7 +18,7 @@
     <div v-for="article in epingleArticles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
       <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
       <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
-      <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
+      <p class="text text-grey font-jost-sans absolute bottom-4">{{ formatDate(article._date) }}</p>
       <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
         >
       </router-link>
@@ -41,7 +41,7 @@
           <h3 class="text-3xl font-bold font-c-gothic text-post-grey">{{ lastArticle._titre }}</h3>
           <p class="text-md font-jost-sans text-program-grey">{{ lastArticle._description.substring(0, 300) }}...</p>
           <div class="bottom-content flex items-center justify-between">
-            <p class="text-grey font-jost-sans">{{ lastArticle._date }}</p>
+            <p class="text-grey font-jost-sans">{{ formatDate(lastArticle._date) }}</p>
             <router-link :to="{ name: 'BlogDetail', params: { id: lastArticle._id } }" class="arrow text-xl text-grey inline-block font-bold bg-light-beige p-2 px-3 rounded-full">></router-link>
           </div>
         </div>
@@ -59,7 +59,7 @@
     <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
       <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
       <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
-      <p class="text text-grey font-jost-sans absolute bottom-4">{{ article._date }}</p>
+      <p class="text text-grey font-jost-sans absolute bottom-4">{{ formatDate(article._date) }}</p>
       <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
         >
       </router-link>
@@ -87,6 +87,15 @@ export default {
       articles: [],
       lastArticle: null,
     };
+  },
+  methods: {
+    formatDate(dateString) {
+      // Créer une instance de Date à partir de la chaîne de date
+      const date = new Date(dateString);
+      // Formater la date selon le format souhaité (par exemple, "dd/mm/yyyy hh:mm")
+      const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+      return formattedDate;
+    }
   },
   async mounted() {
     try {
