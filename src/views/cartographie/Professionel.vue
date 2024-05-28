@@ -80,6 +80,7 @@ import "leaflet/dist/leaflet.css";
 import NavigationBar from "../../components/NavigationBar.vue";
 import Footer from "../../components/Footer.vue";
 import { getAllStructures } from "../../services/StructuresService";
+import { iconColors, createIcon } from "../../services/IconMap";
 
 export default {
   data() {
@@ -88,7 +89,7 @@ export default {
       structures: [],
       showPopup: false,
       selectedCategories: [],
-      markers: [] // Nouvelle propriété pour stocker les marqueurs
+      markers: [],
     };
   },
   methods: {
@@ -102,7 +103,7 @@ export default {
     async showStructures() {
       try {
         const structures = await getAllStructures();
-        console.log('Structures fetched:', structures); // Log pour vérifier les données
+        console.log('Structures fetched:', structures);
         this.structures = structures;
         this.addMarkers();
       } catch (error) {
@@ -133,8 +134,10 @@ export default {
         if (structure._coos_gps && this.selectedCategories.includes(structure._categorie)) {
           const [lat, lon] = structure._coos_gps.split(',').map(coord => parseFloat(coord));
           if (!isNaN(lat) && !isNaN(lon)) {
-            const marker = L.marker([lat, lon]).addTo(this.map);
-            marker.bindPopup(`<b>${structure._antenne}</b><br>${structure._adresse}`);
+            const category = structure._categorie;
+            const color = iconColors[category];
+            const marker = L.marker([lat, lon], { icon: createIcon(color) }).addTo(this.map);
+            marker.bindPopup(`<b>${structure._antenne}</b><br>${structure._adresse}<br>${structure._telephone}`);
             this.markers.push(marker);
           } else {
             console.warn('Invalid coordinates for structure:', structure);
@@ -223,4 +226,16 @@ input[type="checkbox"] {
   accent-color: orchid;
 }
 
+/* Styles pour les icônes personnalisées */
+.custom-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-icon div {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
 </style>
