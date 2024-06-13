@@ -115,18 +115,19 @@ export default {
       document.addEventListener('keydown', this.handleKeydown);
     },
     openEditModal(article) {
-      this.isModalVisible = true;
-      this.isEditing = true;
-      this.currentArticleId = article._id;
-      this.newArticle = {
-        titre: article.titre,
-        date: article.date,
-        description: article.description,
-        epingle: article.epingle,
-        auteur: article.auteur,
-      };
-      document.addEventListener('keydown', this.handleKeydown);
-    },
+    this.isModalVisible = true;
+    this.isEditing = true;
+    this.currentArticleId = article._id;
+    this.newArticle = {
+      titre: article._titre,
+      date: article._date,
+      description: article._description,
+      epingle: article._epingle, // Assurez-vous que cette propriété est correctement définie
+      auteur: article._auteur,
+    };
+    document.addEventListener('keydown', this.handleKeydown);
+  },
+
     closeModal() {
       this.isModalVisible = false;
       document.removeEventListener('keydown', this.handleKeydown);
@@ -162,25 +163,27 @@ export default {
       }
     },
     async updateArticle() {
-      try {
-        const formData = new FormData();
-        formData.append('titre', this.newArticle.titre);
-        formData.append('date', this.newArticle.date);
-        formData.append('description', this.newArticle.description);
-        formData.append('epingle', this.newArticle.epingle);
-        formData.append('auteur', this.newArticle.auteur);
-        if (this.image) {
-          formData.append('image', this.image);
-        }
+  try {
+    const formData = new FormData();
+    formData.append('titre', this.newArticle.titre);
+    formData.append('date', this.newArticle.date);
+    formData.append('description', this.newArticle.description);
+    formData.append('epingle', this.newArticle.epingle);
+    formData.append('auteur', this.newArticle.auteur);
+    if (this.image) {
+      formData.append('image', this.image);
+    }
 
-        const response = await updateBlog(this.currentArticleId, formData);
-        console.log('Article updated successfully', response);
-        this.closeModal(); // Optionnel : fermer la modal après la mise à jour
-        this.refreshArticles(); // Mettre à jour la liste des articles sans recharger la page
-      } catch (error) {
-        console.error('Error updating article', error);
-      }
-    },
+    const response = await updateBlog(this.currentArticleId, formData);
+    console.log(this.currentArticleId);
+    console.log('Article updated successfully', response);
+    this.closeModal();
+    this.refreshArticles();
+  } catch (error) {
+    console.error('Error updating article', error);
+  }
+},
+
     async deleteArticle(id) {
       try {
         await deleteBlog(id);
