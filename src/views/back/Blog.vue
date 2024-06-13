@@ -17,7 +17,12 @@
             <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gérer mes articles</h3>
            
             <div v-for="article in articles" :key="article._id" class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
-              <p>{{ article._titre }}</p>
+              <div class="flex items-center">
+                <span v-if="article._epingle" class="text-purple mr-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="m15.113 3.21l.094.083l5.5 5.5a1 1 0 0 1-1.175 1.59l-3.172 3.171l-1.424 3.797a1 1 0 0 1-.158.277l-.07.08l-1.5 1.5a1 1 0 0 1-1.32.082l-.095-.083L9 16.415l-3.793 3.792a1 1 0 0 1-1.497-1.32l.083-.094L7.585 15l-2.792-2.793a1 1 0 0 1-.083-1.32l.083-.094l1.5-1.5a1 1 0 0 1 .258-.187l.098-.042l3.796-1.425l3.171-3.17a1 1 0 0 1 1.497-1.26z"/></svg>
+                </span>
+                <p>{{ article._titre }}</p>
+              </div>
               <div class="edit-post flex gap-4 font-poppins">
                 <p class="text-light-grey underline">Archiver</p>
                 <p class="text-light-grey underline cursor-pointer" @click="openEditModal(article)">Modifier</p>
@@ -58,13 +63,10 @@
           </div>
           <button type="submit" class="bg-purple text-white py-2 px-4 rounded-md">{{ isEditing ? 'Modifier' : 'Créer' }}</button>
         </form>
-
       </ModalCreate>
     </div>
   </div>
 </template>
-
-
 
 <script>
 import AdminBar from "../../components/backOffice/AdminBar.vue";
@@ -154,7 +156,7 @@ export default {
         const response = await createBlog(formData);
         console.log('Article created successfully', response);
         this.closeModal(); // Optionnel : fermer la modal après la création
-        window.location.reload();
+        this.refreshArticles(); // Mettre à jour la liste des articles sans recharger la page
       } catch (error) {
         console.error('Error creating article', error);
       }
@@ -174,7 +176,7 @@ export default {
         const response = await updateBlog(this.currentArticleId, formData);
         console.log('Article updated successfully', response);
         this.closeModal(); // Optionnel : fermer la modal après la mise à jour
-        window.location.reload();
+        this.refreshArticles(); // Mettre à jour la liste des articles sans recharger la page
       } catch (error) {
         console.error('Error updating article', error);
       }
@@ -182,7 +184,7 @@ export default {
     async deleteArticle(id) {
       try {
         await deleteBlog(id);
-        window.location.reload();
+        this.refreshArticles(); // Mettre à jour la liste des articles sans recharger la page
       } catch (error) {
         console.error('Error deleting article', error);
       }
@@ -197,18 +199,19 @@ export default {
       };
       this.image = null;
     },
+    async refreshArticles() {
+      try {
+        this.articles = await showAllBlogs();
+      } catch (error) {
+        console.error('Failed to fetch articles:', error);
+      }
+    },
   },
   async mounted() {
-    try {
-      this.articles = await showAllBlogs();
-    } catch (error) {
-      console.error('Failed to fetch articles:', error);
-    }
+    this.refreshArticles(); // Charger les articles au montage du composant
   },
 };
 </script>
-
-
 
 <style>
 .dashboard-container {
@@ -222,3 +225,4 @@ export default {
   }
 }
 </style>
+
