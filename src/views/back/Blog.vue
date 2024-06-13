@@ -20,7 +20,7 @@
               <p>{{ article._titre }}</p>
               <div class="edit-post flex gap-4 font-poppins">
                 <p class="text-light-grey underline">Archiver</p>
-                <p class="text-light-grey underline">Modifier</p>
+                <p class="text-light-grey underline cursor-pointer" @click="openEditModal(article)">Modifier</p>
                 <p class="text-light-grey underline cursor-pointer" @click="deleteArticle(article._id)">Supprimer</p>
               </div>
             </div>
@@ -28,10 +28,10 @@
         </div>
       </div>
 
-      <!-- Modal for creating a new article -->
+      <!-- Modal for creating or editing an article -->
       <ModalCreate :visible="isModalVisible" @close="closeModal">
-        <h2 class="text-xl font-bold mb-4">Créer un nouvel article</h2>
-        <form @submit.prevent="createArticle">
+        <h2 class="text-xl font-bold mb-4">{{ isEditing ? 'Modifier l\'article' : 'Créer un nouvel article' }}</h2>
+        <form @submit.prevent="isEditing ? updateArticle() : createArticle()">
           <div class="mb-4">
             <label for="titre" class="block text-sm font-medium text-gray-700">Titre</label>
             <input v-model="newArticle.titre" type="text" id="titre" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
@@ -42,7 +42,7 @@
           </div>
           <div class="mb-4">
             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea v-model="newArticle.description" id="description" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required></textarea>
+            <Editor api-key='neuzqkwdvgbjt7scku3sa3pl9etohbwieqnb9dcu57sm7cnm' v-model="newArticle.description" :init="editorConfig"></Editor>
           </div>
           <div class="mb-4">
             <label for="auteur" class="block text-sm font-medium text-gray-700">Auteur</label>
@@ -56,29 +56,44 @@
             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
             <input @change="onFileChange" type="file" id="image" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2">
           </div>
-          <button type="submit" class="bg-purple text-white py-2 px-4 rounded-md">Créer</button>
+          <button type="submit" class="bg-purple text-white py-2 px-4 rounded-md">{{ isEditing ? 'Modifier' : 'Créer' }}</button>
         </form>
+
       </ModalCreate>
     </div>
   </div>
 </template>
+
+
 
 <script>
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
 import ModalCreate from "../../components/backOffice/blog/ModalCreate.vue";
 import { showAllBlogs, createBlog, deleteBlog, updateBlog } from "../../services/BlogsService.js";
+import Editor from '@tinymce/tinymce-vue';
 
 export default {
   components: {
     AdminBar,
     HorizontalBar,  
     ModalCreate,
-    showAllBlogs,
+    Editor,
   },
   data() {
     return {
+      editorContent: '',
+      editorConfig: {
+        apiKey: 'neuzqkwdvgbjt7scku3sa3pl9etohbwieqnb9dcu57sm7cnm', 
+        setup: (editor) => {
+          editor.on('Change', (e) => {
+            this.newArticle.description = editor.getContent();
+          });
+        }
+      },
       isModalVisible: false,
+      isEditing: false,
+      currentArticleId: null,
       newArticle: {
         titre: '',
         date: '',
@@ -91,37 +106,80 @@ export default {
     };
   },
   methods: {
-  openModal() {
-    this.isModalVisible = true;
-  },
-  closeModal() {
-    this.isModalVisible = false;
-  },
-  onFileChange(event) {
-    this.image = event.target.files[0];
-  },
-  async createArticle() {
-    try {
-      const formData = new FormData();
-      formData.append('titre', this.newArticle.titre);
-      formData.append('date', this.newArticle.date);
-      formData.append('description', this.newArticle.description);
-      formData.append('epingle', this.newArticle.epingle);
-      formData.append('auteur', this.newArticle.auteur);
-      if (this.image) {
-        formData.append('image', this.image);
+    openModal() {
+      this.isModalVisible = true;
+      this.isEditing = false;
+      this.resetArticleForm();
+      document.addEventListener('keydown', this.handleKeydown);
+    },
+    openEditModal(article) {
+      this.isModalVisible = true;
+      this.isEditing = true;
+      this.currentArticleId = article._id;
+      this.newArticle = {
+        titre: article.titre,
+        date: article.date,
+        description: article.description,
+        epingle: article.epingle,
+        auteur: article.auteur,
+      };
+      document.addEventListener('keydown', this.handleKeydown);
+    },
+    closeModal() {
+      this.isModalVisible = false;
+      document.removeEventListener('keydown', this.handleKeydown);
+    },
+    handleKeydown(event) {
+      if (event.key === 'Escape') {
+        this.closeModal();
+      } else if (event.key === 'Enter' && this.isModalVisible) {
+        this.isEditing ? this.updateArticle() : this.createArticle();
       }
+    },
+    onFileChange(event) {
+      this.image = event.target.files[0];
+    },
+    async createArticle() {
+      try {
+        const formData = new FormData();
+        formData.append('titre', this.newArticle.titre);
+        formData.append('date', this.newArticle.date);
+        formData.append('description', this.newArticle.description);
+        formData.append('epingle', this.newArticle.epingle);
+        formData.append('auteur', this.newArticle.auteur);
+        if (this.image) {
+          formData.append('image', this.image);
+        }
 
+        const response = await createBlog(formData);
+        console.log('Article created successfully', response);
+        this.closeModal(); // Optionnel : fermer la modal après la création
+        window.location.reload();
+      } catch (error) {
+        console.error('Error creating article', error);
+      }
+    },
+    async updateArticle() {
+      try {
+        const formData = new FormData();
+        formData.append('titre', this.newArticle.titre);
+        formData.append('date', this.newArticle.date);
+        formData.append('description', this.newArticle.description);
+        formData.append('epingle', this.newArticle.epingle);
+        formData.append('auteur', this.newArticle.auteur);
+        if (this.image) {
+          formData.append('image', this.image);
+        }
 
-      const response = await createBlog(formData);
-      console.log('Article created successfully', response);
-      this.closeModal(); // Optionnel : fermer la modal après la création
-    } catch (error) {
-      console.error('Error creating article', error);
-    }
-    window.location.reload()
-  },
-  async deleteArticle(id) {
+        const response = await updateBlog(this.currentArticleId, formData);
+        console.log('Article updated successfully', response);
+        this.closeModal(); // Optionnel : fermer la modal après la mise à jour
+        window.location.reload();
+      } catch (error) {
+        console.error('Error updating article', error);
+      }
+    },
+    async deleteArticle(id) {
       try {
         await deleteBlog(id);
         window.location.reload();
@@ -129,19 +187,28 @@ export default {
         console.error('Error deleting article', error);
       }
     },
-
-},
-async mounted() {
+    resetArticleForm() {
+      this.newArticle = {
+        titre: '',
+        date: '',
+        description: '',
+        epingle: false,
+        auteur: '',
+      };
+      this.image = null;
+    },
+  },
+  async mounted() {
     try {
       this.articles = await showAllBlogs();
     } catch (error) {
       console.error('Failed to fetch articles:', error);
     }
-  }
-
-
+  },
 };
 </script>
+
+
 
 <style>
 .dashboard-container {

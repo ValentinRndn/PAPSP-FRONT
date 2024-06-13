@@ -39,7 +39,7 @@
         </div>
         <div class="content-programme w-1/2 flex flex-col gap-6">
           <h3 class="text-3xl font-bold font-c-gothic text-post-grey">{{ lastArticle._titre }}</h3>
-          <p class="text-md font-jost-sans text-program-grey">{{ lastArticle._description.substring(0, 300) }}...</p>
+          <p class="text-md font-jost-sans text-program-grey" v-html="truncatedDescription(lastArticle._description)"></p>
           <div class="bottom-content flex items-center justify-between">
             <p class="text-grey font-jost-sans">{{ formatDate(lastArticle._date) }}</p>
             <router-link :to="{ name: 'BlogDetail', params: { id: lastArticle._id } }" class="arrow text-xl text-grey inline-block font-bold bg-light-beige p-2 px-3 rounded-full">></router-link>
@@ -95,7 +95,13 @@ export default {
       // Formater la date selon le format souhaité (par exemple, "dd/mm/yyyy hh:mm")
       const formattedDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
       return formattedDate;
-    }
+    },
+    truncatedDescription(description) {
+      if (description.length > 300) {
+        return description.substring(0, 300) + '...';
+      }
+      return description;
+    },
   },
   async mounted() {
     try {

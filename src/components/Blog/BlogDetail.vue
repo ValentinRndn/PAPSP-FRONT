@@ -16,7 +16,7 @@
       </a>
     </div>
 
-    <p>{{ article._description }}</p>
+    <p v-html="article._description"></p>
   </div>
 
   <Footer />
