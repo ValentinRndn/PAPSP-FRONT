@@ -12,7 +12,7 @@ exports.getAllBlogs = (req, res) => {
             console.error("Erreur lors de la récupération des blogs", err);
             return res.status(500).json({ message: "Erreur lors de la récupération des blogs" });
         } else {
-            const blogs = result.map(blog => new Blog(blog.id, blog.titre, blog.date, blog.image, blog.description, blog.epingle, blog.auteur));
+            const blogs = result.map(blog => new Blog(blog.id, blog.titre, blog.date, blog.image, blog.description, blog.epingle, blog.auteur, blog.archive));
             return res.status(200).json(blogs);
         }
     });
@@ -41,30 +41,31 @@ exports.getBlogById = (req, res) => {
 }
 
 
-//Controller getLastBlog
+// Controller getLastBlog
 exports.getLastBlog = (req, res) => {
-    const sql = 'SELECT * FROM blogs ORDER BY id DESC LIMIT 1';
-    const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
+  const sql = 'SELECT * FROM blogs WHERE archive = 0 ORDER BY id DESC LIMIT 1';
+  const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
 
-    dbInstance.query(sql, (err, result) => {
-        if (err) {
-            console.error("Erreur lors de la récupération du dernier blog", err);
-            return res.status(500).json({ message: "Erreur lors de la récupération du dernier blog" });
-        } else {
-            if (result.length === 0) {
-                return res.status(404).json({ message: "Blog non trouvé" });
-            } else {
-                const blog = Blog.fromMap(result[0]);
-                return res.status(200).json(blog);
-            }
-        }
-    });
+  dbInstance.query(sql, (err, result) => {
+      if (err) {
+          console.error("Erreur lors de la récupération du dernier blog non archivé", err);
+          return res.status(500).json({ message: "Erreur lors de la récupération du dernier blog non archivé" });
+      } else {
+          if (result.length === 0) {
+              return res.status(404).json({ message: "Blog non trouvé ou tous les blogs sont archivés" });
+          } else {
+              const blog = Blog.fromMap(result[0]);
+              return res.status(200).json(blog);
+          }
+      }
+  });
 }
+
 
 // Controller createBlog
 exports.createBlog = (req, res) => {
     // Vérifiez les champs de req.body et req.file
-    const { titre, date, description, epingle, auteur } = req.body;
+    const { titre, date, description, epingle, archive, auteur } = req.body;
     const imageUrl = req.file ? req.file.path : null;
   
     // Créez une instance de Blog en utilisant les données du corps de la requête
@@ -74,6 +75,7 @@ exports.createBlog = (req, res) => {
       description,
       epingle: epingle === 'true', // Assurez-vous que l'épingle est un booléen
       auteur,
+      archive,
       image: imageUrl
     });
   
@@ -99,7 +101,7 @@ exports.createBlog = (req, res) => {
   // Controller updateBlog
 exports.updateBlog = (req, res) => {
     // Vérifiez les champs de req.body et req.file
-    const { titre, date, description, epingle, auteur } = req.body;
+    const { titre, date, description, epingle, archive, auteur } = req.body;
     const imageUrl = req.file ? req.file.path : null;
   
     // Créez une instance de Blog en utilisant les données du corps de la requête
@@ -109,12 +111,13 @@ exports.updateBlog = (req, res) => {
       description,
       epingle: epingle === 'true', // Assurez-vous que l'épingle est un booléen
       auteur,
+      archive,
       image: imageUrl
     });
   
     // Définir la requête SQL et les valeurs
-    const sql = 'UPDATE blogs SET titre = ?, date = ?, image = ?, description = ?, epingle = ?, auteur = ? WHERE id = ?';
-    const values = [blog.titre, blog.date, blog.image, blog.description, blog.epingle, blog.auteur, req.params.id];
+    const sql = 'UPDATE blogs SET titre = ?, date = ?, image = ?, description = ?, epingle = ?, archive = ?, auteur = ? WHERE id = ?';
+    const values = [blog.titre, blog.date, blog.image, blog.description, blog.epingle, blog.archive, blog.auteur, req.params.id];
   
     // Obtenir une instance de la classe Database et exécuter la requête
     const dbInstance = db.getInstance();
@@ -145,3 +148,39 @@ exports.deleteBlog = (req, res) => {
     });
   };
 
+
+
+
+  // Controller archiveBlog
+  exports.archiveBlog = (req, res) => {
+    const sqlSelect = 'SELECT archive FROM blogs WHERE id = ?';
+    const sqlUpdate = 'UPDATE blogs SET archive = ? WHERE id = ?';
+    const values = [req.params.id];
+    const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
+  
+    // Récupérer l'état actuel du champ archive
+    dbInstance.query(sqlSelect, values, (err, result) => {
+      if (err) {
+        console.error("Erreur lors de la récupération de l'état d'archivage du blog", err);
+        return res.status(500).json({ message: "Erreur lors de la récupération de l'état d'archivage du blog" });
+      } else {
+        if (result.length === 0) {
+          return res.status(404).json({ message: "Blog non trouvé" });
+        }
+  
+        const currentArchiveStatus = result[0].archive;
+        const newArchiveStatus = currentArchiveStatus ? 0 : 1; // Inverser la valeur de archive (1 devient 0, et 0 devient 1)
+  
+        // Mettre à jour le champ archive avec la nouvelle valeur
+        dbInstance.query(sqlUpdate, [newArchiveStatus, req.params.id], (err, result) => {
+          if (err) {
+            console.error("Erreur lors de la mise à jour de l'état d'archivage du blog", err);
+            return res.status(500).json({ message: "Erreur lors de la mise à jour de l'état d'archivage du blog" });
+          } else {
+            return res.status(200).json({ message: `Blog ${newArchiveStatus ? 'archivé' : 'désarchivé'} avec succès !` });
+          }
+        });
+      }
+    });
+  };
+  

@@ -16,7 +16,7 @@
           <div class="posts-keys flex flex-col gap-5 w-full bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
             <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gérer mes articles</h3>
            
-            <div v-for="article in articles" :key="article._id" class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
+            <div v-for="article in articles" :key="article._id" :class="['post-field', { 'archived': article._archive }]" class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
               <div class="flex items-center">
                 <span v-if="article._epingle" class="text-purple mr-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="m15.113 3.21l.094.083l5.5 5.5a1 1 0 0 1-1.175 1.59l-3.172 3.171l-1.424 3.797a1 1 0 0 1-.158.277l-.07.08l-1.5 1.5a1 1 0 0 1-1.32.082l-.095-.083L9 16.415l-3.793 3.792a1 1 0 0 1-1.497-1.32l.083-.094L7.585 15l-2.792-2.793a1 1 0 0 1-.083-1.32l.083-.094l1.5-1.5a1 1 0 0 1 .258-.187l.098-.042l3.796-1.425l3.171-3.17a1 1 0 0 1 1.497-1.26z"/></svg>
@@ -24,7 +24,9 @@
                 <p>{{ article._titre }}</p>
               </div>
               <div class="edit-post flex gap-4 font-poppins">
-                <p class="text-light-grey underline">Archiver</p>
+                <p class="text-light-grey underline cursor-pointer" @click="toggleArchiveArticle(article)">
+                  {{ article._archive ? 'Désarchiver' : 'Archiver' }}
+                </p>
                 <p class="text-light-grey underline cursor-pointer" @click="openEditModal(article)">Modifier</p>
                 <p class="text-light-grey underline cursor-pointer" @click="deleteArticle(article._id)">Supprimer</p>
               </div>
@@ -68,17 +70,18 @@
   </div>
 </template>
 
+
 <script>
 import AdminBar from "../../components/backOffice/AdminBar.vue";
 import HorizontalBar from "../../components/backOffice/HorizontalBar.vue";
 import ModalCreate from "../../components/backOffice/blog/ModalCreate.vue";
-import { showAllBlogs, createBlog, deleteBlog, updateBlog } from "../../services/BlogsService.js";
+import { showAllBlogs, createBlog, deleteBlog, updateBlog, archiveBlog } from "../../services/BlogsService.js";
 import Editor from '@tinymce/tinymce-vue';
 
 export default {
   components: {
     AdminBar,
-    HorizontalBar,  
+    HorizontalBar,
     ModalCreate,
     Editor,
   },
@@ -86,7 +89,7 @@ export default {
     return {
       editorContent: '',
       editorConfig: {
-        apiKey: 'neuzqkwdvgbjt7scku3sa3pl9etohbwieqnb9dcu57sm7cnm', 
+        apiKey: 'neuzqkwdvgbjt7scku3sa3pl9etohbwieqnb9dcu57sm7cnm',
         setup: (editor) => {
           editor.on('Change', (e) => {
             this.newArticle.description = editor.getContent();
@@ -101,6 +104,7 @@ export default {
         date: '',
         description: '',
         epingle: false,
+        archive: false,
         auteur: '',
       },
       image: null,
@@ -115,19 +119,19 @@ export default {
       document.addEventListener('keydown', this.handleKeydown);
     },
     openEditModal(article) {
-    this.isModalVisible = true;
-    this.isEditing = true;
-    this.currentArticleId = article._id;
-    this.newArticle = {
-      titre: article._titre,
-      date: article._date,
-      description: article._description,
-      epingle: article._epingle, // Assurez-vous que cette propriété est correctement définie
-      auteur: article._auteur,
-    };
-    document.addEventListener('keydown', this.handleKeydown);
-  },
-
+      this.isModalVisible = true;
+      this.isEditing = true;
+      this.currentArticleId = article._id;
+      this.newArticle = {
+        titre: article._titre,
+        date: article._date,
+        description: article._description,
+        epingle: article._epingle,
+        archive: article._archive,
+        auteur: article._auteur,
+      };
+      document.addEventListener('keydown', this.handleKeydown);
+    },
     closeModal() {
       this.isModalVisible = false;
       document.removeEventListener('keydown', this.handleKeydown);
@@ -156,40 +160,49 @@ export default {
 
         const response = await createBlog(formData);
         console.log('Article created successfully', response);
-        this.closeModal(); // Optionnel : fermer la modal après la création
-        this.refreshArticles(); // Mettre à jour la liste des articles sans recharger la page
+        this.closeModal();
+        this.refreshArticles();
       } catch (error) {
         console.error('Error creating article', error);
       }
     },
     async updateArticle() {
-  try {
-    const formData = new FormData();
-    formData.append('titre', this.newArticle.titre);
-    formData.append('date', this.newArticle.date);
-    formData.append('description', this.newArticle.description);
-    formData.append('epingle', this.newArticle.epingle);
-    formData.append('auteur', this.newArticle.auteur);
-    if (this.image) {
-      formData.append('image', this.image);
-    }
+      try {
+        const formData = new FormData();
+        formData.append('titre', this.newArticle.titre);
+        formData.append('date', this.newArticle.date);
+        formData.append('description', this.newArticle.description);
+        formData.append('epingle', this.newArticle.epingle);
+        formData.append('auteur', this.newArticle.auteur);
+        if (this.image) {
+          formData.append('image', this.image);
+        }
 
-    const response = await updateBlog(this.currentArticleId, formData);
-    console.log(this.currentArticleId);
-    console.log('Article updated successfully', response);
-    this.closeModal();
-    this.refreshArticles();
-  } catch (error) {
-    console.error('Error updating article', error);
-  }
-},
-
+        const response = await updateBlog(this.currentArticleId, formData);
+        console.log(this.currentArticleId);
+        console.log('Article updated successfully', response);
+        this.closeModal();
+        this.refreshArticles();
+      } catch (error) {
+        console.error('Error updating article', error);
+      }
+    },
     async deleteArticle(id) {
       try {
         await deleteBlog(id);
-        this.refreshArticles(); // Mettre à jour la liste des articles sans recharger la page
+        this.refreshArticles();
       } catch (error) {
         console.error('Error deleting article', error);
+      }
+    },
+    async toggleArchiveArticle(article) {
+      try {
+        article._archive = !article._archive;
+        const response = await archiveBlog(article._id, { archive: article._archive });
+        console.log('Article archive state toggled successfully', response);
+        this.refreshArticles();
+      } catch (error) {
+        console.error('Error archiving article', error);
       }
     },
     resetArticleForm() {
@@ -198,6 +211,7 @@ export default {
         date: '',
         description: '',
         epingle: false,
+        archive: false,
         auteur: '',
       };
       this.image = null;
@@ -211,12 +225,14 @@ export default {
     },
   },
   async mounted() {
-    this.refreshArticles(); // Charger les articles au montage du composant
+    this.refreshArticles();
   },
 };
 </script>
 
-<style>
+
+
+<style >
 .dashboard-container {
   flex: 1 1 0;
   padding: 2rem;
@@ -227,5 +243,10 @@ export default {
     padding-left: 6rem;
   }
 }
-</style>
 
+/* Style pour les articles archivés */
+.archived {
+  background-color: #f5f5f5; /* Couleur de fond gris clair pour les articles archivés */
+  color: #999; /* Couleur de texte grise pour les articles archivés */
+}
+</style>

@@ -15,7 +15,7 @@
     </div>
 
     <div class="header-content flex gap-12 justify-center items-center bg-white mx-auto mt-6">
-    <div v-for="article in epingleArticles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
+    <div v-for="article in epingleArticles.filter(article => !article._archive)" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
       <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
       <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
       <p class="text text-grey font-jost-sans absolute bottom-4">{{ formatDate(article._date) }}</p>
@@ -56,7 +56,7 @@
       
     </div>
     <div class="cards flex gap-12 justify-center items-center mt-6">
-    <div v-for="article in articles" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
+    <div v-for="article in articles.filter(article => !article._archive)" :key="article._id" class="card w-[300px] h-[375px] object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative bg-white">
       <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
       <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
       <p class="text text-grey font-jost-sans absolute bottom-4">{{ formatDate(article._date) }}</p>
@@ -114,6 +114,9 @@ export default {
   computed: {
     epingleArticles() {
       return this.articles.filter(article => article._epingle);
+    },
+    notArchivedArticles() {
+      return this.articles.filter(article => !article._archive);
     },
   },
 };

@@ -23,5 +23,6 @@ router.get('/getLastBlog', blogController.getLastBlog);
 router.post('/createBlog', upload.single('image'), blogController.createBlog);
 router.put('/updateBlog/:id', blogController.updateBlog);
 router.delete('/deleteBlog/:id', blogController.deleteBlog);
+router.patch('/archiveBlog/:id', blogController.archiveBlog);
 
 module.exports = router; // Exportation correcte du routeur

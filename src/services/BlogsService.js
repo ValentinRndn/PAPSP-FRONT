@@ -69,3 +69,14 @@ export const showBlog = (id) => {
             throw error;
           }
         };
+
+        export const archiveBlog = async (id) => {
+          try {
+            const response = await axios.patch(`http://localhost:3000/blog/archiveBlog/${id}`);
+            return response.data;
+          } catch (error) {
+            console.error('Error archiving blog:', error);
+            throw error;
+          }
+        };
+        
