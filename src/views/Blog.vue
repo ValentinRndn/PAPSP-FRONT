@@ -123,10 +123,5 @@ export default {
 </script>
 
 <style>
-.category-bg {
-  position: relative;
-  background-color: white;
-  z-index: 1;
-  vertical-align: top; /* Alignement vertical en haut */
-}
+
 </style>
