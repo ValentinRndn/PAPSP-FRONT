@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-landing relative w-full h-screen bg-center z-10 mb-24 rounded-bl-[25%] bg-cover bg-no-repeat md:h-[50vh] md:mb-0"
+    class="bg-landing relative w-full h-screen bg-center z-10 mb-24 rounded-bl-[25%] bg-cover bg-no-repeat md:h-[50vh] md:mb-0 overflow-hidden"
   >
     <aside class="flex items-center justify-center gap-5 mb-8 sm:hidden">
       <img
@@ -306,7 +306,7 @@
     <div class="relative top-56 w-full flex flex-col justify-center items-center md:top-25">
       <p class="text-5xl text-purple-fonce font-bold font-cgothic mb-14">Articles & News</p>
 
-    <div class="header-content flex  gap-12 justify-center items-center mx-auto ">
+    <div class="header-content flex flex-wrap gap-12 justify-center items-center mx-auto ">
 
       <div
         v-for="article in epingleArticles.filter(
@@ -338,38 +338,72 @@
   </div>
   <!-- Logo partenaires -->
   <div
-    class="logo-partenaires flex mx-2 mt-8 gap-24 justify-center items-center shadow-md"
+    class="logo-container "
   >
+  <span class="logo-content">
     <img
       src="../assets/logo_france_terre_asile.jpg"
       alt="logo-partenaires"
-      class="w-[180px] bg-cover z-10 h-[50%]"
+      class=" "
     />
     <img
       src="../assets/logo_calvados.png"
       alt="logo-partenaires"
-      class="w-[180px] bg-cover z-10 h-[50%]"
+      class=""
     />
     <img
       src="../assets/ars_logo.png"
       alt="logo-partenaires"
-      class="w-[180px] bg-cover z-10 h-[50%]"
+      class=""
     />
     <img
       src="../assets/logo_mondeville.png"
       alt="logo-partenaires"
-      class="w-[180px] bg-cover z-10 h-[50%]"
+      class=""
     />
     <img
       src="../assets/logo_itineraire.png"
       alt="logo-partenaires"
-      class="w-[180px] bg-cover z-10 h-[50%]"
+      class=""
     />
     <img
       src="../assets/welcome/SPEPSC.png"
       alt="logo-partenaires"
-      class="w-[180px] bg-cover z-10 h-[50%]"
+      class=""
     />
+  </span>
+  <span class="logo-content">
+    <img
+      src="../assets/logo_france_terre_asile.jpg"
+      alt="logo-partenaires"
+      class=" "
+    />
+    <img
+      src="../assets/logo_calvados.png"
+      alt="logo-partenaires"
+      class=""
+    />
+    <img
+      src="../assets/ars_logo.png"
+      alt="logo-partenaires"
+      class=""
+    />
+    <img
+      src="../assets/logo_mondeville.png"
+      alt="logo-partenaires"
+      class=""
+    />
+    <img
+      src="../assets/logo_itineraire.png"
+      alt="logo-partenaires"
+      class=""
+    />
+    <img
+      src="../assets/welcome/SPEPSC.png"
+      alt="logo-partenaires"
+      class=""
+    />
+  </span>
   </div>
 
   <Footer />
@@ -451,4 +485,33 @@ export default {
 span {
   font-weight: bold;
 }
+
+.logo-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+}
+
+.logo-container img {
+  height: 160px; /* Ajustez la hauteur des images selon vos besoins */
+  padding-right: 100px; /* Espacement entre les images */
+  vertical-align: middle;
+}
+
+
+  .logo-content {
+    white-space: nowrap;
+    animation: Scroll 100s linear infinite;
+  }
+
+  @keyframes Scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 </style>
