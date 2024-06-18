@@ -336,74 +336,60 @@
     </div>
   </div>
   </div>
+
+
   <!-- Logo partenaires -->
-  <div
-    class="logo-container "
-  >
-  <span class="logo-content">
-    <img
-      src="../assets/logo_france_terre_asile.jpg"
-      alt="logo-partenaires"
-      class=" "
-    />
-    <img
-      src="../assets/logo_calvados.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/ars_logo.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/logo_mondeville.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/logo_itineraire.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/welcome/SPEPSC.png"
-      alt="logo-partenaires"
-      class=""
-    />
-  </span>
-  <span class="logo-content">
-    <img
-      src="../assets/logo_france_terre_asile.jpg"
-      alt="logo-partenaires"
-      class=" "
-    />
-    <img
-      src="../assets/logo_calvados.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/ars_logo.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/logo_mondeville.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/logo_itineraire.png"
-      alt="logo-partenaires"
-      class=""
-    />
-    <img
-      src="../assets/welcome/SPEPSC.png"
-      alt="logo-partenaires"
-      class=""
-    />
-  </span>
+  <div class="logo-container">
+    <div class="logo-content">
+      <img
+        src="../assets/logo_france_terre_asile.jpg"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_calvados.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/ars_logo.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_mondeville.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_itineraire.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/welcome/SPEPSC.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_france_terre_asile.jpg"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_calvados.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/ars_logo.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_mondeville.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/logo_itineraire.png"
+        alt="logo-partenaires"
+      />
+      <img
+        src="../assets/welcome/SPEPSC.png"
+        alt="logo-partenaires"
+      />
+    </div>
   </div>
 
   <Footer />
@@ -482,36 +468,35 @@ export default {
 </script>
 
 <style>
-span {
-  font-weight: bold;
-}
-
 .logo-container {
-  height: 100vh;
-  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
   display: flex;
   align-items: center;
-
+  justify-content: center;
 }
 
-.logo-container img {
-  height: 160px; /* Ajustez la hauteur des images selon vos besoins */
-  padding-right: 100px; /* Espacement entre les images */
-  vertical-align: middle;
+.logo-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  animation: scroll 80s linear infinite;
 }
 
+.logo-content img {
+  height: 120px; 
+  width: auto; 
+  margin: 0 25px; 
+}
 
-  .logo-content {
-    white-space: nowrap;
-    animation: Scroll 100s linear infinite;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
-  @keyframes Scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
 </style>
