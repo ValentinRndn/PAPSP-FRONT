@@ -127,7 +127,10 @@ export default {
         horaires_samedi: '',
         horaires_dimanche: '',
         besoin: '',
-        categorie: ''
+        categorie: '',
+        structures: [],
+        currentPage: 1, 
+        structuresPerPage: 8 
       },
       structures: [],
     };
@@ -188,6 +191,21 @@ methods: {
     } catch (error) {
       console.error("Error fetching structures:", error);
     }
+  },
+  changePage(page) {
+    this.currentPage = page;
+  },
+
+  // Méthode pour obtenir les structures à afficher sur la page actuelle
+  paginatedStructures() {
+    const start = (this.currentPage - 1) * this.structuresPerPage;
+    const end = start + this.structuresPerPage;
+    return this.structures.slice(start, end);
+  },
+
+  // Méthode pour obtenir le nombre total de pages
+  totalPages() {
+    return Math.ceil(this.structures.length / this.structuresPerPage);
   }
 },
 
