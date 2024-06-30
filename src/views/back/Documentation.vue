@@ -11,8 +11,6 @@
         <div class="update-keys mt-16">
           <div class="button-container flex gap-5">
             <button @click="openModal" class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">AJOUTER UN NOUVEAU DOCUMENT</button>
-            <!-- <button class="archives-button bg-purple text-white py-4 px-10 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">ARCHIVES</button>
-            <button class="add-button bg-purple-fonce text-white py-4 px-6 rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">MES CATÉGORIES</button> -->
           </div>
 
           <div class="posts-keys flex flex-col gap-5 w-full bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
@@ -125,7 +123,7 @@ export default {
 
       const response = await createFile(formData);
       console.log('File created successfully', response);
-      this.closeModal(); // Optionnel : fermer la modal après la création
+      this.closeModal(); 
     } catch (error) {
       console.error('Error creating File', error);
     }

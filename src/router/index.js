@@ -18,9 +18,7 @@ import BlogDetail from '../components/Blog/BlogDetail.vue';
 import Login from '../views/back/Login.vue';
 import StructureBack from '../views/back/Structure.vue';
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes: [
+    const routes = [
         {
             path: '/',
             name: 'Welcome',
@@ -110,8 +108,19 @@ const router = createRouter({
             path: '/guide/professionalguide',
             name: 'ProfessionalGuide',
             component: ProfessionalGuide,
-        },
-    ],
-});
+        }
+    ];
+
+        const router = createRouter({
+            history: createWebHistory(),
+            routes,
+            scrollBehavior(to, from, savedPosition) {
+              if (savedPosition) {
+                return savedPosition;
+              } else {
+                return { left: 0, top: 0 };
+              }
+            }
+          });
 
 export default router;
