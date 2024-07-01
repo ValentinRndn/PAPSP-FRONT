@@ -7,6 +7,7 @@ const structureRoute = require('./routes/structureRoute');
 const memberRoute = require('./routes/memberRoute');
 const statistiqueRoute = require('./routes/statistiqueRoute');
 const FileRoute = require('./routes/fileRoute');
+const MatomoRoute = require('./routes/matomoRoute');
 
 const app = express();
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use('/structure', structureRoute);
 app.use('/member', memberRoute);
 app.use('/statistique', statistiqueRoute);
 app.use('/file', FileRoute);
+app.use('/matomo', MatomoRoute);
 
 const port = 3000;
 app.listen(port, () => {

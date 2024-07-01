@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const router = express.Router();
-const blogController = require('../controllers/blogControlleur');
+const blogController = require('../controllers/blogController');
 
 // Configuration de Multer pour stocker les images dans le dossier uploads
 const storage = multer.diskStorage({
