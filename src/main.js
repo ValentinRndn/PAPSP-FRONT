@@ -1,16 +1,21 @@
 import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
 import './assets/style.css'
 import VueMatomo from 'vue-matomo'
-import App from './App.vue'
 
-import router from './router'
+const app = createApp(App)
 
-createApp(App)
-  .use(VueMatomo, {
-    // Configurez votre instance Matomo en renseignant
-    host: 'https://papspnetlifyapp.matomo.cloud/',
-    siteId: 1,
-  })
-  .mount('#app')
+app.use(router)
 
-window._paq.push(['trackPageView']); // Pour suivre les visites sur vos pages
+app.use(VueMatomo, {
+  host: 'https://papspnetlifyapp.matomo.cloud/',
+  siteId: 1,
+  router: router, // Important: ajoutez le router ici si vous l'utilisez
+})
+
+app.mount('#app')
+
+// Assurez-vous que _paq est défini avant de l'utiliser
+window._paq = window._paq || []
+window._paq.push(['trackPageView'])
