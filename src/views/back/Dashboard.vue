@@ -11,7 +11,7 @@
 
 
     <!-- Contenu du tableau de bord -->
-    <div class="dashboard-container flex flex-wrap gap-12">
+    <div class="dashboard-container flex flex-wrap gap-12 overflow-auto">
       <div class="posts-keys flex flex-col gap-5 w-[25%] h-[300px] bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
             <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gestion des utilisateurs</h3>
 
@@ -49,9 +49,19 @@
   <div class="edit-post flex gap-4 font-poppins">
   </div>
 </div>
-<router-link to="/backOffice/documentation" class="edit-button bg-purple text-white py-2 px-2 w-1/3 mx-auto rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">Modifier</router-link>
+  <router-link to="/backOffice/documentation" class="edit-button bg-purple text-white py-2 px-2 w-1/3 mx-auto rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">Modifier</router-link>
+</div>
 
-          </div>
+    <!-- tableau SEO-->
+    <div class="posts-keys flex flex-col gap-5 w-[30%] h-[350px] bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
+      <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">SEO</h3>
+      <div class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
+      <div class="edit-post flex gap-4 font-poppins">
+    </div>
+  </div>
+    <!-- <router-link to="/backOffice/blog" class="edit-button bg-purple text-white py-2 px-2 w-1/3 mx-auto rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">Modifier</router-link> -->
+  </div>
+
 
     <!-- tableau articles-->
     <div class="posts-keys flex flex-col gap-5 w-[30%] h-[350px] bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
@@ -61,8 +71,8 @@
       <div class="edit-post flex gap-4 font-poppins">
     </div>
   </div>
-  <router-link to="/backOffice/blog" class="edit-button bg-purple text-white py-2 px-2 w-1/3 mx-auto rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">Modifier</router-link>
-          </div>
+    <router-link to="/backOffice/blog" class="edit-button bg-purple text-white py-2 px-2 w-1/3 mx-auto rounded-md shadow-xl font-poppins font-bold text-center hover:scale-105 duration-200">Modifier</router-link>
+  </div>
 
     </div>
   </div>
@@ -119,6 +129,10 @@ export default {
 </script>
 
 <style>
+.dashboard {
+  height: 100vh;
+}
+
 .dashboard-container {
     flex: 1 1 0;
     padding: 2rem;

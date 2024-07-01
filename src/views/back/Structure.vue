@@ -215,10 +215,15 @@ created() {
 };
 </script>
 
-<style>
+<style scoped>
 .dashboard-container {
   flex: 1 1 0;
   padding: 2rem;
+}
+
+.posts-keys {
+  max-height: 500px; /* Hauteur maximale à ajuster selon vos besoins */
+  overflow-y: auto; /* Activer la scrollbar verticale lorsque nécessaire */
 }
 
 .scrollable-form {
@@ -233,3 +238,4 @@ created() {
   }
 }
 </style>
+

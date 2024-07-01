@@ -21,6 +21,9 @@
       <li class="menu" :class="{ 'underline': currentPage === '/APropos' }">
         <router-link to="/APropos">EN SAVOIR +</router-link>
       </li>
+
+      <router-link v-if="isUserLoggedIn" to="/backoffice/dashboard" class="menu">
+      <img src="../assets/profile.png" alt="profil" class="size-6 object-cover object-center">      </router-link>
     </ul>
   </aside>
 </template>
@@ -31,6 +34,9 @@ import { useRoute } from 'vue-router';
 
 const currentPage = ref('');
 const route = useRoute();
+
+//Constant pour vérifier si le User est loggedIn
+const isUserLoggedIn = ref(localStorage.getItem('token') !== null);
 
 watch(
   () => route.path,

@@ -38,7 +38,7 @@
       <!-- Modal for creating or editing an article -->
       <ModalCreate :visible="isModalVisible" @close="closeModal">
         <h2 class="text-xl font-bold mb-4">{{ isEditing ? 'Modifier l\'article' : 'Créer un nouvel article' }}</h2>
-        <form @submit.prevent="isEditing ? updateArticle() : createArticle()">
+        <form class="scrollable-form" @submit.prevent="isEditing ? updateArticle() : createArticle()">
           <div class="mb-4">
             <label for="titre" class="block text-sm font-medium text-gray-700">Titre</label>
             <input v-model="newArticle.titre" type="text" id="titre" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2" required>
@@ -243,6 +243,14 @@ export default {
     padding-left: 6rem;
   }
 }
+
+
+.scrollable-form {
+  max-height: 80vh; /* Limitez la hauteur à 80% de la hauteur de la vue */
+  overflow-y: auto; /* Activez le défilement vertical */
+  padding: 2rem;
+}
+
 
 /* Style pour les articles archivés */
 .archived {

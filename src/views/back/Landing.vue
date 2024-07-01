@@ -121,6 +121,12 @@ export default {
 </script>
 
 <style>
+.dashboard {
+  height: 100vh;
+  overflow: hidden;
+}
+
+
 .dashboard-container {
   flex: 1 1 0;
   padding: 2rem;

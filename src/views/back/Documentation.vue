@@ -19,7 +19,6 @@
             <div v-for="doc in documents" :key="doc.id" class="post-field flex w-full justify-between border-b border-b-solid border-light-grey pb-5 md:flex-col md:items-center">
               <p>{{ doc.titre }}</p>
               <div class="edit-post flex gap-4 font-poppins">
-                <p class="text-light-grey underline">Catégories</p>
                 <p class="text-light-grey underline">Modifier</p>
                 <p class="text-light-grey underline cursor-pointer">Supprimer</p>
               </div>
