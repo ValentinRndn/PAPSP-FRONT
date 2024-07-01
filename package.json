@@ -16,7 +16,6 @@
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
     "npm": "^10.8.1",
-    "pdfjs-dist": "^4.2.67",
     "tinymce": "^7.1.2",
     "vue": "^3.4.15",
     "vue-leaflet": "^0.1.0",

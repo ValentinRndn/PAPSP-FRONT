@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-const { jsxDEV } = require('vue/jsx-runtime');
 const router = express.Router();
 
 // Récupérer les statistiques de Matomo
