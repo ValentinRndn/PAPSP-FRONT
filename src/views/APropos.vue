@@ -104,16 +104,15 @@
     <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10  md:flex-col">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
+            <img src="../assets/propos/programme_1.png" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">01</h1>
             </div>
-            <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
-                       <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
-
+            <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">En amont</h1>
+                       <p class="text-md text-program-grey text-jost">Commandes des denrées alimentaires et préparation des pochons de matériels de réduction des risques.</p>
         </div> 
     </div>
 
@@ -121,16 +120,16 @@
     <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10  md:flex-col flex-row-reverse">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
+            <img src="../assets/propos/programme_2.png" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">02</h1>
             </div>
-                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Le jour de la maraude</h1>
 
-                       <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+                       <p class="text-md text-program-grey text-jost">Préparation des boissons chaudes : café, eau chaude et installation dans le camion du PAPSP avec les bénévoles. Environ 5h de maraude afin d'échanger avec toutes les personnes rencontrées sur leurs besoins..</p>
 
         </div>
     </div>
@@ -139,16 +138,16 @@
         <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10 md:flex-col">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
+            <img src="../assets/propos/programme_3.png" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">03</h1>
             </div>
-                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Accompagnement adapté</h1>
 
-                       <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+                       <p class="text-md text-program-grey text-jost">Recueillir les besoins des personnes rencontrées pendant les maraudes. Rendre possible la prise de rendez-vous avec les partenaires. Proposer des entretiens individuels, accompagner les personnes dans leurs démarches d'accès aux soins et à leurs droits</p>
 
         </div>
     </div>
@@ -157,16 +156,16 @@
     <div class="programme flex justify-center items-center max-w-[700px] mt-20 gap-10 md:flex-col flex-row-reverse">
         <div class="image-programme w-1/2">
 
-            <img src="../assets/landing.jpg" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
+            <img src="../assets/propos/programme_4.png" alt="programme" class="w-full h-[300px] object-cover rounded-bl-[75%] xl rounded-tr-[25%] "/>
         </div>
         <div class="content-programme w-1/2">
             <div class="top-image-programme flex w-full h-[3.5rem] mb-10 justify-between">
                 <img src="../assets/icon-detail.png" alt="icon-details">
                 <h1 class="text-6xl font-bold text-purple-fonce">04</h1>
             </div>
-                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Concept & Details</h1>
+                        <h1 class=" text-purple-fonce font-dm-serif text-3xl font-bold mb-3">Sensibiliser les professionnels et les partenaires</h1>
 
-            <p class="text-md text-program-grey text-jost">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati distinctio corporis illum consectetur accusantium aliquid quam voluptates quod blanditiis consequuntur.</p>
+            <p class="text-md text-program-grey text-jost">Sessions de sensibilisation & animation du réseau partenarial régional. Disponibilité et écoute.</p>
         </div>
     </div>
 
