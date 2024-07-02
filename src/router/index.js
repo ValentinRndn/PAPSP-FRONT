@@ -1,9 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Welcome from '../views/Welcome.vue';
+import LandingFront from '../views/Landing.vue';
 import Map from '../views/Map.vue';
 import Guide from '../views/Guide.vue';
 import Contact from '../views/Contact.vue';
-import APropos from '../views/APropos.vue';
 import Dashboard from '../views/back/Dashboard.vue';
 import Users from '../views/back/Users.vue';
 import DocumentationBack from '../views/back/Documentation.vue';
@@ -21,8 +20,8 @@ import StructureBack from '../views/back/Structure.vue';
     const routes = [
         {
             path: '/',
-            name: 'Welcome',
-            component: Welcome,
+            name: 'LandingFront',
+            component: LandingFront,
         },
         {
             path: '/map',
@@ -48,11 +47,6 @@ import StructureBack from '../views/back/Structure.vue';
             path: '/blog/article/:id',
             name: 'BlogDetail',
             component: BlogDetail,
-        },
-        {
-            path: '/APropos',
-            name: 'APropos',
-            component: APropos,
         },
         {
             path: '/login',

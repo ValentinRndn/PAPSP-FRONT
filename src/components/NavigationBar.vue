@@ -12,18 +12,17 @@
       <li class="menu" :class="{ 'underline': currentPage === '/guide' }">
         <router-link to="/guide">GUIDE</router-link>
       </li>
-      <li class="menu" :class="{ 'underline': currentPage === '/contact' }">
-        <router-link to="/contact">CONTACT</router-link>
-      </li>
       <li class="menu" :class="{ 'underline': currentPage === '/blog' }">
         <router-link to="/blog">BLOG</router-link>
       </li>
-      <li class="menu" :class="{ 'underline': currentPage === '/APropos' }">
-        <router-link to="/APropos">EN SAVOIR +</router-link>
+      <li class="menu" :class="{ 'underline': currentPage === '/contact' }">
+        <router-link to="/contact">CONTACT</router-link>
       </li>
-
+      <li>
       <router-link v-if="isUserLoggedIn" to="/backoffice/dashboard" class="menu">
-      <img src="../assets/profile.png" alt="profil" class="size-6 object-cover object-center">      </router-link>
+      <img src="../assets/profile.png" alt="profil" class="size-6 object-cover object-center">      
+    </router-link>
+  </li>
     </ul>
   </aside>
 </template>
@@ -35,7 +34,7 @@ import { useRoute } from 'vue-router';
 const currentPage = ref('');
 const route = useRoute();
 
-//Constant pour vérifier si le User est loggedIn
+//Constante pour vérifier si le User est loggedIn
 const isUserLoggedIn = ref(localStorage.getItem('token') !== null);
 
 watch(
