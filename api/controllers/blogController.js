@@ -44,7 +44,7 @@ exports.getBlogById = (req, res) => {
 // Controller getLastBlog
 exports.getLastBlog = (req, res) => {
   const sql = 'SELECT * FROM blogs WHERE archive = 0 ORDER BY id DESC LIMIT 1';
-  const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
+  const dbInstance = db.getInstance(); 
 
   dbInstance.query(sql, (err, result) => {
       if (err) {

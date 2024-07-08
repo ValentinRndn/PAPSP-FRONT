@@ -96,7 +96,7 @@
       <img
         src="../assets/stop.jpg"
         alt="stop"
-        class="rounded-tr-[50%] w-[500px] h-[500px] object-cover md:mx-5"
+        class="rounded-tr-[50%] w-[500px] h-[500px] object-cover md:mx-2 md:w-[400px]"
       />
     </div>
   </div>

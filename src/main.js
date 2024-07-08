@@ -2,17 +2,17 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import './assets/style.css'
-import VueMatomo from 'vue-matomo'
+// import VueMatomo from 'vue-matomo'
 
 const app = createApp(App)
 
 app.use(router)
 
-app.use(VueMatomo, {
-  host: 'https://papspnetlifyapp.matomo.cloud/',
-  siteId: 1,
-  router: router, // Important: ajoutez le router ici si vous l'utilisez
-})
+// app.use(VueMatomo, {
+//   host: 'https://papspnetlifyapp.matomo.cloud/',
+//   siteId: 1,
+//   router: router, // Important: ajoutez le router ici si vous l'utilisez
+// })
 
 app.mount('#app')
 
