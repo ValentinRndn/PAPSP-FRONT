@@ -21,7 +21,7 @@
 
             <div class="post-field flex w-full justify-between items-center border-b border-b-solid border-light-grey pb-5 md:flex-col">
               <div class="user flex gap-2 justify-center items-center">
-                <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon">
+                <!-- <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon"> -->
                 <p>Agathe Pichon</p>
               </div>
               <div class="edit-post flex gap-4 font-poppins">
@@ -32,7 +32,7 @@
 
             <div class="post-field flex w-full justify-between items-center border-b border-b-solid border-light-grey pb-5 md:flex-col">
               <div class="user flex gap-2 justify-center items-center">
-                <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon">
+                <!-- <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon"> -->
                 <p>Clarisse Lechasles</p>
               </div>
               <div class="edit-post flex gap-4 font-poppins">

@@ -12,12 +12,12 @@
 
     <!-- Contenu du tableau de bord -->
     <div class="dashboard-container flex flex-wrap gap-12 overflow-auto">
-      <div class="posts-keys flex flex-col gap-5 w-[25%] h-[300px] bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
+      <div class="posts-keys flex flex-col gap-5 w-[25%] h-[350px] bg-white p-4 mt-10 rounded-md shadow-xl font-poppins justify-center md:items-center md:w-full md:h-4/6">
             <h3 class="font-bold border-b border-b-solid border-light-grey pb-5 pt-2 text-center">Gestion des utilisateurs</h3>
 
             <div class="post-field flex w-full justify-between items-center border-b border-b-solid border-light-grey pb-5 md:flex-col">
               <div class="user flex gap-2 justify-center items-center">
-                <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon">
+                <!-- <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon"> -->
                 <p>Agathe Pichon</p>
               </div>
               <div class="edit-post flex gap-4 font-poppins">
@@ -28,7 +28,7 @@
 
             <div class="post-field flex w-full justify-between items-center border-b border-b-solid border-light-grey pb-5 md:flex-col">
               <div class="user flex gap-2 justify-center items-center">
-                <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon">
+                <!-- <img src="../../assets/back/users/user.png" class="w-[25px]" alt="user-icon"> -->
                 <p>Clarisse Lechasles</p>
               </div>
               <div class="edit-post flex gap-4 font-poppins">
