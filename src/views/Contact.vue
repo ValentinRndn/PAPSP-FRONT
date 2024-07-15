@@ -1,10 +1,4 @@
 <template>
-
-  <NavigationBar />
-  <!-- <NavigationBar v-if="isMobile === false" /> -->
-    <!-- <NavigationBarMobile v-else /> -->
-
-
         <div class="header-banner bg-banner-contact w-full h-[350px] bg-cover relative sm:hidden">
       <div class="absolute bottom-0 left-0 right-0 text-center">
         <div class="bg-white inline-block text-purple-fonce text-5xl py-6 px-24 rounded-t-2xl font-bold font-cgothic sm:px-8 sm:text-4xl">CONTACT</div>
