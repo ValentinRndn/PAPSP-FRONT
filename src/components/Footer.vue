@@ -8,15 +8,14 @@
                 <li><a href="#" class="">CARTOGRAPHIE</a></li>
                 <li><a href="#" class="">DOCUMENTATION</a></li>
                 <li><a href="#" class="">CONTACT</a></li>
-                <li><a href="#" class="">EN SAVOIR +</a></li>
-                <p class="sm:hidden text-3xl text-yellow">|</p>
-                <!-- <p class=""></p> -->
+                <!-- <p class="sm:hidden text-3xl text-yellow">|</p>
+                <p class=""></p>
                 <div class="socials flex sm:flex gap-5 ">
                 <img src="../assets/fb.png" alt="logo-reseaux" class="h-[35px] w-[35px]" />
                 <img src="../assets/ln.png" alt="logo-reseaux" class="h-[35px] w-[35px]" />
                 <img src="../assets/insta.png" alt="logo-reseaux" class="h-[35px] w-[35px]" />
                 <img src="../assets/tiktok.png" alt="logo-reseaux" class="h-[35px] w-[35px]" />
-                </div>
+                </div> -->
         <p class="text-center text-xs font-cgothic hidden sm:block">© 2024 Prévention Prostitution. Tous droits réservés.</p>
                 
             </ul>
