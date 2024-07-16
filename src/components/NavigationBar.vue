@@ -33,7 +33,13 @@
   </aside>
 </template>
 
+<script>
+export default {
+  name: 'NavigationBar',
+};
+</script>
 <script setup>
+
 import { ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 

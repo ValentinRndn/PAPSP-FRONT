@@ -1,6 +1,4 @@
 <template>
-  <NavigationBar />
-
   <div class="bg-back-carto flex h-[80vh] bg-cover bg-no-repeat">
       <div class="w-[50vw] flex justify-center items-center">
           <div class="flex flex-col w-[400px] h-[200px] justify-center font-cgothic   ">

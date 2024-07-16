@@ -1,8 +1,4 @@
 <template>
-  <!-- <NavigationBar /> -->
-    <NavigationBarMobile v-if="screenSize === 'md'" />
-    <NavigationBar v-else />
-
   <div class="page-container flex h-[700px] items-center sm:flex-col sm:h-[1400px]">
     <div class="categories-container bg-purple-fonce w-[1/3] h-full px-6 flex flex-col justify-center">
       <h1 class="text-white text-2xl font-bold mb-6 font-cgothic">PAPSP VOUS ORIENTE :</h1>
