@@ -3,15 +3,11 @@
     <div class="categories-container bg-purple-fonce w-[1/3] h-full px-6 flex flex-col justify-center">
       <h1 class="text-white text-2xl font-bold mb-6 font-cgothic">PAPSP VOUS ORIENTE :</h1>
       <div class="checkboxes flex flex-col gap-3 text-white text-xl">
-
         <div class="checkboxes flex flex-col gap-4 font-poppins relative">
-
           <div v-if="showPopup" class="popup">
             <div class="popup-content text-black">
               <p>
-                La cartographie du programme
-                de prévention & d’accompagnement des personnes en situation de prostitution vous permet de trouver un établissement
-                adapté à vos besoins dans toute la région Normande
+                La cartographie du programme de prévention & d’accompagnement des personnes en situation de prostitution vous permet de trouver un établissement adapté à vos besoins dans toute la région Normande
               </p>
               <img @click="hidePopup" class="absolute top-5 right-5 w-[20px] cursor-pointer" src="../../assets/map/close-popup.png" alt="hide_arrow">
             </div>
@@ -49,7 +45,7 @@
 
           <div class="checkbox flex gap-3 items-center">
             <input type="checkbox" id="preservatif" name="scales" @change="updateSelectedCategories" />
-            <label for="scales">Distribution préservtaifs - Accompagnement - Soutien</label>
+            <label for="scales">Distribution préservatifs - Accompagnement - Soutien</label>
           </div>
 
           <div class="checkbox flex gap-3 items-center">
@@ -61,14 +57,22 @@
             <input type="checkbox" id="droit-sante" name="scales" @change="updateSelectedCategories" />
             <label for="scales">Accès aux droits de santé</label>
           </div>
-
-
         </div>
       </div>
     </div>
-    <div id="map" class="h-full  w-full"></div>
+    <div id="map" class="h-full w-full relative">
+      <transition name="slide">
+        <div v-if="selectedStructure" class="structure-popup">
+          <div class="popup-content">
+            <h2 class="text-xl font-bold mb-2">{{ selectedStructure._antenne }}</h2>
+            <p>{{ selectedStructure._adresse }}</p>
+            <p>{{ selectedStructure._telephone }}</p>
+            <button @click="closePopup" class="close-btn">Fermer</button>
+          </div>
+        </div>
+      </transition>
+    </div>
   </div>
-
   <Footer />
 </template>
 
@@ -88,6 +92,7 @@ export default {
       showPopup: false,
       selectedCategories: [],
       markers: [],
+      selectedStructure: null,
     };
   },
   methods: {
@@ -101,7 +106,6 @@ export default {
     async showStructures() {
       try {
         const structures = await getAllStructures();
-        console.log('Structures fetched:', structures);
         this.structures = structures;
         this.addMarkers();
       } catch (error) {
@@ -116,9 +120,7 @@ export default {
           this.selectedCategories.push(checkbox.id);
         }
       });
-      // Retirer les marqueurs des catégories décochées
       this.removeMarkers();
-      // Ajouter les marqueurs des catégories sélectionnées
       this.addMarkers();
     },
     removeMarkers() {
@@ -135,7 +137,9 @@ export default {
             const category = structure._categorie;
             const color = iconColors[category];
             const marker = L.marker([lat, lon], { icon: createIcon(color) }).addTo(this.map);
-            marker.bindPopup(`<b>${structure._antenne}</b><br>${structure._adresse}<br>${structure._telephone}`);
+            marker.on('click', () => {
+              this.selectedStructure = structure;
+            });
             this.markers.push(marker);
           } else {
             console.warn('Invalid coordinates for structure:', structure);
@@ -145,13 +149,15 @@ export default {
     },
     hidePopup() {
       this.showPopup = false;
+    },
+    closePopup() {
+      this.selectedStructure = null;
     }
   },
   mounted() {
     this.initMap();
     this.showStructures();
     this.showPopup = true;
-    console.log(this.selectedCategories);
   },
   components: {
     Footer,
@@ -161,16 +167,68 @@ export default {
 </script>
 
 <style>
-/* Styles pour la popup */
+.page-container {
+  position: relative;
+  overflow: hidden; /* Assurez-vous que la popup ne crée pas de scrollbars */
+}
+
+.structure-popup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  transform: translateX(0%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.structure-popup .popup-content {
+  padding: 20px;
+}
+
+.structure-popup .close-btn {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Animation de la popup */
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide-enter, .slide-leave-to {
+  transform: translateX(100%); /* La popup glisse depuis et vers la droite */
+}
+
+.slide-enter-to {
+  transform: translateX(0); /* La popup reste visible au-dessus de la carte */
+}
+
+.slide-leave-to {
+  transform: translateX(100%); /* La popup disparaît vers la droite */
+}
+
+/* Styles pour la popup initiale */
 .popup {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 50;
+  z-index: 1000;
 }
 
 .popup-content {
@@ -188,41 +246,16 @@ input[type="checkbox"] {
   transform: scale(1.5);
 }
 
-#medecine-generale {
-  accent-color: grey;
-}
-
-#depistage {
-  accent-color: red;
-}
-
-#sante-sexuelle {
-  accent-color: orange;
-}
-
-#soutien {
-  accent-color: green;
-}
-
-#accompagnement-psychologique {
-  accent-color: aqua;
-}
-
-#sortie-prostitution{
-  accent-color: blue;
-}
-
-#preservatif {
-  accent-color: purple;
-}
-
-#plainte {
-  accent-color: fuchsia;
-}
-
-#droit-sante {
-  accent-color: orchid;
-}
+/* Couleurs des cases à cocher */
+#medecine-generale { accent-color: grey; }
+#depistage { accent-color: red; }
+#sante-sexuelle { accent-color: orange; }
+#soutien { accent-color: green; }
+#accompagnement-psychologique { accent-color: aqua; }
+#sortie-prostitution { accent-color: blue; }
+#preservatif { accent-color: purple; }
+#plainte { accent-color: fuchsia; }
+#droit-sante { accent-color: orchid; }
 
 /* Styles pour les icônes personnalisées */
 .custom-icon {
@@ -234,6 +267,6 @@ input[type="checkbox"] {
 .custom-icon div {
   width: 25px;
   height: 25px;
-  border-radius: 50%;
+  border-radius: 20%;
 }
 </style>
