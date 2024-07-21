@@ -54,7 +54,7 @@
   <div class="container-presentation flex flex-wrap justify-center items-center w-full gap-8 md:text-center">
     <div class="presentation max-w-[600px]">
       <h1 class="text-2xl text-black mx-10 mt-10 mb-4 font-bold font-cgothic">
-        LE PROGRAMME PAPSP A POUR MISSION :
+        CETTE PLATEFORME VOUS PERMET DE :
       </h1>
       <ul class="text-black mx-10 text-xl font-cgothic">
         <li class="mb-4">

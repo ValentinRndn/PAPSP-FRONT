@@ -5,8 +5,8 @@
       <div class="checkboxes flex flex-col gap-3 text-white text-xl">
         <div class="checkboxes flex flex-col gap-4 font-poppins relative">
           <div v-if="showPopup" class="popup">
-            <div class="popup-content text-black">
-              <p>
+            <div class="popup-content text-black relative">
+              <p class="md:mt-7">
                 La cartographie du programme de prévention & d’accompagnement des personnes en situation de prostitution vous permet de trouver un établissement adapté à vos besoins dans toute la région Normande
               </p>
               <img @click="hidePopup" class="absolute top-5 right-5 w-[20px] cursor-pointer" src="../../assets/map/close-popup.png" alt="hide_arrow">
@@ -63,11 +63,12 @@
     <div id="map" class="h-full w-full relative">
       <transition name="slide">
         <div v-if="selectedStructure" class="structure-popup">
-          <div class="popup-content">
-            <h2 class="text-xl font-bold mb-2">{{ selectedStructure._antenne }}</h2>
-            <p>{{ selectedStructure._adresse }}</p>
-            <p>{{ selectedStructure._telephone }}</p>
-            <button @click="closePopup" class="close-btn">Fermer</button>
+          <div class="popup-content flex flex-col gap-5 items-center justify-center font-cgothic">
+            <!-- button close -->
+            <img @click="closePopup" class="absolute top-5 left-5 w-[20px] cursor-pointer" src="../../assets/map/close-popup.png" alt="hide_arrow">
+            <h2 class="text-3xl text-center font-bold mt-10 text-purple-fonce">{{ selectedStructure._antenne }}</h2>
+            <p class="text-2xl text-center font-semibold">{{ selectedStructure._adresse }}</p>
+            <p class="text-2xl text-purple-fonce font-bold">{{ selectedStructure._telephone }}</p>
           </div>
         </div>
       </transition>
@@ -76,6 +77,7 @@
   <Footer />
 </template>
 
+
 <script>
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -83,6 +85,10 @@ import NavigationBar from "../../components/NavigationBar.vue";
 import Footer from "../../components/Footer.vue";
 import { getAllStructures } from "../../services/StructuresService";
 import { iconColors, createIcon } from "../../services/IconMap";
+
+
+
+
 
 export default {
   data() {
@@ -93,67 +99,84 @@ export default {
       selectedCategories: [],
       markers: [],
       selectedStructure: null,
+      selectedMarker: null,
     };
   },
   methods: {
-    initMap() {
-      this.map = L.map("map").setView([49.183333, -0.35], 13);
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }).addTo(this.map);
-    },
-    async showStructures() {
-      try {
-        const structures = await getAllStructures();
-        this.structures = structures;
-        this.addMarkers();
-      } catch (error) {
-        console.error('Error fetching structures:', error);
-      }
-    },
-    updateSelectedCategories() {
-      this.selectedCategories = [];
-      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-      checkboxes.forEach(checkbox => {
-        if (checkbox.checked) {
-          this.selectedCategories.push(checkbox.id);
-        }
-      });
-      this.removeMarkers();
+  initMap() {
+    this.map = L.map("map").setView([49.183333, -0.35], 13);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(this.map);
+  },
+  async showStructures() {
+    try {
+      const structures = await getAllStructures();
+      this.structures = structures;
       this.addMarkers();
-    },
-    removeMarkers() {
-      this.markers.forEach(marker => {
-        this.map.removeLayer(marker);
-      });
-      this.markers = [];
-    },
-    addMarkers() {
-      this.structures.forEach(structure => {
-        if (structure._coos_gps && this.selectedCategories.includes(structure._categorie)) {
-          const [lat, lon] = structure._coos_gps.split(',').map(coord => parseFloat(coord));
-          if (!isNaN(lat) && !isNaN(lon)) {
-            const category = structure._categorie;
-            const color = iconColors[category];
-            const marker = L.marker([lat, lon], { icon: createIcon(color) }).addTo(this.map);
-            marker.on('click', () => {
-              this.selectedStructure = structure;
-            });
-            this.markers.push(marker);
-          } else {
-            console.warn('Invalid coordinates for structure:', structure);
-          }
-        }
-      });
-    },
-    hidePopup() {
-      this.showPopup = false;
-    },
-    closePopup() {
-      this.selectedStructure = null;
+    } catch (error) {
+      console.error('Error fetching structures:', error);
     }
   },
+  updateSelectedCategories() {
+    this.selectedCategories = [];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      if (checkbox.checked) {
+        this.selectedCategories.push(checkbox.id);
+      }
+    });
+    this.removeMarkers();
+    this.addMarkers();
+  },
+  removeMarkers() {
+    this.markers.forEach(marker => {
+      this.map.removeLayer(marker);
+    });
+    this.markers = [];
+  },
+  addMarkers() {
+    this.structures.forEach(structure => {
+      if (structure._coos_gps && this.selectedCategories.includes(structure._categorie)) {
+        const [lat, lon] = structure._coos_gps.split(',').map(coord => parseFloat(coord));
+        if (!isNaN(lat) && !isNaN(lon)) {
+          const category = structure._categorie;
+          const color = iconColors[category];
+          const icon = createIcon(color);
+          const marker = L.marker([lat, lon], { icon: icon }).addTo(this.map);
+          marker.on('click', () => {
+            this.selectedStructure = structure;
+            this.updateMarkerStyles(marker);
+          });
+          this.markers.push(marker);
+        } else {
+          console.warn('Invalid coordinates for structure:', structure);
+        }
+      }
+    });
+  },
+  updateMarkerStyles(clickedMarker) {
+    if (this.selectedMarker) {
+      // Réinitialise le style de l'ancien marqueur sélectionné
+      L.DomUtil.removeClass(this.selectedMarker._icon, 'custom-icon-selected');
+    }
+    // Met à jour le style du marqueur sélectionné
+    L.DomUtil.addClass(clickedMarker._icon, 'custom-icon-selected');
+    this.selectedMarker = clickedMarker; // Mémorise le marqueur sélectionné
+  },
+  hidePopup() {
+    this.showPopup = false;
+  },
+  closePopup() {
+    this.selectedStructure = null;
+    if (this.selectedMarker) {
+      L.DomUtil.removeClass(this.selectedMarker._icon, 'custom-icon-selected'); // Réinitialise l'icône
+      this.selectedMarker = null; // Réinitialise le marqueur sélectionné
+    }
+  }
+},
+
   mounted() {
     this.initMap();
     this.showStructures();
@@ -166,10 +189,11 @@ export default {
 };
 </script>
 
+
 <style>
 .page-container {
   position: relative;
-  overflow: hidden; /* Assurez-vous que la popup ne crée pas de scrollbars */
+  overflow: hidden; 
 }
 
 .structure-popup {
@@ -199,13 +223,13 @@ export default {
   border-radius: 5px;
 }
 
-/* Animation de la popup */
 .slide-enter-active,
 .slide-leave-active {
   transition: transform 0.3s ease-in-out;
 }
 
-.slide-enter, .slide-leave-to {
+.slide-enter, 
+.slide-leave-to {
   transform: translateX(100%); /* La popup glisse depuis et vers la droite */
 }
 
@@ -217,6 +241,7 @@ export default {
   transform: translateX(100%); /* La popup disparaît vers la droite */
 }
 
+
 /* Styles pour la popup initiale */
 .popup {
   position: absolute;
@@ -224,7 +249,6 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,7 +259,6 @@ export default {
   background-color: white;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .popup button {
@@ -268,5 +291,10 @@ input[type="checkbox"] {
   width: 25px;
   height: 25px;
   border-radius: 20%;
+}
+
+.custom-icon-selected {
+  border: 3px solid ;
+  border-radius: 100%; 
 }
 </style>
