@@ -40,23 +40,3 @@ exports.updateStatistique = (req, res) => {
     });
 }
 
-// Controller createStatistique
-
-// exports.createStatistique = (req, res) => {
-
-//     let statistique = Statistique.fromMap(req.body);
-//     const sql = 'INSERT INTO statistiques (personnes, maraudes, preservatifs) VALUES (?, ?, ?)';
-//     const values = [statistique.personnes, statistique.maraudes, statistique.preservatifs];
-
-//     const dbInstance = db.getInstance(); // Obtenir une instance de la classe Database
-
-//     dbInstance.query(sql, values, (err, result) => {
-//         if (err) {
-//             console.error("Erreur lors de l'insertion de la statistique", err);
-//             return res.status(500).json({ message: "Erreur lors de la création de la statistique" });
-//         } else {
-//             statistique._id = result.insertId;
-//             return res.status(201).json({ message: "Statistique créée avec succès !" });
-//         }
-//     });
-// }

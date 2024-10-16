@@ -110,7 +110,7 @@
 <!-- Chiffres clés -->
 <div class="relative top-32 w-full flex gap-12 justify-center items-center md:flex-col md:gap-6 md:text-xl md:top-16">
   <div v-for="number in numbers" :key="number.id" class="information flex flex-col justify-center items-center">
-    <p class="chiffre text-6xl font-cgothic">{{ number.personnes }}</p>
+    <p class="chiffre text-6xl font-cgothic">{{ number.firstStats }}</p>
     <div class="information flex flex-col justify-center items-center">
       <p class="text font-jost-sans text-purple-fonce">Personnes rencontrées</p>
     </div>
@@ -119,7 +119,7 @@
     <p class="text text-6xl text-yellow md:hidden">|</p>
   </div>
   <div v-for="number in numbers" :key="number.id" class="information flex flex-col justify-center items-center">
-    <p class="chiffre text-6xl font-cgothic">{{ number.maraudes }}</p>
+    <p class="chiffre text-6xl font-cgothic">{{ number.secondStats }}</p>
     <div class="information flex flex-col justify-center items-center">
       <p class="text font-jost-sans text-purple-fonce">Maraudes effectuées</p>
     </div>
@@ -128,7 +128,7 @@
     <p class="text text-6xl text-yellow md:hidden">|</p>
   </div>
   <div v-for="number in numbers" :key="number.id" class="information flex flex-col justify-center items-center">
-    <p class="chiffre text-6xl font-cgothic">{{ number.preservatifs }}</p>
+    <p class="chiffre text-6xl font-cgothic">{{ number.thirdStats }}</p>
     <div class="information flex flex-col justify-center items-center">
       <p class="text font-jost-sans text-purple-fonce">Préservatifs distribués</p>
     </div>

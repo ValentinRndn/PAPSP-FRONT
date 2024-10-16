@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const showNumbers = () => {
-  return axios.get('http://localhost:3000/statistique/getAllStatistiques')
+  return axios.get('http://localhost:5000/api/statistics/getAllStats')
     .then(response => {
       return response.data;
     })
@@ -12,7 +12,7 @@ export const showNumbers = () => {
 
 
 export const saveStatistiques = (statData) => {
-    return axios.put('http://localhost:3000/statistique/updateStatistique/1', statData)
+    return axios.put('http://localhost:5000/api/statistics/1', statData)
         .then(response => {
             return response.data;
         })
