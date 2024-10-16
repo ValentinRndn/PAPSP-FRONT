@@ -139,10 +139,10 @@
 <div class=" font-cgothic my-12 mt-[200px]">
   <h2 class="text-center text-2xl font-bold mb-8">Nos dernières actualités</h2>
   <div class="header-content flex gap-12 justify-center items-center mx-auto mt-6">
-    <div v-for="article in epingleArticles.filter(article => !article._archive)" :key="article._id" class="card w-[300px] h-[375px] bg-white object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
-      <img :src="`api/${article._image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
-      <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article._titre }}</p>
-      <p class="text text-grey font-jost-sans absolute bottom-4">{{ formatDate(article._date) }}</p>
+    <div v-for="article in epingleArticles.filter(article => !article.pin)" :key="article.id" class="card w-[300px] h-[375px] bg-white object-cover rounded-[25px] overflow-hidden p-4 shadow-xl border border-solid border-slate-300 relative">
+      <img :src="`api/${article.image}`" alt="article image" class="rounded-t-[25px] h-[180px] w-full object-cover" />
+      <p class="text-3xl font-bold font-c-gothic text-post-grey">{{ article.title }}</p>
+      <p class="text text-grey font-jost-sans absolute bottom-4">{{ formatDate(article.date) }}</p>
       <router-link :to="{ name: 'BlogDetail', params: { id: article._id } }" class="arrow text-xl text-grey absolute bottom-3 right-4 font-bold bg-light-beige p-2 px-3 rounded-full">
         >
       </router-link>
@@ -210,7 +210,7 @@ export default {
     };
 
     const epingleArticles = computed(() => {
-      return articles.value.filter((article) => article._epingle);
+      return articles.value.filter((article) => article.archive);
     });
 
     onMounted(() => {

@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Route pour récupérer tous les articles
-router.get('/', async (req, res) => {
+router.get('/getAllBlogs', async (req, res) => {
   try {
     const blogs = await Blog.find();
     res.json(blogs);
@@ -28,7 +28,7 @@ router.get('/', async (req, res) => {
 
 
 // Route pour récupérer un article par son id
-router.get('/:id', async (req, res) => {
+router.get('getBlog/:id', async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
     if (!blog) {
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Route pour récupérer le dernier article 
-router.get('/last', async (req, res) => {
+router.get('/getLastBlog', async (req, res) => {
   try {
     const blog = await Blog.findOne().sort({ _id: -1 });
     if (!blog) {
@@ -56,7 +56,7 @@ router.get('/last', async (req, res) => {
 });
 
 // Route pour ajouter un article
-router.post('/', upload.single('image'), async (req, res) => {
+router.post('/createBlog', upload.single('image'), async (req, res) => {
   try {
     const { title, description, category, pdf } = req.body;
     const image = req.file.path;
@@ -76,7 +76,7 @@ router.post('/', upload.single('image'), async (req, res) => {
 });
 
 // Route pour modifier un article
-router.put('/:id', upload.single('image'), async (req, res) => {
+router.put('/updateBlog/:id', upload.single('image'), async (req, res) => {
   try {
     const { title, description, category, pdf } = req.body;
     const image = req.file.path;
@@ -93,7 +93,7 @@ router.put('/:id', upload.single('image'), async (req, res) => {
 });
 
 // Route pour supprimer un article
-router.delete('/:id', async (req, res) => {
+router.delete('deleteBlog/:id', async (req, res) => {
   try {
     let blog = await Blog.findById(req.params.id);
     if (!blog) {
@@ -108,7 +108,7 @@ router.delete('/:id', async (req, res) => {
 });     
 
 //Route pour achiver un article
-router.put('/archive/:id', async (req, res) => {
+router.put('/archiveBlog/:id', async (req, res) => {
   try {
     let blog = await Blog.findById(req.params.id);
     if (!blog) {
